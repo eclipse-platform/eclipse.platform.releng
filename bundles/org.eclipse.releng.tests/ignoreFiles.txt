@@ -18,5 +18,5 @@ notice.html
 */plugins/org.eclipse.ui.externaltools_2.1.1/externaltools_jar/anttasks_1.5b.xml
 */plugins/org.eclipse.ui.externaltools_2.1.1/externaltools_jar/XDOCtasks.xml
 */plugins/org.eclipse.pde.ui_2.1.0/templates/help/toc.xml
-*/plugins/org.eclipse.help.webapp_2.1.1/WEB-INF/web.xml
+*/plugins/org.eclipse.help.webapp_2.1.2/WEB-INF/web.xml
 */plugins/org.eclipse.ui_2.1.1/plugin.xml
