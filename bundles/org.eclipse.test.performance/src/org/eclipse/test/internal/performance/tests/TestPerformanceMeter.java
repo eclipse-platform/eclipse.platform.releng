@@ -14,25 +14,24 @@ package org.eclipse.test.internal.performance.tests;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.test.internal.performance.InternalPerformanceMeter;
 import org.eclipse.test.internal.performance.data.DataPoint;
 import org.eclipse.test.internal.performance.data.Dim;
 import org.eclipse.test.internal.performance.data.Sample;
 import org.eclipse.test.internal.performance.data.Scalar;
-import org.eclipse.test.internal.performance.data.Unit;
 
 
 /**
  * Mock performance meter that generates deterministic values for two dimensions.
  */
 class TestPerformanceMeter extends InternalPerformanceMeter {
-    
-    static Dim TESTDIM1= new Dim(98, Unit.SECOND, 1000);
-    static Dim TESTDIM2= new Dim(99, Unit.BYTE);
-	
+    	
 	private long fStartTime;
-	private List fDataPoints= new ArrayList();    
+	private List fDataPoints= new ArrayList();
+	private Map fStart= new HashMap();
+	private Map fStop= new HashMap();
 	
 	/**
 	 * @param scenarioId the scenario id
@@ -41,7 +40,12 @@ class TestPerformanceMeter extends InternalPerformanceMeter {
 	    super(scenarioId);
 		fStartTime= System.currentTimeMillis();
 	}
-	
+		
+    void addPair(Dim dimension, long start, long end) {
+	    fStart.put(dimension, new Scalar(dimension, start));        
+	    fStop.put(dimension, new Scalar(dimension, end));        
+    }
+    
 	/*
 	 * @see org.eclipse.test.performance.PerformanceMeter#dispose()
 	 */
@@ -63,19 +67,13 @@ class TestPerformanceMeter extends InternalPerformanceMeter {
 	 * @see org.eclipse.test.performance.PerformanceMeter#start()
 	 */
 	public void start() {
-	    HashMap scalars= new HashMap();
-	    scalars.put(TESTDIM1, new Scalar(TESTDIM1, 100));
-	    scalars.put(TESTDIM2, new Scalar(TESTDIM2, 1000));
-	    fDataPoints.add(new DataPoint(BEFORE, scalars));
+	    fDataPoints.add(new DataPoint(BEFORE, fStart));
 	}
-	
-	/*
+		
+    /*
 	 * @see org.eclipse.test.performance.PerformanceMeter#stop()
 	 */
 	public void stop() {
-	    HashMap scalars= new HashMap();
-	    scalars.put(TESTDIM1, new Scalar(TESTDIM1, 1000));
-	    scalars.put(TESTDIM2, new Scalar(TESTDIM2, 2000));
-	    fDataPoints.add(new DataPoint(AFTER, scalars));
+	    fDataPoints.add(new DataPoint(AFTER, fStop));
 	}
 }

@@ -2,15 +2,17 @@
 <html>
 <head>
   <title>Performance Tests HowTo</title>
-  <link rel="stylesheet" href="http://dev.eclipse.org/default_style.css"
- type="text/css">
+	<link rel="stylesheet"
+	href="http://dev.eclipse.org/default_style.css"
+	type="text/css">
+	<meta http-equiv=Content-Type content="text/html; charset=ISO-8859-1">
 </head>
 <body>
 
 <h1>Performance Tests HowTo</h1>
 <p>
-By Christof Marti and Andr&eacute; Weinand, IBM OTI Labs<br>
-2004/10/15<br>
+By Christof Marti and Andre Weinand, IBM OTI Labs<br>
+2004/11/11<br>
 
 <p>
 The Eclipse performance test plugin (org.eclipse.test.performance)
@@ -119,17 +121,24 @@ than in real-world scenarios.
 
 If the number of performance tests grows large, it becomes harder to
 get a good overview of the performance characteristics of a build. A
-solution for this problem is a&nbsp; performance summary graph that
-tries to condense a small subset of key performance tests into a graph
-that fits onto a single page. Every Eclipse component can mark one or
-two tests for inclusion in this performance summary. The bar graph
-shows the performance development of about 20 tests relative to a
-reference build in an easy to grasp red/green presentation.<br>
+solution for this problem is a performance summary chart that
+tries to condense a small subset of key performance tests into a chart
+that fits onto a single page. Currently the performance infrastructure 
+supports two levels of summaries, one global and any number of "local" summaries.
+A local summary is typically associated with a component.
 <p>
-<img style="width: 800px; height: 282px;" alt="summary graph" src="FP_I200409240800_I200410050800.jpeg">
+A summary bar chart shows the performance development of about 20 tests relative to a
+reference build in an easy to grasp red/green presentation.
+<p>
+<img alt="summary graph" src="FP_I200409240800_I200410050800.jpeg">
+<p>
+So dependent on the total number of components every Eclipse component can tag one or
+two tests for inclusion in a global and up to 20 for a local performance summary.
+Tests marked for the global summary are automatically included for a local summary.
 <p>
 Marking a test for inclusion is done by passing a performance meter
-into the method Performance.tagAsGlobalSummary(...). This method should
+into the method Performance.tagAsGlobalSummary(...) or Performance.tagAsSummary(...).
+Both methods should
 be called outside of start/stop calls but it must be called before the
 the call to commit().
 <pre>
@@ -140,20 +149,21 @@ perf.<b>tagAsGlobalSummary</b>(pm, "A Short Name", Dimension.CPU_TIME);
 try {
 	// ...
 </pre>
+<p>
 In order to keep the overview graph small, only a single dimension (CPU_TIME, USED_JAVA_HEAP etc.) of
 the test's data is shown and only a short name is used to label the
 data (instead of the rather long scenario ID). Both the short label as
-well as the dimension must be supplied in the call to tagAsGlobalSummary.
+well as the dimension must be supplied in the calls to tagAsGlobalSummary and tagAsSummary.
 The available dimensions can be found in <code>org.eclipse.test.performance.Dimension</code>.
 
 <p>
-The PerformanceTestCase provides a similar method that must be called
+The PerformanceTestCase provides similar methods that must be called
 before startMeasuring():
 <pre>
-public class MyPerformanceTestCase extends PeformanceTestCase {
+public class MyPerformanceTestCase extends PerformanceTestCase {
 
 	public void testMyOperation() {
-		<b>tagAsGlobalSummary</b>("A Short Name", Dimension.CPU_TIME);
+		<b>tagAsSummary</b>("A Short Name", Dimension.CPU_TIME);
 		for (int i= 0; i &lt; 10; i++) {
 			startMeasuring();
 			toMeasure();
@@ -168,13 +178,59 @@ public class MyPerformanceTestCase extends PeformanceTestCase {
 
 <ul>
   <li>create a new JUnit Plug-in Test launch configuration for the test case</li>
-  <li>add "-Xms250M -Xmx250M" or similar to the VM arguments to avoid memory pressure during the measurements</li>
+  <li>add "-Xms256M -Xmx256M" or similar to the VM arguments to avoid memory pressure during the measurements</li>
   <li>run the launch configuration</li>
   <li>by default the measured averages of the performance monitor
 are written to the console on <code>commit()</code>. This is
 surpressed if performance tests are configured to store data in the
 database (see below).
   </li>
+</ul>
+
+<h3>Running a performance test case (from the command-line)</h3>
+
+<ul>
+  <li>this method is of particular interest, if you want to do precise measurements of a specific build</li>
+  <li>export the following plug-ins as 'Deployable plug-ins' to the eclipse installation directory (not the 'plugins' directory; choose to deploy as
+'a directory structure')</li>
+  <ul>
+    <li>org.eclipse.test</li>
+    <li>org.eclipse.test.performance</li>
+    <li>org.eclipse.test.performance.win32 (for Windows only)</li>
+    <li>your test plug-in(s)</li>
+  </ul>
+  <li>copy the following .bat file and customize it to your needs (Windows):</li>
+  <pre>
+@echo off
+
+REM Installation paths
+SET ECLIPSEPATH=c:\eclipse
+SET JVMPATH=c:\jdk\jdk1.4.2_05
+
+REM Paths, relative to ECLIPSEPATH
+SET BUILD=I200411050810
+SET WORKSPACE=workspace\performance
+
+REM Test
+SET TESTPLUGIN=org.eclipse.jdt.text.tests
+SET TESTCLASS=org.eclipse.jdt.text.tests.performance.OpenQuickOutlineTest
+
+REM For headless tests use: org.eclipse.test.coretestapplication
+SET APPLICATION=org.eclipse.test.uitestapplication
+
+REM Add -clean when the installation changes
+SET OPTIONS=-console -consolelog -showlocation
+SET JVMOPTIONS=-Xms256M -Xmx256M
+
+ECHO Build: %ECLIPSEPATH%\%BUILD%
+ECHO Workspace: %ECLIPSEPATH%\%WORKSPACE%
+ECHO Test: %TESTPLUGIN%\%TESTCLASS%
+
+%JVMPATH%\bin\java %JVMOPTIONS% -cp %ECLIPSEPATH%\%BUILD%\startup.jar org.eclipse.core.launcher.Main %OPTIONS% -application %APPLICATION% -data %ECLIPSEPATH%\%WORKSPACE% -testPluginName %TESTPLUGIN% -className %TESTCLASS%
+
+pause
+</pre>
+  <li>after testing the setup you may want to close other applications to avoid distortion of the measurements</li>
 </ul>
 
 <h3>Running a performance test case (within the Automated Testing Framework on each build)</h3>
@@ -238,8 +294,9 @@ installed and added to the path</li>
 see the readme.html of the Automated Testing Framework):</li>
   <ul>
     <li>change to the eclipse-testing directory</li>
-    <li>run: <code>runtests.bat -vm <em>&lt;path to JRE&gt;</em>\bin\java.exe
-      <em>&lt;your test target&gt;</em><code></code></code></li>
+    <li>run: <code>runtests.bat -Dtest.target=performance -vm <em>&lt;path to JRE&gt;</em>\bin\java.exe
+      <em>&lt;your test target&gt;</em></code>
+    </li>
     <li>if your test plug-in is already run as part of the Automatic
 Test Framework, your test target can be found in the eclipse-testing
 directory's readme.html or test.xml</li>
@@ -255,64 +312,68 @@ delete the old 3.0.0 test plug-in and rename yours to *_3.0.0)</li>
   <ul>
     <li>change to the eclipse-testing directory</li>
     <li>run <em>(note the additional -noclean argument)</em>: <code>runtests.bat
-      <span style="color: red;">-noclean</span> -vm <em>&lt;path to
-JRE&gt;</em>\bin\java.exe <em>&lt;your test target&gt;</em><code></code></code></li>
+      <span style="color: red;">-noclean</span> -Dtest.target=performance -vm <em>&lt;path to
+			JRE&gt;</em>\bin\java.exe <em>&lt;your test target&gt;</em></code>
+	</li>
   </ul>
 </ul>
 
-<h2><a name="cloudscape">Setting up the Cloudscape database</h2>
+<br>
+&nbsp;
+<br>
+<h2><a name="cloudscape"></a>Setting up the Derby database</h2>
 
 Performance tests are only valuable if measured data can be
-monitored over time and compared against reference data. For this
-functionality the Eclipse performance plugin makes use of IBM's <a
- href="http://www-306.ibm.com/software/data/cloudscape/">Cloudscape</a>
-database (which is now becoming the Apache subproject named <a
- href="http://incubator.apache.org/derby/">Derby</a>).<br>
+monitored over time and compared against reference data.
+For this functionality the Eclipse performance plugin makes use of
+the Apache project's <a href="http://incubator.apache.org/derby/">Derby</a>
+database (formerly called 
+<a href="http://www-306.ibm.com/software/data/cloudscape/">Cloudscape</a>).
 </p>
-<p>Cloudscape is a database engine written in Java that can be accessed
-via JDBC. Cloudscape is easily embeddable in Java programs or can run
-as a network server. <br>
+<p>Derby is a database engine written in Java that can be accessed
+via JDBC. Derby is easily embeddable in Java programs or can run
+as a network server.
 </p>
-<p>This section describes how to install Cloudscape and how to
-configure
-the performance test plugin to use Cloudscape.
+<p>This section describes how to install Derby and how to
+configure the performance test plugin to use Derby.
 
-<h3>Getting and installing Cloudscape</h3>
+<h3>Getting and installing Derby</h3>
 
-The performance infrastructure does not include Cloudscape. If you want to leverage Cloudscape
+The performance infrastructure does not include Derby.
+If you want to leverage Derby
 you need to download and install it.
 
 <p>
-The performance plugin has an optional prereq for a "Cloudspace"
+The performance plugin has an optional prereq for a "org.apche.derby"
 library project. Since it is optional, you won't see any compile time
 errors when loading the performance plugin from the Eclipse repository
-and the Cloudscape project is not available in your workspace. However
+and the Derby project is not available in your workspace. However
 you'll see runtime errors when running the tests and trying to access
 the database.<br>
 
 <p>
 If you have access to the following repository you can get the
-"Cloudscape" library project from there:
+org.apache.derby library project from there:
 <pre>
   :pserver:anonymous@ottcvs1.ott.oti.com:/home/cvs/zrheclipse
 </pre>
-Otherwise get Cloudscape from
+Otherwise get Derby from
 <a href="http://www-106.ibm.com/developerworks/db2/library/techarticle/dm-0408cline/index.html">here</a>.
 Unpack the archive to any directory.
 <br>
-To create a library project for Cloudscape, open the Java project
-wizard and enter "Cloudscape" as the project's name. Go to the next
+To create a library project for Derby, open the Java project
+wizard and enter "org.eclipse.derby" as the project's name. Go to the next
 page and select the "Libraries" tab. Remove the JRE and add the five
-jar-files from Cloudscape's lib directory via the "Add External JARs"
+jar-files () from Derby's lib directory via the "Add External JARs"
 button. Switch to the "Order and Export" tab and check all five
 libraries. Press "Finish". Create a new file "plugin.xml" inside the
-Cloudscape project and paste the following contents into it:<br>
+Derby project and paste the following contents into it:<br>
 <pre>
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;?eclipse version="3.0"?&gt;
 &lt;plugin
-&nbsp;&nbsp; id="Cloudscape"
-&nbsp;&nbsp; name="Cloudscape"
+&nbsp;&nbsp; id="org.apache.derby"
+&nbsp;&nbsp; name="Derby"
 &nbsp;&nbsp; version="1.0.0"&gt;
 &nbsp;&nbsp; &lt;runtime&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;library name="db2jcc.jar"&gt;
@@ -321,13 +382,13 @@ Cloudscape project and paste the following contents into it:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;library name="db2jcc_license_c.jar"&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;export name="*"/&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/library&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;library name="cstools.jar"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;library name="derby.jar"&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;export name="*"/&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/library&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;library name="csnet.jar"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;library name="derbynet.jar"&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;export name="*"/&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/library&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;library name="cs.jar"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;library name="derbytools.jar"&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;export name="*"/&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/library&gt;
 &nbsp;&nbsp; &lt;/runtime&gt;
@@ -339,28 +400,28 @@ In addition you'll need to load the performance plugin
 on Windows the associated fragment (org.eclipse.test.performance.win32).
 
 
-<h3>Configuring the performance plugin for using Cloudscape</h3>
+<h3>Configuring the performance plugin for using Derby</h3>
 
 The performance test plugin is configured via the three Java properties
 eclipse.perf.dbloc, eclipse.perf.config, and eclipse.perf.assertAgainst.
 <p>
-The eclipse.perf.dbloc specifies where the Cloudscape DB is located.
+The eclipse.perf.dbloc specifies where the Derby DB is located.
 If no value is given
 <pre>
 	-Declipse.perf.dbloc=
 </pre>
-Cloudscape runs in embedded mode (not as a separate server)
+Derby runs in embedded mode (not as a separate server)
 and the DB will live in your home directory.
 <p>
-If an absolute or relative path is given, Cloudscape uses or creates
+If an absolute or relative path is given, Derby uses or creates
 the DB in that location. E.g. with (Linux and MacOS X)
 <pre>
-	-Declipse.perf.dbloc=/tmp/cloudscape
+	-Declipse.perf.dbloc=/tmp/derby
 </pre>
-Cloudscape runs in embedded mode and creates the database under
-/tmp/cloudscape.
+Derby runs in embedded mode and creates the database under
+/tmp/derby.
 <p>
-To connect to a cloudscape server running locally or remotely use the
+To connect to a Derby server running locally (or remotely) use the
 following:
 <pre>
 	-Declipse.perf.dbloc=net://<i>tcp-ip address</i>
@@ -437,48 +498,61 @@ against the reference data, do the following:
 <h3>Viewing the data</h3>
 
 Since we do not (yet) have fancy visualization tools, the performance
-test plugin provides two classes
-that can be run as standalone programs for "dumping" the data contained
-in the database.
-For both programs you need to specify the database location via the <code>eclipse.perf.dbloc</code>
+test plugin provides a class <code>org.eclipse.test.internal.performance.db.View</code>
+that can be run as a standalone program for viewing the data contained in the database in a tabular format.
+<p>
+You need to specify the database location via the <code>eclipse.perf.dbloc</code>
 property (most easily done via a launch configuration).
-<ul>
-  <li>To view the data in a tabular format use the class <code>org.eclipse.test.internal.performance.db.View</code>.
-It produces the following output:
+Select the data to view by either specifying a variation via the <code>eclipse.perf.config</code> property or
+by directly setting the key/value pairs of the variation at the beginning of the program's <code>main</code> method.
+If you only want to view specific scenarios, use an appropriate pattern for the local variable <code>scenarioPattern</code>.
+The local variable <code>seriesKey</code> specifies what variation is shown on the x-axis of the table.
+<p>
+So the following setup:
 <pre>
-Scenario: org.eclipse.jdt.ui.tests.performance.views.PackageExplorerPerfTest#testOpen()
-Builds:                 base          b0003       b0004       b0007       b0008          b0009
-Kernel time:       30 ms [0]     10 ms [10]    0 ms [0]    0 ms [0]   20 ms [0]   13 ms [12.5]
-Elapsed Process:  325 ms [0]  491 ms [94.5]  358 ms [0]  296 ms [0]  316 ms [0]  304 ms [19.6]
-User time:        240 ms [0]    305 ms [45]  270 ms [0]  270 ms [0]  260 ms [0]   240 ms [8.2]
-System Time:      325 ms [0]  491 ms [94.5]  358 ms [0]  296 ms [0]  316 ms [0]  304 ms [19.6]
-CPU Time:         270 ms [0]    315 ms [55]  270 ms [0]  270 ms [0]  280 ms [0]   253 ms [4.7]
+public class View {
+
+    public static void main(String[] args) {
+        
+        Variations <b>variations</b>= PerformanceTestPlugin.getVariations();
+        variations.put("host", "relengwin");
+        variations.put("build", "I%");
+        
+        String <b>scenarioPattern</b>= "%RevertJavaEditorTest%";
+
+        String <b>seriesKey</b>= "build";
+        
+    	// ...
+</pre>
+creates a table showing all dimensions of the (single) scenario selected by the pattern 
+"<code>%testRevertJavaEditor%</code>" for all integration builds (that is builds starting with a capital 'I').
+<pre>
+Scenario: org.eclipse.jdt.text.tests.performance.RevertJavaEditorTest#testRevertJavaEditor()
+Builds:              I200409240800    I200409281200  I200410050800  I200410190941  I200410260800
+CPU Time:          1.02 s [284 ms]  1.05 s [327 ms]         971 ms            1 s         481 ms
+Committed:              69K [246K]      119K [389K]           103K           111K         -97484
+Elapsed Process:   1.02 s [286 ms]  1.07 s [345 ms]         981 ms         1.01 s         481 ms
+Kernel time:         41 ms [27 ms]    48 ms [40 ms]          46 ms          28 ms          22 ms
+Page Faults:             145 [125]        148 [125]            176            191            143
+System Time:       1.02 s [285 ms]  1.06 s [345 ms]         981 ms         1.01 s         477 ms
 </pre>
 
-If you don't want to see all data in the database you can modify the
-three SQL wildcards ("%") in the call to <code>DB.queryScenarios</code>.
-</li>
 
-<li>To dump the (quite voluminous) contents of all database tables
-run <code>org.eclipse.test.internal.performance.db.DBHelpers</code>.
-</li>
-</ul>
-
-<h3>How to setup a Cloudscape server (on Linux and MacOS X)</h3>
+<h3>How to setup a Derby server (on Linux and MacOS X)</h3>
 
 <ul>
 
-<li>Either get Cloudscape from the repository or from <a
+<li>Either get Derby from the repository or from <a
  href="http://www-106.ibm.com/developerworks/db2/library/techarticle/dm-0408cline/index.html">here</a>.
 </li>
 
-<li>Get the (Bourne) shell script "cs.sh" from the scripts folder of <code>org.eclipse.test.performance</code>
+<li>Get the (Bourne) shell script "derby.sh" from the scripts folder of <code>org.eclipse.test.performance</code>
 and install it on the server
-(rename it to "cs" and make it executable; if you've checked out the
+(rename it to "derby" and make it executable; if you've checked out the
 file on Windows and copied it to Linux,
 it might be necessary to convert line delimiters with the dos2unix
 tool).
-The script simplifies the usage of the Cloudscape tools - especially
+The script simplifies the usage of the Derby tools - especially
 starting and stopping the server - because
 it sets the correct classpath and some important properties.
 </li>
@@ -486,16 +560,16 @@ it sets the correct classpath and some important properties.
 <li>Edit the script and adapt the variables <code>CSLIB</code>, <code>DBROOT</code>,
 and <code>JAVA</code>
 to your installation. <code>CSLIB</code> should point to the directory
-containing the Cloudscape jars.
-If you've used the Cloudscape installer, then this is the lib directory
+containing the Derby jars.
+If you've used the Derby installer, then this is the lib directory
 inside the Cloudscape 10.0 directory.
-If you are using the Cloudscape project from the repository, then this
+If you are using the org.apache.derby project from the repository, then this
 is just the project folder.
 </li>
 
 <li>in a Shell execute
 <pre>
-	cs start &amp;
+	derby start &amp;
 </pre>
 to launch the server in background. The server will send this to
 stdout:
@@ -507,7 +581,7 @@ to the console.
 
 <li>stop the server with
 <pre>
-	cs stop
+	derby stop
 </pre>
 </li>
 </ul>

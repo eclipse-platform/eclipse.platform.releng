@@ -17,10 +17,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import junit.framework.Assert;
 
 import org.eclipse.test.internal.performance.InternalPerformanceMeter;
 import org.eclipse.test.internal.performance.PerformanceTestPlugin;
@@ -34,6 +40,10 @@ public class DB {
     
     private static final boolean DEBUG= false;
     private static final boolean AGGREGATE= true;
+    
+    // the two supported DB types
+    private static final String DERBY= "derby"; //$NON-NLS-1$
+    private static final String CLOUDSCAPE= "cloudscape"; //$NON-NLS-1$
         
     private static DB fgDefault;
     
@@ -42,6 +52,7 @@ public class DB {
     private int fStoredSamples;
     private boolean fStoreCalled;
     private boolean fIsEmbedded;
+    private String fDBType;	// either "derby" or "cloudscape"
     
     
     // Datapaoints
@@ -141,6 +152,61 @@ public class DB {
     public static void queryDistinctValues(List values, String key, Variations variationPatterns, String scenarioPattern) {
         getDefault().internalQueryDistinctValues(values, key, variationPatterns, scenarioPattern);
     }
+ 
+    public static String[] querySeriesValues(String scenarioName, Variations v, String seriesKey) {
+        return getDefault().internalQuerySeriesValues(v, scenarioName, seriesKey);
+    }
+    
+    public static Scenario getScenarioSeries(String scenarioName, Variations v, String seriesKey, String startBuild, String endBuild, Dim[] dims) {
+        
+        v= (Variations) v.clone();
+        v.put(seriesKey, new String[] { startBuild, endBuild });
+        Scenario scenario= new Scenario(scenarioName, v, seriesKey, dims);
+        TimeSeries ts= scenario.getTimeSeries(dims[0]);
+        if (ts.getLength() < 2) {
+            v.put(seriesKey, "%"); //$NON-NLS-1$
+            String[] names= DB.querySeriesValues(scenarioName, v, seriesKey);
+            if (names.length >= 2) {
+                String start= findClosest(names, startBuild);
+                String end= findClosest(names, endBuild);
+                v.put(seriesKey, new String[] { start, end });
+                scenario= new Scenario(scenarioName, v, seriesKey, dims);
+            }
+        }
+        return scenario;
+    }
+    
+    private static String findClosest(String[] names, String name) {
+        for (int i= 0; i < names.length; i++)
+            if (names[i].equals(name))
+                return name;
+            
+        Pattern pattern= Pattern.compile("200[3-9][01][0-9][0-3][0-9]"); //$NON-NLS-1$
+        Matcher matcher= pattern.matcher(name); //$NON-NLS-1$
+        
+        if (!matcher.find())
+            return name;
+            
+        int x= Integer.parseInt(name.substring(matcher.start(), matcher.end()));
+        int ix= -1;
+        int mind= 0;
+            
+        for (int i= 0; i < names.length; i++) {
+            matcher.reset(names[i]);
+            if (matcher.find()) {
+                int y= Integer.parseInt(names[i].substring(matcher.start(), matcher.end()));
+                int d= Math.abs(y-x);
+                if (ix < 0 || d < mind) {
+                    mind= d;
+                    ix= i;
+                }
+            }
+         }
+        
+        if (ix >= 0)
+            return names[ix];
+        return name;
+    }
 
     /**
      * Store the data contained in the given sample in the database.
@@ -151,6 +217,17 @@ public class DB {
      */
     public static boolean store(Variations variations, Sample sample) {
         return getDefault().internalStore(variations, sample);
+    }
+    
+    /**
+     * @param variations used to tag the data in the database
+     * @param sample the sample maked as failed
+     * @param failMesg the reason of the failure
+     */
+    public static void markAsFailed(Variations variations, Sample sample, String failMesg) {
+	    System.out.println("failed: " + variations);
+	    System.out.println("  " + sample);
+	    System.out.println("  " + failMesg);
     }
     
     public static Connection getConnection() {
@@ -172,7 +249,7 @@ public class DB {
 
     synchronized static DB getDefault() {
         if (fgDefault == null) {
-            fgDefault= new DB();       
+            fgDefault= new DB();
             fgDefault.connect();
             if (PerformanceTestPlugin.getDefault() == null) {
             	// not started as plugin
@@ -260,7 +337,9 @@ public class DB {
                     if (dimension instanceof Dim)
                         fSQL.createSummaryEntry(variation_id, scenario_id, ((Dim)dimension).getId(), isGlobal);
                 }
-                fSQL.setScenarioShortName(scenario_id, sample.getShortname());
+                String shortName= sample.getShortname();
+                if (shortName != null)
+                    fSQL.setScenarioShortName(scenario_id, shortName);
             }
             int sample_id= fSQL.createSample(variation_id, scenario_id, new Timestamp(sample.getStartTime()));
 
@@ -350,7 +429,7 @@ public class DB {
     }
     
     /*
-     * Returns array of scenario names
+     * Returns array of scenario names matching the given pattern.
      */
     private String[] internalQueryScenarioNames(Variations variations, String scenarioPattern) {
         if (fSQL == null)
@@ -371,7 +450,7 @@ public class DB {
                 try {
                     result.close();
                 } catch (SQLException e1) {
-                	// ignored
+                    // ignored
                 }
         }
         return null;
@@ -380,15 +459,16 @@ public class DB {
     /*
      * 
      */
-    private void internalQueryDistinctValues(List values, String key, Variations variations, String scenarioPattern) {
+    private void internalQueryDistinctValues(List values, String seriesKey, Variations variations, String scenarioPattern) {
         if (fSQL == null)
             return;
         ResultSet result= null;
         try {        	
             result= fSQL.queryVariations(variations.toExactMatchString(), scenarioPattern);
             for (int i= 0; result.next(); i++) {
-                Variations p= new Variations(result.getString(1));
-                String build= p.getProperty(key);
+                Variations v= new Variations();
+                v.parseDB(result.getString(1));
+                String build= v.getProperty(seriesKey);
                 if (build != null && !values.contains(build))
                     values.add(build);
             }
@@ -437,6 +517,67 @@ public class DB {
         }
         return null;
     }
+    
+    private String[] internalQuerySeriesValues(Variations v, String scenarioName, String seriesKey) {
+        
+        boolean isCloned= false;
+        
+        String[] seriesPatterns= null;        
+        Object object= v.get(seriesKey);
+        if (object instanceof String[])
+            seriesPatterns= (String[]) object;
+        else if (object instanceof String)
+            seriesPatterns= new String[] { (String) object };
+        else
+            Assert.assertTrue(false);
+        
+        ArrayList values= new ArrayList();
+        for (int i= 0; i < seriesPatterns.length; i++) {
+            if (seriesPatterns[i].indexOf('%') >= 0) {
+                if (! isCloned) {
+                    v= (Variations) v.clone();
+                    isCloned= true;
+                }
+                v.put(seriesKey, seriesPatterns[i]);
+                internalQueryDistinctValues(values, seriesKey, v, scenarioName);
+            } else
+                values.add(seriesPatterns[i]);
+        }
+        
+        String[] names= (String[])values.toArray(new String[values.size()]);
+        
+        boolean sort= true;
+        Pattern pattern= Pattern.compile("200[3-9][01][0-9][0-3][0-9]"); //$NON-NLS-1$
+        final Matcher matcher= pattern.matcher(""); //$NON-NLS-1$
+        for (int i= 0; i < names.length; i++) {
+            matcher.reset(names[i]);
+            if (! matcher.find()) {
+                sort= false;
+                break;
+            }
+        }
+        if (sort) {
+	        Arrays.sort(names,
+	            new Comparator() {
+	            	public int compare(Object o1, Object o2) {
+	            	    String s1= (String)o1;
+	            	    String s2= (String)o2;
+	            	    
+	            	    matcher.reset(s1);
+	            	    if (matcher.find())
+	            	        s1= s1.substring(matcher.start());
+
+		            	matcher.reset(s2);
+		            	if (matcher.find())
+		            	    s2= s2.substring(matcher.start());
+
+	            	    return s1.compareTo(s2);
+	            	}
+	        	}
+	        );
+        }
+        return names;
+    }
 
     /**
      * dbloc=						embed in home directory
@@ -448,46 +589,69 @@ public class DB {
 
         if (fConnection != null)
             return;
-        
+
         String dbloc= PerformanceTestPlugin.getDBLocation();
         if (dbloc == null)
             return;
-                
+                   
         String dbname= PerformanceTestPlugin.getDBName();
         String url= null;
         java.util.Properties info= new java.util.Properties();
         
+        fDBType= DERBY;	// assume we are using Derby
         try {            
             if (dbloc.startsWith("net://")) { //$NON-NLS-1$
-                info.put("user", PerformanceTestPlugin.getDBUser());	//$NON-NLS-1$
-                info.put("password", PerformanceTestPlugin.getDBPassword());	//$NON-NLS-1$
+                // remote
+                fIsEmbedded= false;
                 // connect over network
                 if (DEBUG) System.out.println("Trying to connect over network..."); //$NON-NLS-1$
                 Class.forName("com.ibm.db2.jcc.DB2Driver"); //$NON-NLS-1$
+                info.put("user", PerformanceTestPlugin.getDBUser());	//$NON-NLS-1$
+                info.put("password", PerformanceTestPlugin.getDBPassword());	//$NON-NLS-1$
                 info.put("retrieveMessagesFromServerOnGetMessage", "true"); //$NON-NLS-1$ //$NON-NLS-2$
-                url= dbloc + "/" + dbname;  //$NON-NLS-1$//$NON-NLS-2$
+                url= dbloc + "/" + dbname + ";create=true";  //$NON-NLS-1$//$NON-NLS-2$
             } else {
+                
+                // workaround for Derby issue: http://nagoya.apache.org/jira/browse/DERBY-1
+                if ("Mac OS X".equals(System.getProperty("os.name")))  //$NON-NLS-1$//$NON-NLS-2$
+                    System.setProperty("derby.storage.fileSyncTransactionLog", "true"); //$NON-NLS-1$ //$NON-NLS-2$
+
                 // embedded
                 fIsEmbedded= true;
-                if (DEBUG) System.out.println("Loading embedded cloudscape..."); //$NON-NLS-1$
-                Class.forName("com.ihost.cs.jdbc.CloudscapeDriver"); //$NON-NLS-1$
+                try {
+                    Class.forName("org.apache.derby.jdbc.EmbeddedDriver"); //$NON-NLS-1$
+                } catch (ClassNotFoundException e) {
+                    Class.forName("com.ihost.cs.jdbc.CloudscapeDriver"); //$NON-NLS-1$
+                    fDBType= CLOUDSCAPE;
+                }
+                if (DEBUG) System.out.println("Loaded embedded " + fDBType); //$NON-NLS-1$
                 File f;
                 if (dbloc.length() == 0) {
                     String user_home= System.getProperty("user.home"); //$NON-NLS-1$
                     if (user_home == null)
                         return;
-                    f= new File(user_home, "cloudscape"); //$NON-NLS-1$
+                    f= new File(user_home, fDBType);
                 } else
                     f= new File(dbloc);
                 url= new File(f, dbname).getAbsolutePath();
+                info.put("create", "true"); //$NON-NLS-1$ //$NON-NLS-2$
             }
-            info.put("create", "true"); //$NON-NLS-1$ //$NON-NLS-2$
-            fConnection= DriverManager.getConnection("jdbc:cloudscape:" + url, info); //$NON-NLS-1$
-            if (DEBUG) System.out.println("succeeded!"); //$NON-NLS-1$
+            try {
+                fConnection= DriverManager.getConnection("jdbc:" + fDBType + ":" + url, info); //$NON-NLS-1$ //$NON-NLS-2$
+            } catch (SQLException e) {
+                if ("08001".equals(e.getSQLState()) && DERBY.equals(fDBType)) {
+                    if (DEBUG) System.out.println("DriverManager.getConnection failed; retrying for cloudscape"); //$NON-NLS-1$
+                    // try Cloudscape
+                    fDBType= CLOUDSCAPE;
+                    fConnection= DriverManager.getConnection("jdbc:" + fDBType + ":" + url, info); //$NON-NLS-1$ //$NON-NLS-2$
+                } else
+                    throw e;
+            }
+            if (DEBUG) System.out.println("connect succeeded!"); //$NON-NLS-1$
  
             fConnection.setAutoCommit(false);
             fSQL= new SQL(fConnection);            
-			fConnection.commit();
+            fConnection.commit();
 
         } catch (SQLException ex) {
             PerformanceTestPlugin.logError(ex.getMessage());
@@ -525,9 +689,10 @@ public class DB {
         
         if (fIsEmbedded) {
 	        try {
-	            DriverManager.getConnection("jdbc:cloudscape:;shutdown=true"); //$NON-NLS-1$
+	            DriverManager.getConnection("jdbc:" + fDBType + ":;shutdown=true"); //$NON-NLS-1$ //$NON-NLS-2$
 	        } catch (SQLException e) {
-	            if (! "Cloudscape system shutdown.".equals(e.getMessage())) //$NON-NLS-1$
+	            String message= e.getMessage();
+	            if (message.indexOf("system shutdown.") < 0) //$NON-NLS-1$
 	                e.printStackTrace();
 	        }
         }

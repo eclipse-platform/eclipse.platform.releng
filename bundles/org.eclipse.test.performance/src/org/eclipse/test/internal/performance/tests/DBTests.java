@@ -17,6 +17,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.test.internal.performance.InternalDimensions;
 import org.eclipse.test.internal.performance.PerformanceTestPlugin;
 import org.eclipse.test.internal.performance.data.DataPoint;
 import org.eclipse.test.internal.performance.data.Dim;
@@ -26,8 +27,8 @@ import org.eclipse.test.internal.performance.db.SummaryEntry;
 import org.eclipse.test.internal.performance.db.Variations;
 import org.eclipse.test.performance.Dimension;
 import org.eclipse.test.performance.Performance;
-import org.eclipse.test.performance.PerformanceMeter;
 
+import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
 
 public class DBTests extends TestCase {
@@ -35,6 +36,7 @@ public class DBTests extends TestCase {
     private static final String CONFIG= "c"; //$NON-NLS-1$
     private static final String BUILD= "b"; //$NON-NLS-1$
     
+    private static final String SCENARIO_NAME_0= "bar.testScenario0"; //$NON-NLS-1$
     private static final String SCENARIO_NAME_1= "bar.testScenario1"; //$NON-NLS-1$
     private static final String SCENARIO_NAME_2= "bar.testScenario2"; //$NON-NLS-1$
     private static final String SCENARIO_NAME_3= "foo.testScenario3"; //$NON-NLS-1$
@@ -44,6 +46,7 @@ public class DBTests extends TestCase {
     private static final String SHORT_NAME_4= "ShortName4"; //$NON-NLS-1$
 
     private static final String DBLOC= "testDBs"; //$NON-NLS-1$
+    //private static final String DBLOC= "net://localhost"; //$NON-NLS-1$
     private static String DBNAME;
     private static final String DBUSER= "testUser"; //$NON-NLS-1$
     private static final String DBPASSWD= "testPassword"; //$NON-NLS-1$
@@ -53,7 +56,7 @@ public class DBTests extends TestCase {
         super.setUp();
         
         // generate a unique DB name
-        DBNAME= "testDB_" + (new Date().getTime()/1000); //$NON-NLS-1$
+        DBNAME= "testDB_" + new Date().getTime(); //$NON-NLS-1$
         
         System.setProperty("eclipse.perf.dbloc", DBLOC + ";dbname=" + DBNAME + ";dbuser=" + DBUSER + ";dbpasswd=" + DBPASSWD); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
         System.setProperty("eclipse.perf.config", CONFIG+"=test;"+BUILD+"=b0001;jvm=sun142"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -64,8 +67,7 @@ public class DBTests extends TestCase {
         super.tearDown();
     }
     
-    public void testSimple() throws SQLException {
-        
+    public void testPropertyGetters() {
         assertEquals(DBLOC, PerformanceTestPlugin.getDBLocation());
         assertEquals(DBNAME, PerformanceTestPlugin.getDBName());
         assertEquals(DBUSER, PerformanceTestPlugin.getDBUser());
@@ -73,30 +75,83 @@ public class DBTests extends TestCase {
         
         assertEquals("|"+BUILD+"=b0001||"+CONFIG+"=test||jvm=sun142|", PerformanceTestPlugin.getVariations().toExactMatchString()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         assertEquals("|"+BUILD+"=base||"+CONFIG+"=test||jvm=sun142|", PerformanceTestPlugin.getAssertAgainst().toExactMatchString()); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        
+    }
+    
+    public void testAssertPerformance() throws SQLException {
+
         Performance perf= Performance.getDefault();
         
-		PerformanceMeter pm1= new TestPerformanceMeter(SCENARIO_NAME_1);
+        // set the variation for the reference data
+        System.setProperty("eclipse.perf.config", CONFIG+"=test;"+BUILD+"=ref"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+
+        // store a reference value
+        TestPerformanceMeter pm1= new TestPerformanceMeter(SCENARIO_NAME_0);
+		pm1.addPair(InternalDimensions.CPU_TIME, 100, 1000);
+		pm1.addPair(InternalDimensions.WORKING_SET, 1000, 2000);
+
 		pm1.start();
 		pm1.stop();
 		pm1.commit();
 		pm1.dispose();
 		
-		PerformanceMeter pm2= new TestPerformanceMeter(SCENARIO_NAME_2);
+		
+        // set the variation for the this run
+        System.setProperty("eclipse.perf.config", CONFIG+"=test;"+BUILD+"=001"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        // assert that this run's values are compared against reference data
+        System.setProperty("eclipse.perf.assertAgainst", BUILD+"=ref"); //$NON-NLS-1$ //$NON-NLS-2$
+		
+        // store a reference value
+        TestPerformanceMeter pm2= new TestPerformanceMeter(SCENARIO_NAME_0);
+		pm2.addPair(InternalDimensions.CPU_TIME, 100, 1100);
+		pm2.addPair(InternalDimensions.WORKING_SET, 1000, 2000);
+		
+		pm2.start();
+		pm2.stop();
+		pm2.commit();
+		boolean failed= false;
+		try {
+            perf.assertPerformanceInRelativeBand(pm2, InternalDimensions.CPU_TIME, -5, +5);
+        } catch (AssertionFailedError e) {
+            failed= true;
+        }
+		pm2.dispose();
+        
+        assertTrue(failed);
+    }
+
+    public void testBasicDBFunctionality() {
+        
+        Performance perf= Performance.getDefault();
+        
+        TestPerformanceMeter pm1= new TestPerformanceMeter(SCENARIO_NAME_1);
+		pm1.addPair(InternalDimensions.CPU_TIME, 100, 1000);
+		pm1.addPair(InternalDimensions.WORKING_SET, 1000, 2000);
+		pm1.start();
+		pm1.stop();
+		pm1.commit();
+		pm1.dispose();
+		
+		TestPerformanceMeter pm2= new TestPerformanceMeter(SCENARIO_NAME_2);
+		pm2.addPair(InternalDimensions.CPU_TIME, 100, 1000);
+		pm2.addPair(InternalDimensions.WORKING_SET, 1000, 2000);
 		perf.tagAsGlobalSummary(pm2, SHORT_NAME_2, new Dimension[] { Dimension.CPU_TIME, Dimension.USED_JAVA_HEAP } );
 		pm2.start();
 		pm2.stop();
 		pm2.commit();
 		pm2.dispose();
 
-		PerformanceMeter pm3= new TestPerformanceMeter(SCENARIO_NAME_3);
+		TestPerformanceMeter pm3= new TestPerformanceMeter(SCENARIO_NAME_3);
+		pm3.addPair(InternalDimensions.CPU_TIME, 100, 1000);
+		pm3.addPair(InternalDimensions.WORKING_SET, 1000, 2000);
 		perf.tagAsGlobalSummary(pm3, SHORT_NAME_3, Dimension.CPU_TIME);
 		pm3.start();
 		pm3.stop();
 		pm3.commit();
 		pm3.dispose();
 
-		PerformanceMeter pm4= new TestPerformanceMeter(SCENARIO_NAME_4);
+		TestPerformanceMeter pm4= new TestPerformanceMeter(SCENARIO_NAME_4);
+		pm4.addPair(InternalDimensions.CPU_TIME, 100, 1000);
+		pm4.addPair(InternalDimensions.WORKING_SET, 1000, 2000);
 		perf.tagAsSummary(pm4, SHORT_NAME_4, Dimension.USED_JAVA_HEAP);
 		pm4.start();
 		pm4.stop();
@@ -116,22 +171,22 @@ public class DBTests extends TestCase {
 		Dim[] dimensions= dp.getDimensions();
 		assertEquals(2, dimensions.length);
 		
-		Scalar s1= dp.getScalar(TestPerformanceMeter.TESTDIM1);
+		Scalar s1= dp.getScalar(InternalDimensions.CPU_TIME);
 		assertNotNull(s1);
 		assertEquals(900, s1.getMagnitude());
 
-		Scalar s2= dp.getScalar(TestPerformanceMeter.TESTDIM2);
+		Scalar s2= dp.getScalar(InternalDimensions.WORKING_SET);
 		assertNotNull(s2);
 		assertEquals(1000, s2.getMagnitude());
 
 		//
 		Set dims= new HashSet();
-		dims.add(TestPerformanceMeter.TESTDIM2);
+		dims.add(InternalDimensions.WORKING_SET);
 		points= DB.queryDataPoints(v, SCENARIO_NAME_1, dims);
 		assertEquals(1, points.length);
 		dimensions= points[0].getDimensions();
 		assertEquals(1, dimensions.length);
-		Scalar s= points[0].getScalar(TestPerformanceMeter.TESTDIM2);
+		Scalar s= points[0].getScalar(InternalDimensions.WORKING_SET);
 		assertNotNull(s);	
 		assertEquals(1000, s.getMagnitude());
 		
@@ -139,7 +194,7 @@ public class DBTests extends TestCase {
 		List buildNames= new ArrayList();
 		Variations v2= new Variations();
 		v2.put(CONFIG, "%"); //$NON-NLS-1$
-		v2.put(BUILD, "%"); //$NON-NLS-1$
+		v2.put(BUILD, "b%"); //$NON-NLS-1$
 		DB.queryDistinctValues(buildNames, BUILD, v2, "%"); //$NON-NLS-1$
 		assertEquals(1, buildNames.size());
 		assertEquals("b0001", buildNames.get(0)); //$NON-NLS-1$
@@ -171,4 +226,5 @@ public class DBTests extends TestCase {
 	    assertEquals(SHORT_NAME_4, fps2[1].shortName);
 	    assertEquals(Dimension.USED_JAVA_HEAP, fps2[1].dimension);
     }
+    
 }

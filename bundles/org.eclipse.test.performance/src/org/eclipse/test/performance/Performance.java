@@ -16,6 +16,7 @@ import org.eclipse.core.runtime.Platform;
 
 import org.eclipse.test.internal.performance.InternalDimensions;
 import org.eclipse.test.internal.performance.InternalPerformanceMeter;
+import org.eclipse.test.internal.performance.NullPerformanceMeter;
 import org.eclipse.test.internal.performance.OSPerformanceMeterFactory;
 import org.eclipse.test.internal.performance.PerformanceMeterFactory;
 import org.eclipse.test.internal.performance.PerformanceTestPlugin;
@@ -44,6 +45,9 @@ public class Performance {
 	
 	private PerformanceMeterFactory fPerformanceMeterFactory;
 	private IEvaluator fDefaultEvaluator;
+
+	/** Null performance meter singleton */
+	private NullPerformanceMeter fNullPeformanceMeter;
 	
 
 	/**
@@ -135,6 +139,17 @@ public class Performance {
 	}
 
 	/**
+	 * Returns the null performance meter singleton.
+	 * 
+	 * @return the null performance meter singleton
+	 */
+	public PerformanceMeter getNullPerformanceMeter() {
+		if (fNullPeformanceMeter == null)
+			fNullPeformanceMeter= new NullPerformanceMeter();
+		return fNullPeformanceMeter;
+	}
+
+	/**
 	 * Returns a default scenario id for the given test. The test's name
 	 * must have been set, such that <code>test.getName()</code> is not
 	 * <code>null</code>.
@@ -183,6 +198,18 @@ public class Performance {
 		PerformanceMeterFactory instance= null;
 		if (className != null && className.length() > 0) {
 			try {
+				/*
+				int separator= className.indexOf(':');
+				Bundle bundle= null;
+				if (separator == -1) {
+					bundle= PerformanceTestPlugin.getDefault().getBundle();
+				} else {
+					String bundleName= className.substring(0, separator);
+					className= className.substring(separator + 1);
+					bundle= Platform.getBundle(bundleName);
+				}
+				Class c= bundle.loadClass(className);
+				*/
 				Class c= PerformanceTestPlugin.getDefault().getClass().getClassLoader().loadClass(className);
 				instance= (PerformanceMeterFactory) c.newInstance();
 			} catch (ClassNotFoundException e) {
@@ -208,7 +235,7 @@ public class Performance {
 	 * the given dimension of the scenario and labels the scenario with the short name.
 	 * 
 	 * @param pm the PerformanceMeter
-	 * @param shortName a short (shorter than 40 characters) descritive name of the scenario
+	 * @param shortName a short (shorter than 40 characters) descriptive name of the scenario
 	 * @param dimension the dimension to show in the summary
 	 */
 	public void tagAsGlobalSummary(PerformanceMeter pm, String shortName, Dimension dimension) {
@@ -221,7 +248,7 @@ public class Performance {
 	 * the given dimensions of the scenario and labels the scenario with the short name.
 	 * 
 	 * @param pm the PerformanceMeter
-	 * @param shortName a short (shorter than 40 characters) descritive name of the scenario
+	 * @param shortName a short (shorter than 40 characters) descriptive name of the scenario
 	 * @param dimensions an array of dimensions to show in the summary
 	 */
 	public void tagAsGlobalSummary(PerformanceMeter pm, String shortName, Dimension[] dimensions) {
@@ -238,7 +265,7 @@ public class Performance {
 	 * the given dimension of the scenario and labels the scenario with the short name.
 	 * 
 	 * @param pm the PerformanceMeter
-	 * @param shortName a short (shorter than 40 characters) descritive name of the scenario
+	 * @param shortName a short (shorter than 40 characters) descriptive name of the scenario
 	 * @param dimension the dimension to show in the summary
 	 */
 	public void tagAsSummary(PerformanceMeter pm, String shortName, Dimension dimension) {
@@ -251,7 +278,7 @@ public class Performance {
 	 * the given dimensions of the scenario and labels the scenario with the short name.
 	 * 
 	 * @param pm the PerformanceMeter
-	 * @param shortName a short (shorter than 40 characters) descritive name of the scenario
+	 * @param shortName a short (shorter than 40 characters) descriptive name of the scenario
 	 * @param dimensions an array of dimensions to show in the summary
 	 */
 	public void tagAsSummary(PerformanceMeter pm, String shortName, Dimension[] dimensions) {
