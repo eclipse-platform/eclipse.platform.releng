@@ -515,7 +515,7 @@ public class BuildTests extends TestCase {
 		return (String[]) list.toArray(new String[0]);
 	}
 	
-	public void ztestChkpii() {
+	public void testChkpii() {
 			
 			String zipFile = locateEclipseZip();
 //			String sniffFolder = BootLoader.getInstallURL().getPath() + "releng_sniff_folder";
@@ -561,7 +561,7 @@ public class BuildTests extends TestCase {
 		 * @return String
 		 */
 		private String getChkpiiString(int type) {
-			return getExec() + " " + getFilesToTest(type) + " -E -O " + getOutputFile(type) + " -XM @" + getExcludeErrors() + " -X " + getExcludeFile () + " -S";
+			return getExec() + " " + getFilesToTest(type) + " -E -O " + getOutputFile(type) + " -XM @" + getExcludeErrors() + " -X " + getExcludeFile () + " -S" +" /tex";
 		}
 		/**
 		 * Method locateEclipseZip.
