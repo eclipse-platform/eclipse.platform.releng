@@ -726,6 +726,12 @@ section.)</p>
 <h3>3.1.10 <a name="I-Platform-Compare">Platform - Compare</a></h3>
 <p>None.</p>
 <h3>3.2 <a name="I-JDT">Java Development Tools (JDT)</a></h3>
+<h4>Missing deprecation warnings</h4>
+<p>The library JARs that come with Java Runtime Environment distributions of
+J2SE sometimes omit the information about which API elements are deprecated.
+This information is found in the library JARs that come with SDK distributions
+of J2SE. When Java code is compiled against JRE libraries lacking deprecation
+information, the Java compiler cannot report uses of deprecated elements. (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=40485">40485</a>)</p>
 <h4>Searching for constant field references</h4>
 <p>Search does not find references to constant fields inside binaries because
 the Java Language Specification mandates that constant field values be inlined
