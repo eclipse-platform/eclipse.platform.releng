@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Eclipse Project Release Notes - Addendum for IA64 on HP-UX</title>
+</head>
+
+<body>
+<h1>Eclipse Project Release Notes – Addendum for IA64 on HP-UX</h1>
+
+<p>Release 3.0.1<br>
+Last revised October 12, 2004</p>
+
+<p align="left">This document provides supplement information to the <a
+href="../readme_eclipse.html">Eclipse Project Release Notes (Release 3.0.1,
+revision September 16,2004)</a>.</p>
+
+<blockquote>
+<p align="left">
+<a href="#Target_Operating_Environments">1. Target Operating Environments</a><br>
+<a href="#_2._Compatability_with_Previous_Rele">2. Compatibility with Previous
+Releases</a><br>
+    <a href="#Known_Issues">3. Known Issues</a><br>
+    <a href="#Running_Eclipse">4. Running Eclipse</a><br>
+</p>
+</blockquote>
+
+<h2><a name="Target_Operating_Environments"></a>Target
+Operating Environments</h2>
+<p>Eclipse SDK 3.0.1 has been tested and validated on the following platform:</p>
+<table width="821" border="1">
+  <tr bgcolor="#CCCCCC">
+    <th colspan="4">
+      <div align="center">
+        <b><font size="+1">Eclipse Platform</font></b>
+      </div>
+    </th>
+  </tr>
+  <tr>
+    <td width="205"><b>Operating system</b></td>
+    <td width="76"><b>Processor architecture</b></td>
+    <td width="59"><b>Window system</b></td>
+    <td width="453"><b>Java 2 Platform</b></td>
+  </tr>
+  <tr>
+    <td width="205">HP HP-UX 11.23</td>
+    <td width="76">Itanium IA64</td>
+    <td width="59">Motif</td>
+    <td width="453">HP-UX SDK for the Java 2 platform, version 1.4.2.02  
+	    for Itanium (available from <a href="http://www.hp.com/go/java">http://www.hp.com/go/java</a>).</td>
+  </tr>
+</table>
+
+<p align="left">Eclipse Help subsystem requires HP Mozilla Web browser, version 1.6 for Itanium, available from
+<a href="http://www.hp.com/go/mozilla">http://www.hp.com/go/mozilla</a></p>
+
+<h2><a name="_2._Compatability_with_Previous_Rele"></a>2. Compatibility with Previous 
+  Releases</h2>
+
+<p align="left">Not Applicable.</p>
+
+<h2><a name="Known_Issues"></a>3. Known Issues</h2>
+
+<blockquote>
+  <p><a href="#I-Platform">3.1 Platform</a><br>
+  &nbsp;&nbsp;&nbsp;&nbsp; <a href="#I-Platform">3.1.1 Core</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp; <a href="#I-Platform-SWT">3.1.6 SWT</a></p>
+</blockquote>
+
+<p>Note: Bug numbers refer to the Eclipse project bug database at <a href="http://dev.eclipse.org/bugs/">http://dev.eclipse.org/bugs/</a>.</p>
+
+<h3><a name="I-Platform"></a>3.1.1 Platform - Core</h3>
+
+<h4>Execute permissions of the .so files are missing</h4>
+
+<p> After Eclipse is installed, give write permission to all <code>.so</code> files 
+  underneath <code>$ECLIPSE_HOME</code></p>
+
+<h3><a name="I-Platform-SWT"></a>3.1.6 Platform - SWT</h3>
+
+<h4>Eclipse plug-in based on the SWT Browser throws exception</h4>
+
+<p>CPU intensive operations that keep the CPU close to 100% utilized may cause sporadic Eclipse
+hangs. This is an intermittent problem. (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=56841">56841</a>)</p>
+
+<h2><a name="Running_Eclipse"></a>4. Running Eclipse</h2>
+
+<h4>Increase performance of Eclipse on Itanium</h4>
+
+<p> If you have more than 2GB of RAM on your Itanium box, you may want to increase the Java VM’s memory (<code>-Xmx</code>). For example:</p>
+
+<blockquote>
+<p><code>eclipse -vmargs -Xms256m -Xmx1024m -Xmn192m</code></p>
+</blockquote>
+
+<h4>Cut/Copy/Paste feature of editor does not work when you access the Itanium Box using
+Reflection X </h4>
+
+<p> Complete the following procedure:</p>
+<blockquote>
+<ol>
+<li>Go the Reflection X main window.</li>
+<li>Click on <strong>Settings</strong> &gt; <strong>Display</strong>.</li>
+<li>Uncheck &quot;Windows Clipboard owns selection&quot;.</li>
+<li>Restart Reflection X.</li>
+</ol>
+</blockquote>
+
+<h4>Display Eclipse GUI in pretty colors</h4>
+
+<p>Create an <code>.Xdefaults</code> file in your home directory with the following content:</p>
+
+<blockquote><code><p>
+Eclipse*spacing:0<br>
+Eclipse*XmForm.background:#e8e7e3<br>
+Eclipse*XmForm.foreground:black<br>
+Eclipse*XmList.background:#e8e7e3<br>
+Eclipse*XmList.foreground:black<br>
+Eclipse*XmTextField.background:#e8e7e3<br>
+Eclipse*XmTextField.foreground:black<br>
+Eclipse*XmText.foreground:black<br>
+Eclipse*XmText.background:white<br>
+Eclipse*background:#d6d3ce<br>
+Eclipse*foreground:black</p></code>
+</blockquote>
+
+<p>After creating the above file, issue the following command (your <code>DISPLAY</code> variable
+must be set prior to running the command):</p>
+
+<blockquote>
+<p><code>/usr/bin/X11/xrdb &lt;your home directory&gt;/.Xdefaults</code></p>
+</blockquote>
+
+<hr>
+
+<p>Java and all Java-based trademarks are trademarks of Sun Microsystems, Inc. in the United
+States, other countries, or both.</p>
+
+<p>(C) Copyright 2004 Hewlett-Packard Development Company, L.P.</p>
+
+</body>
+</html>
