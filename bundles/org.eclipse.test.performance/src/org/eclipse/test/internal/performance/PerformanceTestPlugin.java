@@ -13,12 +13,13 @@ package org.eclipse.test.internal.performance;
 import java.util.Properties;
 import java.util.StringTokenizer;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPluginDescriptor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Plugin;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.test.internal.performance.db.DB;
 import org.eclipse.test.internal.performance.db.Variations;
-import org.osgi.framework.BundleContext;
 
 
 /**
@@ -75,15 +76,16 @@ public class PerformanceTestPlugin extends Plugin {
 	
 	/**
 	 * The constructor.
+	 * @param descriptor
 	 */
-	public PerformanceTestPlugin() {
-	    super();
+	public PerformanceTestPlugin(IPluginDescriptor descriptor) {
+	    super(descriptor);
 		fgPlugin= this;
 	}
 	
-	public void stop(BundleContext context) throws Exception {
+	
+	public void shutdown() throws CoreException {
 		DB.shutdown();
-		super.stop(context);
 	}
 		
 	/*

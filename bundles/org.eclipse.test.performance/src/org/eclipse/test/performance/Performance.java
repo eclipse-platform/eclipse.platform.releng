@@ -183,7 +183,7 @@ public class Performance {
 		PerformanceMeterFactory instance= null;
 		if (className != null && className.length() > 0) {
 			try {
-				Class c= PerformanceTestPlugin.getDefault().getBundle().loadClass(className);
+				Class c= PerformanceTestPlugin.getDefault().getClass().getClassLoader().loadClass(className);
 				instance= (PerformanceMeterFactory) c.newInstance();
 			} catch (ClassNotFoundException e) {
 		        PerformanceTestPlugin.log(e);
