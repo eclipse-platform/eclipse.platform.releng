@@ -48,7 +48,7 @@
   <plugin id="org.eclipse.tomcat" version="4.0.3" /> 
   <plugin id="org.eclipse.ui" version="2.0.0" /> 
   <plugin id="org.eclipse.ui.externaltools" version="2.0.0" /> 
-  <plugin id="org.eclipse.update.core" version="2.0.0" /> 
+  <plugin id="org.eclipse.update.core" version="2.0.1" /> 
   <plugin id="org.eclipse.update.ui" version="2.0.0" /> 
   <plugin id="org.eclipse.update.ui.forms" version="2.0.0" /> 
 </feature>
