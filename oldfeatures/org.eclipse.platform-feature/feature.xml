@@ -2,53 +2,218 @@
 <feature
       id="org.eclipse.platform"
       label="%featureName"
-      version="2.0.1"
-      image= "eclipse_update_120.jpg"
+      version="2.0.2"
       provider-name="%providerName"
+      image="eclipse_update_120.jpg"
       primary="true"
       application="org.eclipse.ui.workbench">
-      
+
    <description>
       %description
    </description>
 
-   <license url="%licenseURL">
-     %license
+   <license>
+      %license
    </license>
 
    <url>
-      <update
-         url="http://update.eclipse.org/updates"
-         label="%updateSiteName">
-      </update>
+      <update label="%updateSiteName" url="http://update.eclipse.org/updates"/>
    </url>
 
-  <plugin id="org.apache.ant" version="1.4.1" /> 
-  <plugin id="org.apache.lucene" version="1.2.0" /> 
-  <plugin id="org.apache.xerces" version="4.0.5"/>
-  <plugin id="org.eclipse.ant.core" version="2.0.1"/>
-  <plugin id="org.eclipse.compare" version="2.0.0" /> 
-  <plugin id="org.eclipse.core.boot" version="2.0.1" /> 
-  <plugin id="org.eclipse.core.resources" version="2.0.1"/>
-  <plugin id="org.eclipse.core.runtime" version="2.0.1" /> 
-  <plugin id="org.eclipse.debug.core" version="2.0.0" /> 
-  <plugin id="org.eclipse.debug.ui" version="2.0.0" /> 
-  <plugin id="org.eclipse.help" version="2.0.1" /> 
-  <plugin id="org.eclipse.help.webapp" version="2.0.1" /> 
-  <plugin id="org.eclipse.help.ui" version="2.0.1" /> 
-  <plugin id="org.eclipse.platform" version="2.0.1"/>
-  <plugin id="org.eclipse.platform.doc.user" version="2.0.0"/>
-  <plugin id="org.eclipse.search" version="2.0.1" /> 
-  <plugin id="org.eclipse.swt" version="2.0.1"/>
-  <plugin id="org.eclipse.team.core" version="2.0.1" /> 
-  <plugin id="org.eclipse.team.cvs.core" version="2.0.0" /> 
-  <plugin id="org.eclipse.team.cvs.ssh" version="2.0.0" /> 
-  <plugin id="org.eclipse.team.cvs.ui" version="2.0.1" /> 
-  <plugin id="org.eclipse.team.ui" version="2.0.0" /> 
-  <plugin id="org.eclipse.tomcat" version="4.0.3" /> 
-  <plugin id="org.eclipse.ui" version="2.0.1" /> 
-  <plugin id="org.eclipse.ui.externaltools" version="2.0.1" /> 
-  <plugin id="org.eclipse.update.core" version="2.0.1" /> 
-  <plugin id="org.eclipse.update.ui" version="2.0.1" /> 
-  <plugin id="org.eclipse.update.ui.forms" version="2.0.0" /> 
+   <plugin
+         id="org.apache.ant"
+         download-size="0"
+         install-size="0"
+         version="1.4.1">
+   </plugin>
+
+   <plugin
+         id="org.apache.lucene"
+         download-size="0"
+         install-size="0"
+         version="1.2.0">
+   </plugin>
+
+   <plugin
+         id="org.apache.xerces"
+         download-size="0"
+         install-size="0"
+         version="4.0.5">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.ant.core"
+         download-size="0"
+         install-size="0"
+         version="2.0.1">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.compare"
+         download-size="0"
+         install-size="0"
+         version="2.0.0">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.core.boot"
+         download-size="0"
+         install-size="0"
+         version="2.0.1">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.core.resources"
+         download-size="0"
+         install-size="0"
+         version="2.0.1">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.core.runtime"
+         download-size="0"
+         install-size="0"
+         version="2.0.1">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.debug.core"
+         download-size="0"
+         install-size="0"
+         version="2.0.0">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.debug.ui"
+         download-size="0"
+         install-size="0"
+         version="2.0.0">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.help"
+         download-size="0"
+         install-size="0"
+         version="2.0.1">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.help.webapp"
+         download-size="0"
+         install-size="0"
+         version="2.0.1">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.help.ui"
+         download-size="0"
+         install-size="0"
+         version="2.0.1">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.platform"
+         download-size="0"
+         install-size="0"
+         version="2.0.1">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.platform.doc.user"
+         download-size="0"
+         install-size="0"
+         version="2.0.0">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.search"
+         download-size="0"
+         install-size="0"
+         version="2.0.1">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.swt"
+         download-size="0"
+         install-size="0"
+         version="2.0.1">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.team.core"
+         download-size="0"
+         install-size="0"
+         version="2.0.1">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.team.cvs.core"
+         download-size="0"
+         install-size="0"
+         version="2.0.0">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.team.cvs.ssh"
+         download-size="0"
+         install-size="0"
+         version="2.0.0">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.team.cvs.ui"
+         download-size="0"
+         install-size="0"
+         version="2.0.1">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.team.ui"
+         download-size="0"
+         install-size="0"
+         version="2.0.0">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.tomcat"
+         download-size="0"
+         install-size="0"
+         version="4.0.3">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.ui"
+         download-size="0"
+         install-size="0"
+         version="2.0.1">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.ui.externaltools"
+         download-size="0"
+         install-size="0"
+         version="2.0.1">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.update.core"
+         download-size="0"
+         install-size="0"
+         version="2.0.1">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.update.ui"
+         download-size="0"
+         install-size="0"
+         version="2.0.1">
+   </plugin>
+
+   <plugin
+         id="org.eclipse.update.ui.forms"
+         download-size="0"
+         install-size="0"
+         version="2.0.0">
+   </plugin>
+
 </feature>
