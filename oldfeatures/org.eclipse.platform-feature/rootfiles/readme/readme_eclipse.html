@@ -554,11 +554,6 @@ wizard strips the execute permission from executable files. (bug <a href="https:
 <p>If you split the editor area into two areas, zoom an editor and then close
 it, it is possible for that the second area will be covered by the first. This
 can be worked around by zooming the visible editor and then unzooming it. (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=66974">66974</a>)</p>
-<h4>Problems customizing colors and fonts in non-default themes</h4>
-<p>If you are using a theme other than the default, a bug prevents you from
-customizing fonts and colors other than those that happen to have been
-overridden in the theme definition. There is no such limitation with the default
-theme. (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67221">67221</a>)</p>
 <h4>Problem mixing dynamic and static pages within intro configs</h4>
 <p>The Intro support has the concept of dynamic and static pages. Dynamic pages
 are described using the intro config XML content and static pages are HTML files
@@ -1246,274 +1241,549 @@ changed).</p>
 <p>Maintenance release 3.0.2 fixes the following additional defects present in
 release 3.0.1:</p>
 <table class="bz_buglist" cellspacing="0" cellpadding="4" width="100%">
-  <colgroup>
-    <col class="bz_id_column">
-    <col class="bz_bug_severity_column">
-    <col class="bz_priority_column">
-    <col class="bz_rep_platform_column">
-    <col class="bz_assigned_to_column">
-    <col class="bz_bug_status_column">
-    <col class="bz_resolution_column">
-    <col class="bz_short_short_desc_column">
-  </colgroup>
-  <tr align="left">
-    <th colspan="1" class="first-child"><a href="buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.0.2&amp;resolution=FIXED&amp;query_format=advanced&amp;order=bugs.bug_id&amp;query_based_on=">ID</a></th>
-    <th colspan="1"><a href="buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.0.2&amp;resolution=FIXED&amp;query_format=advanced&amp;order=bugs.short_desc,bugs.bug_id&amp;query_based_on=">Summary</a></th>
-  </tr>
+    <colgroup>
+      <col class="bz_id_column">
+      <col class="bz_short_short_desc_column">
+    </colgroup>
+    <tr align="left">
+      <th colspan="1" class="first-child">
+          <a href="buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.0.2&amp;resolution=FIXED&amp;query_format=advanced&amp;order=bugs.bug_id&amp;query_based_on=">ID</a>
+      </th>
+<th colspan="1">
+      <a href="buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.0.2&amp;resolution=FIXED&amp;query_format=advanced&amp;order=bugs.short_desc,bugs.bug_id&amp;query_based_on=">Summary</a>
+  </th>
+    </tr>
   <tr class="bz_major             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=38746">38746</a><span style="display: none"></span></td>
-    <td>Preferences-&gt;Java-&gt;Installed JREs-&gt;Add hangs eclipse</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=38746">38746</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Preferences-&gt;Java-&gt;Installed JREs-&gt;Add hangs eclipse
+    </td>
   </tr>
-  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=41349">41349</a><span style="display: none"></span></td>
-    <td>Javadoc attachment to JDK-jars override [build path]</td>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=41349">41349</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Javadoc attachment to JDK-jars override [build path]
+    </td>
   </tr>
   <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=51079">51079</a><span style="display: none"></span></td>
-    <td>Resizing of TableColumns on Linux displays extra horizont...</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=51079">51079</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Resizing of TableColumns on Linux displays extra horizont...
+    </td>
   </tr>
   <tr class="bz_enhancement             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=57247">57247</a><span style="display: none"></span></td>
-    <td>[UIForms] Cheat Sheet: redraw very slow</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=57247">57247</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[UIForms] Cheat Sheet: redraw very slow
+    </td>
   </tr>
   <tr class="bz_normal             bz_P2             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=61384">61384</a><span style="display: none"></span></td>
-    <td>[browser] support mozilla 1.7</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=61384">61384</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[browser] support mozilla 1.7
+    </td>
   </tr>
   <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=67003">67003</a><span style="display: none"></span></td>
-    <td>&lt;splash&gt; task creates process that never ends</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=61649">61649</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Port eclipse on HP-UX Itanium platform (-os hpux -ws moti...
+    </td>
   </tr>
-  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=68506">68506</a><span style="display: none"></span></td>
-    <td>Java code formatter strips newline, leaving final line un...</td>
-  </tr>
-  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=70390">70390</a><span style="display: none"></span></td>
-    <td>bad or incorrect error message</td>
-  </tr>
-  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=71237">71237</a><span style="display: none"></span></td>
-    <td>Controls placed in group composite w/ text title are inco...</td>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=67003">67003</a>
+      <span style="display: none"></span>
+    </td>
+    <td>&lt;splash&gt; task creates process that never ends
+    </td>
   </tr>
   <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=71267">71267</a><span style="display: none"></span></td>
-    <td>[Search][Javadoc] SearchMatch in class javadoc reported w...</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=68506">68506</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Java code formatter strips newline, leaving final line un...
+    </td>
   </tr>
-  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=73112">73112</a><span style="display: none"></span></td>
-    <td>[Search] SearchEngine doesn't find all fields multiple fi...</td>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=70390">70390</a>
+      <span style="display: none"></span>
+    </td>
+    <td>bad or incorrect error message
+    </td>
   </tr>
   <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=73284">73284</a><span style="display: none"></span></td>
-    <td>InternalAntRunner should check for bad string index and g...</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=71237">71237</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Controls placed in group composite w/ text title are inco...
+    </td>
   </tr>
   <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=73330">73330</a><span style="display: none"></span></td>
-    <td>NullPointerException in search</td>
-  </tr>
-  <tr class="bz_minor             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=73348">73348</a><span style="display: none"></span></td>
-    <td>[Javadoc] Missing description for return tag is not alway...</td>
-  </tr>
-  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=73497">73497</a><span style="display: none"></span></td>
-    <td>Problem methods don't point to the right position in source</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=71267">71267</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[Search][Javadoc] SearchMatch in class javadoc reported w...
+    </td>
   </tr>
   <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=73551">73551</a><span style="display: none"></span></td>
-    <td>[Search] NPE while searching package declaration</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=73112">73112</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[Search] SearchEngine doesn't find all fields multiple fi...
+    </td>
   </tr>
-  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=73812">73812</a><span style="display: none"></span></td>
-    <td>TableColumn.getWidth() returns 0 on gtk</td>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=73284">73284</a>
+      <span style="display: none"></span>
+    </td>
+    <td>InternalAntRunner should check for bad string index and g...
+    </td>
   </tr>
   <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=73995">73995</a><span style="display: none"></span></td>
-    <td>[Javadoc] Wrong warning for missing return type descripti...</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=73330">73330</a>
+      <span style="display: none"></span>
+    </td>
+    <td>NullPointerException in search
+    </td>
+  </tr>
+  <tr class="bz_minor             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=73348">73348</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[Javadoc] Missing description for return tag is not alway...
+    </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=73497">73497</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Problem methods don't point to the right position in source
+    </td>
   </tr>
   <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=74014">74014</a><span style="display: none"></span></td>
-    <td>prefix path for source attachements - automatic detection...</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=73551">73551</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[Search] NPE while searching package declaration
+    </td>
   </tr>
   <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=74102">74102</a><span style="display: none"></span></td>
-    <td>Identity instead of equals for import buildfile javac res...</td>
-  </tr>
-  <tr class="bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=74108">74108</a><span style="display: none"></span></td>
-    <td>Change the state of a JSP breakpoint when debugging the J...</td>
-  </tr>
-  <tr class="bz_major             bz_P1             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=74138">74138</a><span style="display: none"></span></td>
-    <td>Duplicate DLLs in win32 fragment</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=73812">73812</a>
+      <span style="display: none"></span>
+    </td>
+    <td>TableColumn.getWidth() returns 0 on gtk
+    </td>
   </tr>
   <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=74188">74188</a><span style="display: none"></span></td>
-    <td>Java RunToLine action is not available for debugger wraps...</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=73995">73995</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[Javadoc] Wrong warning for missing return type descripti...
+    </td>
   </tr>
-  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=74411">74411</a><span style="display: none"></span></td>
-    <td>[rulers] Error with annotations in a VerticalRuler</td>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=74014">74014</a>
+      <span style="display: none"></span>
+    </td>
+    <td>prefix path for source attachements - automatic detection...
+    </td>
   </tr>
-  <tr class="bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=74674">74674</a><span style="display: none"></span></td>
-    <td>Search scope tooltip string is shared, causing problems d...</td>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=74102">74102</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Identity instead of equals for import buildfile javac res...
+    </td>
   </tr>
-  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=74722">74722</a><span style="display: none"></span></td>
-    <td>Cannot start Runtime Workbench located in dir with DBCS char</td>
+  <tr class="bz_critical             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=74108">74108</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Change the state of a JSP breakpoint when debugging the J...
+    </td>
+
   </tr>
-  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=74995">74995</a><span style="display: none"></span></td>
-    <td>DBCS files names don't display correctly in activities an...</td>
+  <tr class="bz_major             bz_P1             bz_RESOLVED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=74138">74138</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Duplicate DLLs in win32 fragment
+    </td>
   </tr>
-  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=75090">75090</a><span style="display: none"></span></td>
-    <td>source positions calculated wrongly</td>
-  </tr>
-  <tr class="bz_critical             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=75118">75118</a><span style="display: none"></span></td>
-    <td>[Wizards] Primary wizards duplicates</td>
-  </tr>
-  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=75201">75201</a><span style="display: none"></span></td>
-    <td>MacOSXVMInstallType.detectInstallLocation() always return...</td>
-  </tr>
-  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=75351">75351</a><span style="display: none"></span></td>
-    <td>I18N: Capability enablement dialog message is incorrectly...</td>
-  </tr>
-  <tr class="bz_major             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=75454">75454</a><span style="display: none"></span></td>
-    <td>RuntimeProcess.isTerminated() replies &quot;false&quot; if process ...</td>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=74188">74188</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Java RunToLine action is not available for debugger wraps...
+    </td>
   </tr>
   <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=75487">75487</a><span style="display: none"></span></td>
-    <td>Protocol error Dialog when installed path contains French...</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=74343">74343</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Some contextual views not opening after a perspective switch
+    </td>
   </tr>
-  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=75784">75784</a><span style="display: none"></span></td>
-    <td>java.lang.ArrayIndexOutOfBoundsException in compilation</td>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=74411">74411</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[rulers] Error with annotations in a VerticalRuler
+    </td>
   </tr>
-  <tr class="bz_critical             bz_P2             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=75814">75814</a><span style="display: none"></span></td>
-    <td>Inconsistent results when adding a breakpoint to class fi...</td>
+  <tr class="bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=74674">74674</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Search scope tooltip string is shared, causing problems d...
+    </td>
   </tr>
   <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=75835">75835</a><span style="display: none"></span></td>
-    <td>[EditorMgmt] [Contributions] Action Bars are not cleaned ...</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=74722">74722</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Cannot start Runtime Workbench located in dir with DBCS char
+    </td>
   </tr>
-  <tr class="bz_blocker             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=75842">75842</a><span style="display: none"></span></td>
-    <td>Performance Regression in NameLookup.seekPackageFragments</td>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=74995">74995</a>
+      <span style="display: none"></span>
+    </td>
+    <td>DBCS files names don't display correctly in activities an...
+    </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=75090">75090</a>
+      <span style="display: none"></span>
+    </td>
+    <td>source positions calculated wrongly
+    </td>
+  </tr>
+  <tr class="bz_critical             bz_P3             bz_CLOSED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=75118">75118</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[Wizards] Primary wizards duplicates
+    </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=75201">75201</a>
+      <span style="display: none"></span>
+    </td>
+    <td>MacOSXVMInstallType.detectInstallLocation() always return...
+    </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=75351">75351</a>
+      <span style="display: none"></span>
+    </td>
+    <td>I18N: Capability enablement dialog message is incorrectly...
+    </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=75454">75454</a>
+      <span style="display: none"></span>
+    </td>
+    <td>RuntimeProcess.isTerminated() replies &quot;false&quot; if process ...
+    </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=75487">75487</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Protocol error Dialog when installed path contains French...
+    </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=75784">75784</a>
+      <span style="display: none"></span>
+    </td>
+    <td>java.lang.ArrayIndexOutOfBoundsException in compilation
+    </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=75835">75835</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[EditorMgmt] [Contributions] Action Bars are not cleaned ...
+    </td>
   </tr>
   <tr class="bz_blocker             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=75866">75866</a><span style="display: none"></span></td>
-    <td>Deleted archive on source path causes launch failure</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=75842">75842</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Performance Regression in NameLookup.seekPackageFragments
+    </td>
   </tr>
-  <tr class="bz_normal             bz_P3             bz_CLOSED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=76245">76245</a><span style="display: none"></span></td>
-    <td>Help System in Turkish locale appears differently</td>
+  <tr class="bz_blocker             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=75866">75866</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Deleted archive on source path causes launch failure
+    </td>
   </tr>
-  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=76616">76616</a><span style="display: none"></span></td>
-    <td>Stratum Stepping incorrect inside a switch case statement...</td>
+  <tr class="bz_normal             bz_P3             bz_CLOSED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=76245">76245</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Help System in Turkish locale appears differently
+    </td>
   </tr>
-  <tr class="bz_critical             bz_P1             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=76669">76669</a><span style="display: none"></span></td>
-    <td>[Perspectives] NullPointerException in Perspective.getFas...</td>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=76616">76616</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Stratum Stepping incorrect inside a switch case statement...
+    </td>
   </tr>
-  <tr class="bz_major             bz_P2             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=77181">77181</a><span style="display: none"></span></td>
-    <td>[projection] Line numbers not updated during search in Ja...</td>
+  <tr class="bz_critical             bz_P1             bz_RESOLVED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=76669">76669</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[Perspectives] NullPointerException in Perspective.getFas...
+    </td>
   </tr>
-  <tr class="bz_critical             bz_P1             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=77339">77339</a><span style="display: none"></span></td>
-    <td>[Progress] [Dialogs] The workbench leaks dialogs</td>
+  <tr class="bz_major             bz_P2             bz_VERIFIED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=77181">77181</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[projection] Line numbers not updated during search in Ja...
+    </td>
   </tr>
-  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=77840">77840</a><span style="display: none"></span></td>
-    <td>[About] More Info button does nothing if Eclipse installe...</td>
-  </tr>
-  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=78128">78128</a><span style="display: none"></span></td>
-    <td>Error deleting project with jar file referenced by other ...</td>
-  </tr>
-  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=78168">78168</a><span style="display: none"></span></td>
-    <td>Cannot get preferences when running 'headless' (i.e. thro...</td>
-  </tr>
-  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=78358">78358</a><span style="display: none"></span></td>
-    <td>[1.5] Disassembling a .class file can fail</td>
-  </tr>
-  <tr class="bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=78602">78602</a><span style="display: none"></span></td>
-    <td>&quot;widget is disposed&quot; error opening Schema Element propert...</td>
-  </tr>
-  <tr class="bz_critical             bz_P2             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=78618">78618</a><span style="display: none"></span></td>
-    <td>JUnit 'Failures' list has items with wrong label</td>
-  </tr>
-  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=78854">78854</a><span style="display: none"></span></td>
-    <td>Memory leak in ClipboardProxy.getFunc()</td>
-  </tr>
-  <tr class="bz_normal             bz_P3             bz_CLOSED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=79849">79849</a><span style="display: none"></span></td>
-    <td>DBCS: &quot;Exception&quot; should not be translated [3.0.2 candidate]</td>
-  </tr>
-  <tr class="bz_major             bz_P2             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=80297">80297</a><span style="display: none"></span></td>
-    <td>Backport the deadlock detection</td>
+  <tr class="bz_critical             bz_P1             bz_VERIFIED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=77339">77339</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[Progress] [Dialogs] The workbench leaks dialogs
+    </td>
   </tr>
   <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=80304">80304</a><span style="display: none"></span></td>
-    <td>NPE in Memory View when selecting expression from Express...</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=77840">77840</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[About] More Info button does nothing if Eclipse installe...
+    </td>
   </tr>
-  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=81259">81259</a><span style="display: none"></span></td>
-    <td>Manifest.mf corrupted when classpath line is over 511 chars</td>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=78128">78128</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Error deleting project with jar file referenced by other ...
+    </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=78168">78168</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Cannot get preferences when running 'headless' (i.e. thro...
+    </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=78358">78358</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[1.5] Disassembling a .class file can fail
+    </td>
   </tr>
   <tr class="bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=82837">82837</a><span style="display: none"></span></td>
-    <td>Embedding swing on swt _ problems with JDK1.4.1</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=78602">78602</a>
+      <span style="display: none"></span>
+    </td>
+    <td>&quot;widget is disposed&quot; error opening Schema Element propert...
+    </td>
+  </tr>
+  <tr class="bz_critical             bz_P2             bz_VERIFIED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=78618">78618</a>
+      <span style="display: none"></span>
+    </td>
+    <td>JUnit 'Failures' list has items with wrong label
+    </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=78805">78805</a>
+      <span style="display: none"></span>
+    </td>
+    <td>backport 75592 fix to a 3.0.x stream
+    </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=78854">78854</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Memory leak in ClipboardProxy.getFunc()
+    </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_CLOSED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=79849">79849</a>
+      <span style="display: none"></span>
+    </td>
+    <td>DBCS: &quot;Exception&quot; should not be translated [3.0.2 candidate]
+    </td>
+  </tr>
+  <tr class="bz_major             bz_P2             bz_VERIFIED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=80297">80297</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Backport the deadlock detection
+    </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=80304">80304</a>
+      <span style="display: none"></span>
+    </td>
+    <td>NPE in Memory View when selecting expression from Express...
+    </td>
   </tr>
   <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=82878">82878</a><span style="display: none"></span></td>
-    <td>[Perspectives] [ViewMgmt] Put fix for bug 76285 into 3.0....</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=81259">81259</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Manifest.mf corrupted when classpath line is over 511 chars
+    </td>
+  </tr>
+  <tr class="bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=82837">82837</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Embedding swing on swt _ problems with JDK1.4.1
+    </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=82878">82878</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[Perspectives] [ViewMgmt] Put fix for bug 76285 into 3.0....
+    </td>
   </tr>
   <tr class="bz_enhancement             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=82891">82891</a><span style="display: none"></span></td>
-    <td>Source lookup based upon the classpath info stored in man...</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=82891">82891</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Source lookup based upon the classpath info stored in man...
+    </td>
   </tr>
-  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=83137">83137</a><span style="display: none"></span></td>
-    <td>[ActivityMgmt] EditorAction contribution ignored if edito...</td>
+  <tr class="bz_major             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=83137">83137</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[ActivityMgmt] EditorAction contribution ignored if edito...
+    </td>
   </tr>
   <tr class="bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=83819">83819</a><span style="display: none"></span></td>
-    <td>JPopupMenu doesn't work correcty in a SWT composite</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=83819">83819</a>
+      <span style="display: none"></span>
+    </td>
+    <td>JPopupMenu doesn't work correcty in a SWT composite
+    </td>
   </tr>
   <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=83862">83862</a><span style="display: none"></span></td>
-    <td>Upgrade code in Lucene plug-in to 1.4.</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=83862">83862</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Upgrade code in Lucene plug-in to 1.4.
+    </td>
   </tr>
   <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=84792">84792</a><span style="display: none"></span></td>
-    <td>Default editor should open after Plugin Project Creation</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=84792">84792</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Default editor should open after Plugin Project Creation
+    </td>
   </tr>
   <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
-    <td class="first-child"><a href="show_bug.cgi?id=84820">84820</a><span style="display: none"></span></td>
-    <td>Welcome: Stacking ConfigExtensions doesn't work.</td>
+    <td class="first-child">
+      <a href="show_bug.cgi?id=84820">84820</a>
+      <span style="display: none"></span>
+    </td>
+    <td>Welcome: Stacking ConfigExtensions doesn't work.
+    </td>
   </tr>
-  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             ">
-    <td class="first-child"><a href="show_bug.cgi?id=85288">85288</a><span style="display: none"></span></td>
-    <td>[ActivityMgmt] Need the ability to turn off the nature tr...</td>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=85288">85288</a>
+      <span style="display: none"></span>
+    </td>
+    <td>[ActivityMgmt] Need the ability to turn off the nature tr...
+    </td>
   </tr>
-</table>
-63 bugs found.
+  <tr class="bz_blocker             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             ">
+    <td class="first-child">
+      <a href="show_bug.cgi?id=87581">87581</a>
+      <span style="display: none"></span>
+    </td>
+    <td>PDE features still show 3.0.1
+    </td>
+  </tr>
+    </table>
+66 bugs found.
 <p>Note: the above table was generated with the Bugzilla query: <a href="http://bugs.eclipse.org/bugs/buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.0.2&amp;resolution=FIXED&amp;order=bugs.bug_id">http://bugs.eclipse.org/bugs/buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.0.2&amp;resolution=FIXED&amp;order=bugs.bug_id</a></p>
 <h3>7.2 Defects fixed in release 3.0.1 since 3.0.0</h3>
 <p>Release 3.0.1 is a maintenance release to fix serious defects present in
