@@ -617,6 +617,20 @@ vertical ruler. So if you set breakpoints in the file, you won't see the
 breakpoints in the editor (the breakpoints only show up in the Breakpoints
 view). (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=54900">54900</a>)</p>
 <h3>3.1.6 <a name="I-Platform-SWT">Platform - SWT</a></h3>
+<h4>SWT Browser may crash on Linux</h4>
+<p>The SWT Browser widget uses a Mozilla Web Browser found on the user's machine (Linux only).
+Certain Mozilla builds may cause the SWT Browser and Eclipse to crash. One workaround to
+avoid the crash is to set the environment variable MOZILLA_FIVE_HOME to EMPTY (or any location
+that does not contain an actual Mozilla build) prior to launching Eclipse. The SWT Browser
+will not find a Mozilla build and will throw an org.eclipse.swt.SWTError exception instead of
+causing a crash. Another workaround is to install a supported build of Mozilla as documented on
+the SWT FAQ item <a href="http://dev.eclipse.org/viewcvs/index.cgi/%7Echeckout%7E/platform-swt-home/faq.html#browserlinux">&quot;What do I need to run the SWT Browser inside Eclipse on Linux GTK or Linux Motif?&quot;</a>.
+(bug <a href="http://dev.eclipse.org/bugs/show_bug.cgi?id=84053">84053</a>)</p>
+<h4>SWT Browser on Windows sometimes freezes on PDF documents with Acrobat Reader 6.0 and Reader 7.0 plugin</h4>
+<p>The SWT Browser widget on Windows may freeze for a few seconds when loading and unloading PDF
+documents using Acrobat Reader 6.0 and above. One workaround is to uninstall Reader 6.0 and 
+reinstall Reader 5.0. Another workaround is to disable the option &quot;Display PDF in browser&quot;
+from the Preferences &gt Internet dialog of Acrobat Reader. (bug <a href="http://dev.eclipse.org/bugs/show_bug.cgi?id=56184">56184</a>)</p>
 <h4>Eclipse plug-in based on the SWT Browser throws exception</h4>
 <p>The SWT Browser widget uses a platform-specific web browser to render HTML.
 The org.eclipse.swt.SWTError exception (&quot;No more handles&quot;) is thrown
