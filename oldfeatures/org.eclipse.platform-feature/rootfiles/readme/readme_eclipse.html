@@ -12,7 +12,7 @@
 
 <h1>Eclipse Project Release Notes</h1>
 <p>Release 3.0.1<br>
-Last revised September 8, 2004</p>
+Last revised September 9, 2004</p>
 <p align="left"><strong>This software is OSI Certified Open Source Software.<br>
 OSI Certified is a certification mark of the Open Source Initiative.&nbsp;</strong></p>
 <blockquote>
@@ -215,6 +215,12 @@ added new API in order to address serious problems.</p>
         (intro content file)</li>
     </ul>
   </li>
+  <li>Plug-in org.apache.ant was updated from Ant 1.6.1 in Eclipse 3.0 to Ant
+    1.6.2 in Eclipse 3.0.1. Since the Ant API was augmented between 1.6.1 and
+    1.6.2, Ant tasks developed against Eclipse 3.0.1 may not work in Eclipse
+    3.0.0 out of the box. Users can work around this problem by downloading and
+    installing an Ant 1.6.2 release and configuring Eclipse to use the Ant 1.6.2
+    libraries instead of the 1.6.1 ones (see Ant Runtime preference page).</li>
 </ul>
 <p>When developing plug-ins intended to be deployed successfully atop any
 Eclipse 3.0.* release, avoid using any of the elements in the above list.</p>
@@ -349,7 +355,8 @@ may not get the correct product branding. This is because the id of the standard
 Eclipse product changed. Users in shared install scenarios may end up in this
 situation as previous builds of Eclipse automatically generated config.ini files
 in some cases. The work around is either to delete the local config.ini or
-update the eclipse.product line to read eclipse.product=org.eclipse.platform.ide.</p>
+update the eclipse.product line to read
+eclipse.product=org.eclipse.platform.ide.</p>
 <h4><b>Changing the character encoding for a resource causes inconsistencies</b></h4>
 <p>Changing the character encoding for a resource (or the whole workspace) does
 not trigger resource change events or auto builds. The result is that builders
@@ -380,7 +387,8 @@ following:</p>
 <ol>
   <li>Create a thread in which to run your code.
   <li>Send yourThread.setContextClassLoader(yourClassLoader); // you can find
-    your classloader by grabbing a class it loaded (YourPluginClass.class.getClassLoader())
+    your classloader by grabbing a class it loaded
+    (YourPluginClass.class.getClassLoader())
   <li>Run your code in the newly created thread.</li>
 </ol>
 <p>If you set the context class loader for the current thread, you are competing
@@ -719,11 +727,11 @@ that is upgraded to 3.0, they can be removed by performing a Project&gt;Clean.
 (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=40593">40593</a>)</p>
 <h4>Issues upgrading from 1.0 to 3.0</h4>
 <p>In 1.0, CVS used a .vcm_meta file to store project configuration information.
-In 2.0, this file was replaced by the .project file but CVS still read the .vcm_meta
-file for backwards compatibilty. In 3.0, the .vcm_meta file is no longer read by
-CVS. Users who wish to upgrade from 1.0 to 3.0 must first upgrade to 2.x and
-then upgrade to 3.0 if they wich to keep there project configuration information
-(e.g. java project). (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=43296">43296</a>)</p>
+In 2.0, this file was replaced by the .project file but CVS still read the
+.vcm_meta file for backwards compatibilty. In 3.0, the .vcm_meta file is no
+longer read by CVS. Users who wish to upgrade from 1.0 to 3.0 must first upgrade
+to 2.x and then upgrade to 3.0 if they wich to keep there project configuration
+information (e.g. java project). (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=43296">43296</a>)</p>
 <h4>Connection cannot be found after initially missing</h4>
 <p>If a connection initially fails due to a network problem, the connection may
 continue to fail even when the network problem is fixed. In order to establish
@@ -2266,7 +2274,7 @@ changed).</p>
     </tr>
     <tr class="bz_major bz_P3 ">
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=73213">73213</a></td>
-      <td>Unicode – Search problem with &quot;Case sensitive&quot; unchecked</td>
+      <td>Unicode - Search problem with &quot;Case sensitive&quot; unchecked</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=73258">73258</a></td>
