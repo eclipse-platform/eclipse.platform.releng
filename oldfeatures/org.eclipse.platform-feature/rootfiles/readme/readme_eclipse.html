@@ -283,45 +283,70 @@ the command line:</p>
 </blockquote>
 <p>(bug <a href="http://dev.eclipse.org/bugs/show_bug.cgi?id=18321">18321</a>)</p>
 <h3>3.1.1 <a name="I-Platform-Core">Platform - Core</a></h3>
-<h4><i>[TBD - carryover from 2.1.3; review for 3.0] Declaring package name
-prefixes improves plug-in class loading speed</i></h4>
-<p><i>A significant (10-15%) speed increase in the time to load a plug-in's
-classes can be obtained simply by declaring the package name prefixes found in
-that plug-in's runtime library JARs. This is done in the new Package Prefixes
-section of the Runtime page in the PDE plug-in manifest editor. (Further
-information <a href="http://dev.eclipse.org/viewcvs/index.cgi/~checkout~/platform-core-home/docs/package-prefixes/prefixes.html">here</a>.)</i></p>
-<h4><i>[TBD - carryover from 2.1.3; review for 3.0] </i><b><i>Invalid characters
-in install directory prevents Eclipse from starting</i></b></h4>
-<p><i>Eclipse will fail to launch if installed in a directory whose path
+<h4>Eclipse fails to start on some file systems</h4>
+<p>Java sometimes has difficulty detecting whether a file system is writable. In
+particular, the method java.io.File.canWrite() appears to return true in
+unexpected cases (e.g., using Windows drive sharing where the share is a
+read-only Samba drive). The Eclipse runtime generally needs a writable
+configuration area and as a result of this problem, may erroneously detect the
+current configuration location as writable. The net result is that Eclipse will
+fail to start and depending on the circumstances, may fail to write a log file
+with any details. To work around this, we suggest users experiencing this
+problem set their configuration area explicitly using the -configuration command
+line argument. (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67719">67719</a>)</p>
+<h4>XML files with UTF-8 byte order mark fail to have content type detected</h4>
+<p>Eclipse will fail to detect the proper content type for XML files that have a
+UTF-8 byte order mark if Crimson is the XML parser (as it is on Sun 1.4 JRE). This
+problem will prevent actions normally available when files of the affected
+content types are selected from being presented to the user. The workaround is
+to ensure the default XML parser supports UTF-8 BOMs (such as Xerces does). (bug
+<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67048">67048</a>)</p>
+<h4>No branding with old config.ini</h4>
+<p>If you have an old config.ini file and use it with a new Eclipse build, you
+may not get the correct product branding. This is because the id of the standard
+Eclipse product changed. Users in shared install scenarios may end up in this
+situation as previous builds of Eclipse automatically generated config.ini files
+in some cases. The work around is either to delete the local config.ini or
+update the eclipse.product line to read eclipse.product=org.eclipse.platform.ide.</p>
+<h4><b>Changing the charset for a resource causes inconsistencies</b></h4>
+<p>Changing the charset for a resource (or the whole workspace) does not trigger resource change events or auto builds. The result is that 
+builders and listeners that maintain state derived from the affected resources will not have a chance to run, causing
+inconsistencies (such as compiler errors not going away and searching for references not working properly). The workaround 
+consists to clean (Project > Clean...), close, and then re-open the affected projects
+(bug <a href="http://dev.eclipse.org/bugs/show_bug.cgi?id=59899">59899</a>,
+<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67884">67884</a>).</p>
+
+<h4><b>Invalid characters
+in install directory prevents Eclipse from starting</b></h4>
+<p>Eclipse will fail to launch if installed in a directory whose path
 contains certain invalid characters, including :%#&lt;&gt;&quot;!. The
 workaround is to install Eclipse in a directory whose path does not contain
 invalid characters. (bugs <a href="http://dev.eclipse.org/bugs/show_bug.cgi?id=3109">3109</a>
-and <a href="http://dev.eclipse.org/bugs/show_bug.cgi?id=17281">17281</a>)</i></p>
-<h4><i>[TBD - carryover from 2.1.3; review for 3.0] </i><b><i>Problems with
-classloaders in created threads</i></b></h4>
-<p><i>There is a known issue with trying to load classes from a newly-created
+and <a href="http://dev.eclipse.org/bugs/show_bug.cgi?id=17281">17281</a>)</p>
+<h4>Problems with
+classloaders in created threads</h4>
+<p>There is a known issue with trying to load classes from a newly-created
 thread using a class loader different from the plug-in class loader. The result
 will be a <code>ClassNotFoundException</code>. As a workaround, do the
-following:</i></p>
+following:</p>
 <ol>
-  <li><i>Create a thread in which to run your code.</i>
-  <li><i>Send yourThread.setContextClassLoader(yourClassLoader); // you can find
-    your classloader by grabbing a class it loaded
-    (YourPluginClass.class.getClassLoader())</i>
-  <li><i>Run your code in the newly created thread.</i></li>
+  <li>Create a thread in which to run your code.
+  <li>Send yourThread.setContextClassLoader(yourClassLoader); // you can find
+    your classloader by grabbing a class it loaded (YourPluginClass.class.getClassLoader())
+  <li>Run your code in the newly created thread.</li>
 </ol>
-<p><i>If you set the context class loader for the current thread, you are
+<p>If you set the context class loader for the current thread, you are
 competing with other users of the thread (all of Eclipse), so the results will
 be unpredictable. However, there should be no problem in practice provided you
 reset the context class loader back to its original value when your use in the
-current thread is&nbsp;complete. (bug <a href="http://dev.eclipse.org/bugs/show_bug.cgi?id=8907">8907</a>)</i></p>
-<h4><i>[TBD - carryover from 2.1.3; review for 3.0] Deadlock creating executable
-extension in Plugin.startup</i></h4>
-<p><i>If <code>Plugin.startup</code> code is too complex and performs tasks such
+current thread is&nbsp;complete. (bug <a href="http://dev.eclipse.org/bugs/show_bug.cgi?id=8907">8907</a>)</p>
+<h4> Deadlock creating executable
+extension in Plugin.startup</h4>
+<p>If <code>Plugin.startup</code> code is too complex and performs tasks such
 as creating an executable extension, a deadlock situation can be created. Only
 simple bookkeeping tasks should be performed in <code>Plugin.startup</code>
 code. (bugs <a href="http://dev.eclipse.org/bugs/show_bug.cgi?id=12827">12827</a>,
-<a href="http://dev.eclipse.org/bugs/show_bug.cgi?id=5875">5875</a>, <a href="http://dev.eclipse.org/bugs/show_bug.cgi?id=16141">16141</a>)</i></p>
+<a href="http://dev.eclipse.org/bugs/show_bug.cgi?id=5875">5875</a>)</p>
 <h3>3.1.2 <a name="I-Platform-Ant">Platform - Ant</a></h3>
 <h4>UTF-8 encoded buildfiles with Byte Order Mark</h4>
 <p>UTF-8 encoded buildfiles with byte order marks will fail to be parsed correctly depending on the XML parser being used for the build. Therefore a valid buildfile will fail to build with an error message similar to: "BUILD FAILED: C:\workspace\bom.xml:1: Document root element is missing.". To succeed in building with these files, ensure to include Xerces jars on the Ant runtime classpath so that the Xerces parser is used to parse the XML. As well the context menu for these files in the Navigator or Package Explorer will not have the run shortcuts for Ant builds. (bug
@@ -429,75 +454,65 @@ optionally installed in JRE jre/lib/ext directory. To fix the problem, ensure
 that the JRE used for running Eclipse does not contain any J2EE or Apache jars
 in the jre/lib/ext directory. (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=63970">63970</a>)</p>
 <h3>3.1.4 <a name="I-Platform-UI">Platform - UI</a></h3>
-<h4><i>[TBD - carryover from 2.1.3; review for 3.0] Minimum display resolution</i></h4>
-<p><i>A number of dialogs in Eclipse, such as the Preferences dialog, require a
-minimum display resolution of at least 1024 x 768.</i></p>
-<h4><i>[TBD - carryover from 2.1.3; review for 3.0] Manual refresh required when
-files modified outside Eclipse</i></h4>
-<p><i>When files within a project are added or removed outside of Eclipse, or
-when an external editor is used to modify a file within a project, a manual
-refresh must be done in order for the changes to show up in the Workbench. To do
-this, select the project in the Navigator view and choose <b>Refresh</b> from
-the pop-up menu. This refreshes only the selected project. Alternatively,
-activate the Navigator view and press F5, which refreshes all projects.</i></p>
-<h4><i>[TBD - carryover from 2.1.3; review for 3.0] Default text file encoding
-may be detected incorrectly (Windows XP/2000 only)</i></h4>
-<p><i>The &quot;Text file encoding&quot; value displayed in the Preferences
+<h4>High contrast settings</h4>
+<p>Eclipse was tested for High Contrast using 1162 x 864 resolution in Windows
+XP High Contrast mode. You can select this mode by selecting Accessibility
+Options &gt; Display &gt; Use High Contrast from the Windows XP Control Panel
+menu.</p>
+<h4>File system import loses file permissions (Unix-based platforms)</h4>
+<p>Importing files into a project using the <b>Import &gt; File System</b> wizard
+strips the execute permission from executable files. (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=25387">25387</a>)</p>
+<h4>Closing zoomed editors hides other editor areas</h4>
+<p>If you split the editor area into two areas, zoom an editor and then close it,
+it is possible for that the second area will be covered by the first. This can be worked around by zooming the visible editor and then unzooming it.
+(bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=66974">66974</a>)</p>
+<h4>Problems customizing colors and fonts in non-default themes</h4>
+<p>If you are using a theme other than the default, a bug prevents you from customize fonts and
+colors other than those that happen to have been overridden in the theme definition.
+There is no such limitation with the default theme. (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67221">67221</a>)</p>
+<h4> Default text file encoding
+may be detected incorrectly (Windows XP/2000 only)</h4>
+<p>The &quot;Text file encoding&quot; value displayed in the Preferences
 dialog under &quot;Editors&quot; may be wrong on platforms running Windows XP
-(or 2000) when the user locale and system locale differ.&nbsp;</i></p>
-<p><i>Example of the manifestation of the bug: A Japanese user using Japanese
+(or 2000) when the user locale and system locale differ.&nbsp;</p>
+<p>Example of the manifestation of the bug: A Japanese user using Japanese
 Windows 2000 works in New York, United States. The user has selected English
 (United States) as the user locale. The &quot;Text file encoding&quot; value
 displayed by Eclipse is incorrect: &quot;Cp1252&quot; (English). It should
-display the system locale &quot;MS932&quot; (Japanese).</i></p>
-<p><i>Workaround: The user can modify the user locale so that user locale and
+display the system locale &quot;MS932&quot; (Japanese).</p>
+<p>Workaround: The user can modify the user locale so that user locale and
 system locale are identical. In the example above, this means the user should
 set Japanese as the user locale. Then restart Eclipse. The &quot;Text file
-encoding&quot; value will then be correct: &quot;MS932&quot; (Japanese).</i></p>
-<p><i>For Windows XP:</i></p>
+encoding&quot; value will then be correct: &quot;MS932&quot; (Japanese).</p>
+<p>For Windows XP:</p>
 <ul>
-  <li><i>To check the system locale: Open the Control Panel. Go to Regional and
+  <li>To check the system locale: Open the Control Panel. Go to Regional and
     Language Options. Switch to the Advanced tab. The system locale is specified
-    in &quot;Language for non-Unicode programs&quot;.</i>
-  <li><i>To change the user locale: Open the Control Panel. Go to Regional and
+    in &quot;Language for non-Unicode programs&quot;.
+  <li>To change the user locale: Open the Control Panel. Go to Regional and
     Language Options. The user locale can be modified by changing the language
-    in &quot;Standards and formats&quot;.</i></li>
+    in &quot;Standards and formats&quot;.</li>
 </ul>
-<p><i>For Windows 2000:</i></p>
+<p>For Windows 2000:</p>
 <ul>
-  <li><i>To check the system locale: Open the Control Panel. Go to Regional
+  <li>To check the system locale: Open the Control Panel. Go to Regional
     Options. Look up the items in the General tab, inside the &quot;Language
     settings for the system&quot; group. The system locale is the item marked as
-    (Default).</i>
-  <li><i>To change the user locale: Open the Control Panel. Go to Regional
+    (Default).
+  <li>To change the user locale: Open the Control Panel. Go to Regional
     Options. The user locale can be modified by changing the location in
-    &quot;Settings for the current user&quot;.</i></li>
+    &quot;Settings for the current user&quot;.</li>
 </ul>
-<p><i>(bug <a href="http://dev.eclipse.org/bugs/show_bug.cgi?id=20641">20641</a>)</i></p>
-<h4><i>[TBD - carryover from 2.1.3; review for 3.0] KDE takes Ctrl+Fn keys</i></h4>
-<p><i>When using the KDE desktop on Linux systems, the Ctrl+Fn key sequences are
-used for switching between virtual desktops. This means that Eclipse commands
-bound to these key sequences do not get activated, including Ctrl+F1 (Help),
-Ctrl+F4 (File &gt; Close) and Ctrl+F6 (Next Editor).</i></p>
-<p><i>These keys can be reassigned in KDE using the Control Center. Choose Look
-&amp; Feel &gt; Shortcuts &gt; Shortcut Sequences &gt; Shortcut Sequences &gt;
-System &gt; Desktop Switching, and set all items to None or to a different key
-sequence such as Ctrl+Alt+Fn. The other alternative is to assign different key
-sequences in Eclipse using the <b>Workbench &gt; Keys</b> preference page. (bug <a href="http://dev.eclipse.org/bugs/show_bug.cgi?id=26361">26361</a>)</i></p>
-<h4><i>[TBD - carryover from 2.1.3; review for 3.0] JAWS screen reader does not
-read Eclipse dialog boxes properly</i></h4>
-<p><i>There is a known problem with the JAWS screen reader (up to version 4.5)
-whereby its &quot;Read Box in Tab Order&quot; command (Ins+B) does not read all
-controls in Eclipse dialogs. (bug <a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=18518">18518</a>)</i></p>
-<h4><i>[TBD - carryover from 2.1.3; review for 3.0] Dirty state not tracked
-properly for OLE documents (Windows only)</i></h4>
-<p><i>The dirty state for an OLE document is not updated properly. This causes
+<p>(bug <a href="http://dev.eclipse.org/bugs/show_bug.cgi?id=20641">20641</a>)</p>
+<h4> Dirty state not tracked
+properly for OLE documents (Windows only)</h4>
+<p>The dirty state for an OLE document is not updated properly. This causes
 Eclipse to prompt to save the contents of the editor when the document is
-closed, even if the contents have already been saved. (bug <a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=2564">2564</a>)</i></p>
-<h4><i>[TBD - carryover from 2.1.3; review for 3.0] OLE document crashes can
-cause Eclipse to also crash (Windows only)</i></h4>
-<p><i>If an OLE document crashes, Eclipse can crash, or the workbench menus can
-become inconsistent.</i></p>
+closed, even if the contents have already been saved. (bug <a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=2564">2564</a>)</p>
+<h4> OLE document crashes can
+cause Eclipse to also crash (Windows only)</h4>
+<p>If an OLE document crashes, Eclipse can crash, or the workbench menus can
+become inconsistent.</p>
 <h3>3.1.5 <a name="I-Platform-Text">Platform - Text</a></h3>
 <h4>Problems opening external files</h4>
 <p><b>File &gt; Open External File</b> can fail when the editor opened for the external
