@@ -12,7 +12,7 @@
 
 <h1>Eclipse Project Release Notes</h1>
 <p>Release 3.0.1<br>
-Last revised September 9, 2004</p>
+Last revised September 13, 2004</p>
 <p align="left"><strong>This software is OSI Certified Open Source Software.<br>
 OSI Certified is a certification mark of the Open Source Initiative.&nbsp;</strong></p>
 <blockquote>
@@ -220,7 +220,8 @@ added new API in order to address serious problems.</p>
     1.6.2, Ant tasks developed against Eclipse 3.0.1 may not work in Eclipse
     3.0.0 out of the box. Users can work around this problem by downloading and
     installing an Ant 1.6.2 release and configuring Eclipse to use the Ant 1.6.2
-    libraries instead of the 1.6.1 ones (see Ant Runtime preference page).</li>
+    libraries instead of the 1.6.1 ones (see the section &quot;Using a different
+    version of Ant&quot; in the Workbench User Guide).</li>
 </ul>
 <p>When developing plug-ins intended to be deployed successfully atop any
 Eclipse 3.0.* release, avoid using any of the elements in the above list.</p>
@@ -355,8 +356,7 @@ may not get the correct product branding. This is because the id of the standard
 Eclipse product changed. Users in shared install scenarios may end up in this
 situation as previous builds of Eclipse automatically generated config.ini files
 in some cases. The work around is either to delete the local config.ini or
-update the eclipse.product line to read
-eclipse.product=org.eclipse.platform.ide.</p>
+update the eclipse.product line to read eclipse.product=org.eclipse.platform.ide.</p>
 <h4><b>Changing the character encoding for a resource causes inconsistencies</b></h4>
 <p>Changing the character encoding for a resource (or the whole workspace) does
 not trigger resource change events or auto builds. The result is that builders
@@ -387,8 +387,7 @@ following:</p>
 <ol>
   <li>Create a thread in which to run your code.
   <li>Send yourThread.setContextClassLoader(yourClassLoader); // you can find
-    your classloader by grabbing a class it loaded
-    (YourPluginClass.class.getClassLoader())
+    your classloader by grabbing a class it loaded (YourPluginClass.class.getClassLoader())
   <li>Run your code in the newly created thread.</li>
 </ol>
 <p>If you set the context class loader for the current thread, you are competing
@@ -727,11 +726,11 @@ that is upgraded to 3.0, they can be removed by performing a Project&gt;Clean.
 (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=40593">40593</a>)</p>
 <h4>Issues upgrading from 1.0 to 3.0</h4>
 <p>In 1.0, CVS used a .vcm_meta file to store project configuration information.
-In 2.0, this file was replaced by the .project file but CVS still read the
-.vcm_meta file for backwards compatibilty. In 3.0, the .vcm_meta file is no
-longer read by CVS. Users who wish to upgrade from 1.0 to 3.0 must first upgrade
-to 2.x and then upgrade to 3.0 if they wich to keep there project configuration
-information (e.g. java project). (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=43296">43296</a>)</p>
+In 2.0, this file was replaced by the .project file but CVS still read the .vcm_meta
+file for backwards compatibilty. In 3.0, the .vcm_meta file is no longer read by
+CVS. Users who wish to upgrade from 1.0 to 3.0 must first upgrade to 2.x and
+then upgrade to 3.0 if they wich to keep there project configuration information
+(e.g. java project). (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=43296">43296</a>)</p>
 <h4>Connection cannot be found after initially missing</h4>
 <p>If a connection initially fails due to a network problem, the connection may
 continue to fail even when the network problem is fixed. In order to establish
@@ -1238,1071 +1237,1083 @@ changed).</p>
 <table class="bz_buglist" cellspacing="0" cellpadding="4" width="100%">
   <tbody>
     <tr align="left">
-      <th><a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.0.1&amp;resolution=FIXED&amp;order=bugs.bug_id">ID</a></th>
-      <th><a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.0.1&amp;resolution=FIXED&amp;order=bugs.short_desc,bugs.bug_id">Summary</a></th>
+      <th><a href="buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.0.1&amp;resolution=FIXED&amp;order=bugs.bug_id">ID</a></th>
+      <th><a href="buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.0.1&amp;resolution=FIXED&amp;order=bugs.short_desc,bugs.bug_id">Summary</a></th>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=33640">33640</a></td>
+      <td><a href="show_bug.cgi?id=33640">33640</a></td>
       <td>Editor colors do not take effect on Apply</td>
     </tr>
     <tr class="bz_critical bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=38288">38288</a></td>
+      <td><a href="show_bug.cgi?id=38288">38288</a></td>
       <td>TVT21: English item in the Add Library panel</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=39863">39863</a></td>
+      <td><a href="show_bug.cgi?id=39863">39863</a></td>
       <td>TableViewer / cellModifier / ComboBoxCellEditor: new valu...</td>
     </tr>
     <tr class="bz_normal bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=44613">44613</a></td>
+      <td><a href="show_bug.cgi?id=44613">44613</a></td>
       <td>[misc] some actions go to disk everytime they are selected</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=46134">46134</a></td>
+      <td><a href="show_bug.cgi?id=46134">46134</a></td>
       <td>Migration of CVS repository location problem</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=47549">47549</a></td>
+      <td><a href="show_bug.cgi?id=47549">47549</a></td>
       <td>GPF in XtSetValues on M5</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=52916">52916</a></td>
+      <td><a href="show_bug.cgi?id=52916">52916</a></td>
       <td>Strange error message when using jre1.5.0 libraries</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=55804">55804</a></td>
+      <td><a href="show_bug.cgi?id=55804">55804</a></td>
       <td>allow ordering in &quot;Run As &gt;&quot; context menu</td>
     </tr>
     <tr class="bz_major bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=57408">57408</a></td>
+      <td><a href="show_bug.cgi?id=57408">57408</a></td>
       <td>DBCS: After pressing &quot;Tab&quot;, anything can not be inputed</td>
     </tr>
     <tr class="bz_normal bz_P1 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=59301">59301</a></td>
+      <td><a href="show_bug.cgi?id=59301">59301</a></td>
       <td>[GlobalActions] View gets uninitialized ViewSite in its i...</td>
     </tr>
     <tr class="bz_minor bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=59674">59674</a></td>
+      <td><a href="show_bug.cgi?id=59674">59674</a></td>
       <td>Minor Typos</td>
     </tr>
     <tr class="bz_critical bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=59899">59899</a></td>
+      <td><a href="show_bug.cgi?id=59899">59899</a></td>
       <td>Encoding changes need to notify clients</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=61368">61368</a></td>
+      <td><a href="show_bug.cgi?id=61368">61368</a></td>
       <td>Perspective layouts should define a place holder for the ...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=62862">62862</a></td>
+      <td><a href="show_bug.cgi?id=62862">62862</a></td>
       <td>[painting] Reusing Editors does not fully reset editor</td>
     </tr>
     <tr class="bz_normal bz_P1 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=63235">63235</a></td>
+      <td><a href="show_bug.cgi?id=63235">63235</a></td>
       <td>[KeyBindings] Cut/Copy/Paste/SelectAll don't work in Swin...</td>
     </tr>
     <tr class="bz_major bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=63324">63324</a></td>
+      <td><a href="show_bug.cgi?id=63324">63324</a></td>
       <td>[ActionSets] Plugin not deactivated with Exception at sta...</td>
     </tr>
     <tr class="bz_normal bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=63546">63546</a></td>
+      <td><a href="show_bug.cgi?id=63546">63546</a></td>
       <td>[OLE] In-place editor fails with: Class ID not found in r...</td>
     </tr>
     <tr class="bz_enhancement bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=63947">63947</a></td>
+      <td><a href="show_bug.cgi?id=63947">63947</a></td>
       <td>Enhance default search for numbers</td>
     </tr>
     <tr class="bz_major bz_P1 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=64956">64956</a></td>
+      <td><a href="show_bug.cgi?id=64956">64956</a></td>
       <td>[KeyBindings] TVT3.0: Error message on console during sta...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=65938">65938</a></td>
+      <td><a href="show_bug.cgi?id=65938">65938</a></td>
       <td>cannot generate Javadoc with excluded source folder [java...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=66405">66405</a></td>
+      <td><a href="show_bug.cgi?id=66405">66405</a></td>
       <td>Activities Dialog - empty categories should not be visible</td>
     </tr>
     <tr class="bz_enhancement bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=66407">66407</a></td>
+      <td><a href="show_bug.cgi?id=66407">66407</a></td>
       <td>Need multi-provider Project Set import compatibility mech...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=66433">66433</a></td>
+      <td><a href="show_bug.cgi?id=66433">66433</a></td>
       <td>Need keyboard support for Nested Tabfolder Traversal</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=66512">66512</a></td>
+      <td><a href="show_bug.cgi?id=66512">66512</a></td>
       <td>Invalid classpath entry not rejected</td>
     </tr>
     <tr class="bz_major bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67046">67046</a></td>
+      <td><a href="show_bug.cgi?id=67046">67046</a></td>
       <td>Exception when dragging a method to another class using t...</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67061">67061</a></td>
+      <td><a href="show_bug.cgi?id=67061">67061</a></td>
       <td>[Browser] Blank page when opening page with Flash</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67070">67070</a></td>
+      <td><a href="show_bug.cgi?id=67070">67070</a></td>
       <td>SWTException from Forms code.</td>
     </tr>
     <tr class="bz_major bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67221">67221</a></td>
+      <td><a href="show_bug.cgi?id=67221">67221</a></td>
       <td>[Themes] Cannot customize values of colors/fonts when th...</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67293">67293</a></td>
+      <td><a href="show_bug.cgi?id=67293">67293</a></td>
       <td>[Themes] Setting inital theme to a bad theme id results i...</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67547">67547</a></td>
+      <td><a href="show_bug.cgi?id=67547">67547</a></td>
       <td>[3.0.1] Got user vetoed file modification although I neve...</td>
     </tr>
     <tr class="bz_major bz_P1 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67590">67590</a></td>
+      <td><a href="show_bug.cgi?id=67590">67590</a></td>
       <td>[Presentations] The 'Save All' command has no effect</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67716">67716</a></td>
+      <td><a href="show_bug.cgi?id=67716">67716</a></td>
       <td>[ProblemsView] Trying to sort in Problems View removes al...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67789">67789</a></td>
+      <td><a href="show_bug.cgi?id=67789">67789</a></td>
       <td>Java element delta from refresh contains excluded package</td>
     </tr>
     <tr class="bz_enhancement bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67811">67811</a></td>
+      <td><a href="show_bug.cgi?id=67811">67811</a></td>
       <td>Need support for adding separators to the help menu</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67878">67878</a></td>
+      <td><a href="show_bug.cgi?id=67878">67878</a></td>
       <td>[3.0.1] Thread timed out while loading class ConsoleDocum...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67884">67884</a></td>
+      <td><a href="show_bug.cgi?id=67884">67884</a></td>
       <td>[content type] Content type change events not reported</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67912">67912</a></td>
+      <td><a href="show_bug.cgi?id=67912">67912</a></td>
       <td>ConfiguredSite is null after dynamically installing a fea...</td>
     </tr>
     <tr class="bz_major bz_P1 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67913">67913</a></td>
+      <td><a href="show_bug.cgi?id=67913">67913</a></td>
       <td>[ActionSets] Actions associated with views not disposed</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68017">68017</a></td>
+      <td><a href="show_bug.cgi?id=68017">68017</a></td>
       <td>Javadoc processing does not detect missing argument to @r...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68023">68023</a></td>
+      <td><a href="show_bug.cgi?id=68023">68023</a></td>
       <td>Why does pde always append &quot;.jar&quot; on the runtime library ...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68025">68025</a></td>
+      <td><a href="show_bug.cgi?id=68025">68025</a></td>
       <td>Javadoc processing does not detect some wrong links</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68032">68032</a></td>
+      <td><a href="show_bug.cgi?id=68032">68032</a></td>
       <td>PDE imports plugins only from default location when star...</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68058">68058</a></td>
+      <td><a href="show_bug.cgi?id=68058">68058</a></td>
       <td>NPE in JUnit view [JUnit]</td>
     </tr>
     <tr class="bz_enhancement bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68087">68087</a></td>
+      <td><a href="show_bug.cgi?id=68087">68087</a></td>
       <td>[Javadoc] '-' character should be accepted in tag names</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68117">68117</a></td>
+      <td><a href="show_bug.cgi?id=68117">68117</a></td>
       <td>Error when changing class name in Configure Accessor Clas...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68146">68146</a></td>
+      <td><a href="show_bug.cgi?id=68146">68146</a></td>
       <td>Search should not populate Java model cache</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68158">68158</a></td>
+      <td><a href="show_bug.cgi?id=68158">68158</a></td>
       <td>Error Log view does not display stack trace</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68180">68180</a></td>
+      <td><a href="show_bug.cgi?id=68180">68180</a></td>
       <td>[ActivityMgmt] Capabilities Preference page tree expansion</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68250">68250</a></td>
+      <td><a href="show_bug.cgi?id=68250">68250</a></td>
       <td>Throwing Focus to the EditorPart</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68273">68273</a></td>
+      <td><a href="show_bug.cgi?id=68273">68273</a></td>
       <td>tabletree plus/minus not visible in High Contrast Mode</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68295">68295</a></td>
+      <td><a href="show_bug.cgi?id=68295">68295</a></td>
       <td>User Libraries dialog loses settings [build path]</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68343">68343</a></td>
+      <td><a href="show_bug.cgi?id=68343">68343</a></td>
       <td>IDOMType.setSuperInterfaces() with empty array has no imp...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68349">68349</a></td>
+      <td><a href="show_bug.cgi?id=68349">68349</a></td>
       <td>[osgi] NPE in FileManager.cleanup()</td>
     </tr>
     <tr class="bz_trivial bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68405">68405</a></td>
+      <td><a href="show_bug.cgi?id=68405">68405</a></td>
       <td>[3.0.1] CVS Resource History uses bad content description</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68413">68413</a></td>
+      <td><a href="show_bug.cgi?id=68413">68413</a></td>
       <td>NPE from InstructionPointerManager</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68421">68421</a></td>
+      <td><a href="show_bug.cgi?id=68421">68421</a></td>
       <td>boolean property editor is incorrect UI</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68487">68487</a></td>
+      <td><a href="show_bug.cgi?id=68487">68487</a></td>
       <td>&quot;SAXParseException: XML declaration may only begin entiti...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68497">68497</a></td>
+      <td><a href="show_bug.cgi?id=68497">68497</a></td>
       <td>Standby intro comes up empty</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68504">68504</a></td>
+      <td><a href="show_bug.cgi?id=68504">68504</a></td>
       <td>Refactor -&gt; Change Method Signature removes import [refac...</td>
     </tr>
     <tr class="bz_normal bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68505">68505</a></td>
+      <td><a href="show_bug.cgi?id=68505">68505</a></td>
       <td>[Progress] Progress view shows waiting job which doesn't ...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68562">68562</a></td>
+      <td><a href="show_bug.cgi?id=68562">68562</a></td>
       <td>[projection] NPE in ProjectionViewer.setRangeIndication</td>
     </tr>
     <tr class="bz_trivial bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68563">68563</a></td>
+      <td><a href="show_bug.cgi?id=68563">68563</a></td>
       <td>[3.0.1] typo in 'Checkout from CVS' import wizard</td>
     </tr>
     <tr class="bz_minor bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68577">68577</a></td>
+      <td><a href="show_bug.cgi?id=68577">68577</a></td>
       <td>[formatting] javadoc formatter removes blank lines betwee...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68585">68585</a></td>
+      <td><a href="show_bug.cgi?id=68585">68585</a></td>
       <td>index is out of date after encoding change</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68626">68626</a></td>
+      <td><a href="show_bug.cgi?id=68626">68626</a></td>
       <td>[content type] LazyInputStream alters mark position on reset</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68653">68653</a></td>
+      <td><a href="show_bug.cgi?id=68653">68653</a></td>
       <td>Cannot install feature in new extension site, until restart</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68677">68677</a></td>
+      <td><a href="show_bug.cgi?id=68677">68677</a></td>
       <td>&lt;not responding&gt; label for restored bkp in source outside...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68683">68683</a></td>
+      <td><a href="show_bug.cgi?id=68683">68683</a></td>
       <td>Schema transformer places &lt;HTML&gt; tag after &lt;HEAD&gt;
         stanza,...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68688">68688</a></td>
+      <td><a href="show_bug.cgi?id=68688">68688</a></td>
       <td>Repeated string on Help welcome page</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68698">68698</a></td>
+      <td><a href="show_bug.cgi?id=68698">68698</a></td>
       <td>Bug in inner class emulation:compiler doesn't reject ille...</td>
     </tr>
     <tr class="bz_normal bz_P1 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68712">68712</a></td>
+      <td><a href="show_bug.cgi?id=68712">68712</a></td>
       <td>Export of multiple plugins fails</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68721">68721</a></td>
+      <td><a href="show_bug.cgi?id=68721">68721</a></td>
       <td>[3.0.1] ResourceVariantStorage causes StackOverflowError</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68726">68726</a></td>
+      <td><a href="show_bug.cgi?id=68726">68726</a></td>
       <td>[Javadoc] Target attribute in @see link triggers warning</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68750">68750</a></td>
+      <td><a href="show_bug.cgi?id=68750">68750</a></td>
       <td>sync hover too long</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68772">68772</a></td>
+      <td><a href="show_bug.cgi?id=68772">68772</a></td>
       <td>IDOMMember.getComments() sometimes returns wrong results.</td>
     </tr>
     <tr class="bz_critical bz_P1 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68774">68774</a></td>
+      <td><a href="show_bug.cgi?id=68774">68774</a></td>
       <td>[Perspectives] NPE in PerspectiveSwitcher.setCoolItemSize...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68785">68785</a></td>
+      <td><a href="show_bug.cgi?id=68785">68785</a></td>
       <td>Wrong default value chosen for attribute with a restriction</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68798">68798</a></td>
+      <td><a href="show_bug.cgi?id=68798">68798</a></td>
       <td>API not indexed</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68802">68802</a></td>
+      <td><a href="show_bug.cgi?id=68802">68802</a></td>
       <td>org.eclipse.ui.themes identifier incorrect</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68830">68830</a></td>
+      <td><a href="show_bug.cgi?id=68830">68830</a></td>
       <td>build-site function corrupts feature.xml</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68852">68852</a></td>
+      <td><a href="show_bug.cgi?id=68852">68852</a></td>
       <td>[SSH2] Bug in Socks5 authentication</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68863">68863</a></td>
+      <td><a href="show_bug.cgi?id=68855">68855</a></td>
+      <td>org.eclipse.swt.tools.internal.SwtJniGen is not working p...</td>
+    </tr>
+    <tr class="bz_normal bz_P3 ">
+      <td><a href="show_bug.cgi?id=68863">68863</a></td>
       <td>Missing entry in local variable attribute</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68868">68868</a></td>
+      <td><a href="show_bug.cgi?id=68868">68868</a></td>
       <td>Sometime a search results in the error &quot;Memento problem&quot; ...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68886">68886</a></td>
+      <td><a href="show_bug.cgi?id=68886">68886</a></td>
       <td>Code completion in Ant editor not work with xmlbuddy</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68894">68894</a></td>
+      <td><a href="show_bug.cgi?id=68894">68894</a></td>
       <td>[content type] preferences not being loaded</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68921">68921</a></td>
+      <td><a href="show_bug.cgi?id=68921">68921</a></td>
       <td>o.e.core.resources/schema/refreshProviders.exsd -- missin...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68932">68932</a></td>
+      <td><a href="show_bug.cgi?id=68932">68932</a></td>
       <td>Exception when project is closed</td>
     </tr>
     <tr class="bz_normal bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68939">68939</a></td>
+      <td><a href="show_bug.cgi?id=68939">68939</a></td>
       <td>[Workbench] Several org.eclipse.ui.*./schema/*.exsd files...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68941">68941</a></td>
+      <td><a href="show_bug.cgi?id=68941">68941</a></td>
       <td>[Colour/Font] Two org.eclipse.ui./schema/*.exsd files -- ...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68962">68962</a></td>
+      <td><a href="show_bug.cgi?id=68962">68962</a></td>
       <td>Eclipse don't show errors and warnings inside &quot;new reposi...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68963">68963</a></td>
+      <td><a href="show_bug.cgi?id=68963">68963</a></td>
       <td>[implementation] A bug of the IME composition string font.</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69028">69028</a></td>
+      <td><a href="show_bug.cgi?id=69028">69028</a></td>
       <td>Anonymous type in argument of super() is not in type hier...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69055">69055</a></td>
+      <td><a href="show_bug.cgi?id=69055">69055</a></td>
       <td>Topics in the infocenter not indexed by Google</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69151">69151</a></td>
+      <td><a href="show_bug.cgi?id=69151">69151</a></td>
       <td>JUnit Plug-in Tests not working if tests are a fragment.</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69152">69152</a></td>
+      <td><a href="show_bug.cgi?id=69152">69152</a></td>
       <td>[NPE] An internal error occurred during: &quot;Override indica...</td>
     </tr>
     <tr class="bz_trivial bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69159">69159</a></td>
+      <td><a href="show_bug.cgi?id=69159">69159</a></td>
       <td>Export feature &quot;Confirm Replace&quot; dialog missing a slash</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69190">69190</a></td>
+      <td><a href="show_bug.cgi?id=69190">69190</a></td>
       <td>NullPointerException @ org.eclipse.debug.core.sourcelooku...</td>
     </tr>
     <tr class="bz_minor bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69271">69271</a></td>
+      <td><a href="show_bug.cgi?id=69271">69271</a></td>
       <td>decimal integer literals should not consist of FULL WIDTH...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69272">69272</a></td>
+      <td><a href="show_bug.cgi?id=69272">69272</a></td>
       <td>[Javadoc] Invalid malformed reference (missing separator)</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69275">69275</a></td>
+      <td><a href="show_bug.cgi?id=69275">69275</a></td>
       <td>[Javadoc] Invalid warning on @see link</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69302">69302</a></td>
+      <td><a href="show_bug.cgi?id=69302">69302</a></td>
       <td>[Javadoc] Invalid reference warning inconsistent with jav...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69386">69386</a></td>
+      <td><a href="show_bug.cgi?id=69386">69386</a></td>
       <td>[prefs] PreferenceForwarder does not honour -data @none</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69398">69398</a></td>
+      <td><a href="show_bug.cgi?id=69398">69398</a></td>
       <td>Table.clearAll() does not force redraw</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69401">69401</a></td>
+      <td><a href="show_bug.cgi?id=69401">69401</a></td>
       <td>TVT3.0: What's New-&gt;Eclipse Community link causes bogus ...</td>
     </tr>
     <tr class="bz_critical bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69410">69410</a></td>
+      <td><a href="show_bug.cgi?id=69410">69410</a></td>
       <td>TVT3.0: mnemonics doesn't work if focus is in a text widget</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69419">69419</a></td>
+      <td><a href="show_bug.cgi?id=69419">69419</a></td>
       <td>[implementation] ChainedPreferenceStore</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69422">69422</a></td>
+      <td><a href="show_bug.cgi?id=69422">69422</a></td>
       <td>TVT3.0: untranslated string in &quot;Checkout from CVS&quot; proje...</td>
     </tr>
     <tr class="bz_blocker bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69440">69440</a></td>
+      <td><a href="show_bug.cgi?id=69440">69440</a></td>
       <td>Inspect32 does not show name for CCombo</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69452">69452</a></td>
+      <td><a href="show_bug.cgi?id=69452">69452</a></td>
       <td>NPE initializing source lookup</td>
     </tr>
     <tr class="bz_critical bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69470">69470</a></td>
+      <td><a href="show_bug.cgi?id=69470">69470</a></td>
       <td>TVT3.0: NL Truncation occurs in Run -&gt; External Tools -&gt; ...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69533">69533</a></td>
+      <td><a href="show_bug.cgi?id=69533">69533</a></td>
       <td>Activities in org.eclipse.team.examples.filesystem</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69535">69535</a></td>
+      <td><a href="show_bug.cgi?id=69535">69535</a></td>
       <td>TVT3.0: Multiple Mnemonics in CVS Repository Property</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69536">69536</a></td>
+      <td><a href="show_bug.cgi?id=69536">69536</a></td>
       <td>Infinite loop on rendering variables</td>
     </tr>
     <tr class="bz_major bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69541">69541</a></td>
+      <td><a href="show_bug.cgi?id=69541">69541</a></td>
       <td>[Dialogs] TVT3.0: Task List Description text entry widge...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69554">69554</a></td>
+      <td><a href="show_bug.cgi?id=69554">69554</a></td>
       <td>Eclipse Java compiler is not completely compliant to Javac</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69607">69607</a></td>
+      <td><a href="show_bug.cgi?id=69607">69607</a></td>
       <td>[Preferences] TVT3.0: nonexternalized string in Preferen...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69608">69608</a></td>
+      <td><a href="show_bug.cgi?id=69608">69608</a></td>
       <td>[About] TVT3.0: Non-externalized strings in About Eclips...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69612">69612</a></td>
+      <td><a href="show_bug.cgi?id=69612">69612</a></td>
       <td>[Font/Colour] TVT3.0: Duplicated mnemonics in Preference...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69618">69618</a></td>
+      <td><a href="show_bug.cgi?id=69618">69618</a></td>
       <td>TVT3.0: Truncation in External Tools -&gt; Ant -&gt; New Config...</td>
     </tr>
     <tr class="bz_blocker bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69620">69620</a></td>
+      <td><a href="show_bug.cgi?id=69620">69620</a></td>
       <td>Update site builder is ommitting some innerclasses from g...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69625">69625</a></td>
+      <td><a href="show_bug.cgi?id=69625">69625</a></td>
       <td>TVT3.0: Non-externalized strings in Software Updates -&gt; M...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69628">69628</a></td>
+      <td><a href="show_bug.cgi?id=69628">69628</a></td>
       <td>TVT3.0: English dates displayed in manage configuration.</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69637">69637</a></td>
+      <td><a href="show_bug.cgi?id=69637">69637</a></td>
       <td>[CheatSheets] TVT3.0: Problem executing CVS Tasks cheat s...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69665">69665</a></td>
+      <td><a href="show_bug.cgi?id=69665">69665</a></td>
       <td>Msg for missing .eclipseextension says .eclipseproduct</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69669">69669</a></td>
+      <td><a href="show_bug.cgi?id=69669">69669</a></td>
       <td>TVT3.0: Debug view has mnemonics in Debug, Run, and Exte...</td>
     </tr>
     <tr class="bz_normal bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69710">69710</a></td>
+      <td><a href="show_bug.cgi?id=69710">69710</a></td>
       <td>[find/replace] Replace scope ignored</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69723">69723</a></td>
+      <td><a href="show_bug.cgi?id=69723">69723</a></td>
       <td>TVT3.0: Truncated text in memory view</td>
     </tr>
     <tr class="bz_critical bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69724">69724</a></td>
+      <td><a href="show_bug.cgi?id=69724">69724</a></td>
       <td>[Fonts] TVT3.0: Description for colors &amp; fonts are switched</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69736">69736</a></td>
+      <td><a href="show_bug.cgi?id=69736">69736</a></td>
       <td>IWAV0138E Remote VM terminated too soon error - when acce...</td>
     </tr>
     <tr class="bz_critical bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69768">69768</a></td>
+      <td><a href="show_bug.cgi?id=69768">69768</a></td>
       <td>TVT3.0: Preferences -&gt; Ant has text showing up in english</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69782">69782</a></td>
+      <td><a href="show_bug.cgi?id=69782">69782</a></td>
       <td>Eclipse doesn't automatically discover the inability to w...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69818">69818</a></td>
+      <td><a href="show_bug.cgi?id=69818">69818</a></td>
       <td>NPE when launching with Debugger</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69826">69826</a></td>
+      <td><a href="show_bug.cgi?id=69826">69826</a></td>
       <td>NPE while debugging</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69829">69829</a></td>
+      <td><a href="show_bug.cgi?id=69829">69829</a></td>
       <td>TVT3.0: Tips and Tricks text in tables is right aligned.</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69836">69836</a></td>
+      <td><a href="show_bug.cgi?id=69836">69836</a></td>
       <td>TVT3.0: In Korean locale &quot;View Installation History&quot; fails</td>
     </tr>
     <tr class="bz_normal bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69840">69840</a></td>
+      <td><a href="show_bug.cgi?id=69840">69840</a></td>
       <td>TVT3.0: Preferences - Platform Dictionary is in english</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69843">69843</a></td>
+      <td><a href="show_bug.cgi?id=69843">69843</a></td>
       <td>TVT3.0: Unexternalized string in Preferences&gt;Java&gt;Task Tags</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69851">69851</a></td>
+      <td><a href="show_bug.cgi?id=69851">69851</a></td>
       <td>TVT3.0: Corrupted text displaying in View Installation Hi...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69855">69855</a></td>
+      <td><a href="show_bug.cgi?id=69855">69855</a></td>
       <td>Add dynamic/portlet capability to intro</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69884">69884</a></td>
+      <td><a href="show_bug.cgi?id=69884">69884</a></td>
       <td>TVT3.0: Truncation occurs in Add Library Panel</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69886">69886</a></td>
+      <td><a href="show_bug.cgi?id=69886">69886</a></td>
       <td>HTML fragments encoded in UTF-8 display some garbage char...</td>
     </tr>
     <tr class="bz_major bz_P1 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69900">69900</a></td>
+      <td><a href="show_bug.cgi?id=69900">69900</a></td>
       <td>[EditorMgmt] Editor cannot be closed after it is activate...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69932">69932</a></td>
+      <td><a href="show_bug.cgi?id=69932">69932</a></td>
       <td>TVT3.0: Add Constructor from Superclass has incorrect mne...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69961">69961</a></td>
+      <td><a href="show_bug.cgi?id=69961">69961</a></td>
       <td>[other] NPE retrieving authorization info</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69971">69971</a></td>
+      <td><a href="show_bug.cgi?id=69971">69971</a></td>
       <td>Empty books shown in help working set dialog</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69975">69975</a></td>
+      <td><a href="show_bug.cgi?id=69975">69975</a></td>
       <td>TVT3.0: Preferences CVS has non-externalized strings</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69978">69978</a></td>
+      <td><a href="show_bug.cgi?id=69978">69978</a></td>
       <td>TVT3.0: Two shortcuts for one menuitem</td>
     </tr>
     <tr class="bz_critical bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70002">70002</a></td>
+      <td><a href="show_bug.cgi?id=70002">70002</a></td>
       <td>[implementation] NPE while opening the first java editor</td>
     </tr>
     <tr class="bz_critical bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70011">70011</a></td>
+      <td><a href="show_bug.cgi?id=70011">70011</a></td>
       <td>Installed JREs missing libraries</td>
     </tr>
     <tr class="bz_normal bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70030">70030</a></td>
+      <td><a href="show_bug.cgi?id=70030">70030</a></td>
       <td>[Wizards] Help Context - New Folder or File</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70051">70051</a></td>
+      <td><a href="show_bug.cgi?id=70051">70051</a></td>
       <td>MemoryViewTab does not calculate delta and selected addre...</td>
     </tr>
     <tr class="bz_major bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70077">70077</a></td>
+      <td><a href="show_bug.cgi?id=70077">70077</a></td>
       <td>[typing] Copy/paste doesn't work occasionally</td>
     </tr>
     <tr class="bz_major bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70080">70080</a></td>
+      <td><a href="show_bug.cgi?id=70080">70080</a></td>
       <td>[RCP] Reset Perspective does not work if no perspective t...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70111">70111</a></td>
+      <td><a href="show_bug.cgi?id=70111">70111</a></td>
       <td>TVT3.0: Java Project Properties has truncated text and bu...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70112">70112</a></td>
+      <td><a href="show_bug.cgi?id=70112">70112</a></td>
       <td>org.eclipse.help.webapp JSPs fail validation</td>
     </tr>
     <tr class="bz_minor bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70114">70114</a></td>
+      <td><a href="show_bug.cgi?id=70114">70114</a></td>
       <td>org.eclipse.help.webapp livehelp.js.jsp references unable...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70149">70149</a></td>
+      <td><a href="show_bug.cgi?id=70149">70149</a></td>
       <td>[New Plug-in Project] Help Context</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70158">70158</a></td>
+      <td><a href="show_bug.cgi?id=70158">70158</a></td>
       <td>Exception trying to add getter [code manipulation]</td>
     </tr>
     <tr class="bz_normal bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70170">70170</a></td>
+      <td><a href="show_bug.cgi?id=70170">70170</a></td>
       <td>[Schemas] Generated class for view extension does not ext...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70193">70193</a></td>
+      <td><a href="show_bug.cgi?id=70193">70193</a></td>
       <td>DBCS - GB18030 characters cannot be correctly generated i...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70296">70296</a></td>
+      <td><a href="show_bug.cgi?id=70296">70296</a></td>
       <td>Changes not being saved when comparing with revision</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70299">70299</a></td>
+      <td><a href="show_bug.cgi?id=70299">70299</a></td>
       <td>Eclipse dead slow on one system, normal on other</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70354">70354</a></td>
+      <td><a href="show_bug.cgi?id=70354">70354</a></td>
       <td>JSP editor does not scroll to/highlight the current execu...</td>
     </tr>
     <tr class="bz_major bz_P1 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70362">70362</a></td>
+      <td><a href="show_bug.cgi?id=70362">70362</a></td>
       <td>[EditorMgmt] Topmost editor not properly restored</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70364">70364</a></td>
+      <td><a href="show_bug.cgi?id=70364">70364</a></td>
       <td>Adapt test cases to JDT/Core fix 68017 in 3.0.1 branch</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70372">70372</a></td>
+      <td><a href="show_bug.cgi?id=70372">70372</a></td>
       <td>[prefs] project preference listeners and the workspace</td>
     </tr>
     <tr class="bz_critical bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70373">70373</a></td>
+      <td><a href="show_bug.cgi?id=70373">70373</a></td>
       <td>Make &quot;Drop to Frame&quot; action available in the context menu...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70403">70403</a></td>
+      <td><a href="show_bug.cgi?id=70403">70403</a></td>
       <td>Hardcoded paths make copy of workspace unusable and event...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70412">70412</a></td>
+      <td><a href="show_bug.cgi?id=70412">70412</a></td>
       <td>[api] Formatting a large file makes Eclipse freeze (enabl...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70428">70428</a></td>
+      <td><a href="show_bug.cgi?id=70428">70428</a></td>
       <td>schema files -- missing &amp;lt;pre&amp;gt; and &amp;lt;/pre&amp;gt;
         tags...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70429">70429</a></td>
+      <td><a href="show_bug.cgi?id=70429">70429</a></td>
       <td>missing &amp;lt;pre&amp;gt; and &amp;lt;/pre&amp;gt; tags in Examples
         sec...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70436">70436</a></td>
+      <td><a href="show_bug.cgi?id=70436">70436</a></td>
       <td>[osgi] Infinite loop in basicStopBundles with IBM JRE 1.4...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70502">70502</a></td>
+      <td><a href="show_bug.cgi?id=70502">70502</a></td>
       <td>Deleting help bookrmarks shows no confirmation dialog</td>
     </tr>
     <tr class="bz_major bz_P1 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70503">70503</a></td>
+      <td><a href="show_bug.cgi?id=70503">70503</a></td>
       <td>[Commands] ctrl+c, ctrl+v, ctrl+x accelerators dont work ...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70598">70598</a></td>
+      <td><a href="show_bug.cgi?id=70598">70598</a></td>
       <td>[Encoding] ArrayIndexOutOfBoundsException while testing B...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70623">70623</a></td>
+      <td><a href="show_bug.cgi?id=70623">70623</a></td>
       <td>TVT3.0: No mnemonic on Run Last launched panel</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70644">70644</a></td>
+      <td><a href="show_bug.cgi?id=70644">70644</a></td>
       <td>User doc missing alt text</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70648">70648</a></td>
+      <td><a href="show_bug.cgi?id=70648">70648</a></td>
       <td>TVT3.0: Wrong string displayed in Ext Connect Method panel</td>
     </tr>
     <tr class="bz_blocker bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70650">70650</a></td>
+      <td><a href="show_bug.cgi?id=70650">70650</a></td>
       <td>Project builders do not execute in specified order.</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70672">70672</a></td>
+      <td><a href="show_bug.cgi?id=70672">70672</a></td>
       <td>Bogus url passed to shellexecute</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70700">70700</a></td>
+      <td><a href="show_bug.cgi?id=70700">70700</a></td>
       <td>[Progress] progress issues during build</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70708">70708</a></td>
+      <td><a href="show_bug.cgi?id=70708">70708</a></td>
       <td>no error message on missing product</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70734">70734</a></td>
+      <td><a href="show_bug.cgi?id=70734">70734</a></td>
       <td>TVT3.0: Duplicate mnemonics, ''Build Ant'' and ''Build A...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70744">70744</a></td>
+      <td><a href="show_bug.cgi?id=70744">70744</a></td>
       <td>Breakpoint location validation error.</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70762">70762</a></td>
+      <td><a href="show_bug.cgi?id=70762">70762</a></td>
       <td>Infocenter documentation set cannot be updated without re...</td>
     </tr>
     <tr class="bz_critical bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70765">70765</a></td>
+      <td><a href="show_bug.cgi?id=70765">70765</a></td>
       <td>TVT3.0: Split words on welcome page</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70828">70828</a></td>
+      <td><a href="show_bug.cgi?id=70828">70828</a></td>
       <td>[ProblemsView] ConcurrentModificationException is thrown ...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70841">70841</a></td>
+      <td><a href="show_bug.cgi?id=70841">70841</a></td>
       <td>Move to Ant 1.6.2</td>
     </tr>
     <tr class="bz_major bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70882">70882</a></td>
+      <td><a href="show_bug.cgi?id=70882">70882</a></td>
       <td>EnablementDialog grows too big</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70904">70904</a></td>
+      <td><a href="show_bug.cgi?id=70904">70904</a></td>
       <td>TVT3.0: Help Show All Contents confirmation</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70936">70936</a></td>
+      <td><a href="show_bug.cgi?id=70936">70936</a></td>
       <td>Accessibility: &quot;Hot keys&quot; to jump between important frame...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70939">70939</a></td>
+      <td><a href="show_bug.cgi?id=70939">70939</a></td>
       <td>Wrong characters used as mnemonics in help HTML UI</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70946">70946</a></td>
+      <td><a href="show_bug.cgi?id=70946">70946</a></td>
       <td>TVT3.0: Truncation in new Plug-in Project screen</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70993">70993</a></td>
+      <td><a href="show_bug.cgi?id=70993">70993</a></td>
       <td>incompatible thread state from drop to frame action</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71003">71003</a></td>
+      <td><a href="show_bug.cgi?id=71003">71003</a></td>
       <td>[osgi] Inconsistant behavior with bundle manifest files b...</td>
     </tr>
     <tr class="bz_trivial bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71019">71019</a></td>
+      <td><a href="show_bug.cgi?id=71019">71019</a></td>
       <td>Setting a ToolItem's control to a Button doesn't work in ...</td>
     </tr>
     <tr class="bz_major bz_P1 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71053">71053</a></td>
+      <td><a href="show_bug.cgi?id=71053">71053</a></td>
       <td>[ActivityMgmt] IllegalArgException in Capability preferen...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71154">71154</a></td>
+      <td><a href="show_bug.cgi?id=71154">71154</a></td>
       <td>FormToolkit.createExpandableComposite(..., ExpandableComp...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71185">71185</a></td>
+      <td><a href="show_bug.cgi?id=71185">71185</a></td>
       <td>TVT3.0: Extra mnemonics for Debug, Run, and External tools</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71242">71242</a></td>
+      <td><a href="show_bug.cgi?id=71242">71242</a></td>
       <td>Manifest editor reports referenced resource not found pro...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71294">71294</a></td>
+      <td><a href="show_bug.cgi?id=71294">71294</a></td>
       <td>Capabilities Preference Deselection.</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71312">71312</a></td>
+      <td><a href="show_bug.cgi?id=71312">71312</a></td>
       <td>TVT3.0: Non-externalized string 'matches in ...' in Sear...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71318">71318</a></td>
+      <td><a href="show_bug.cgi?id=71318">71318</a></td>
       <td>TVT3.0: SWT Welcome panel 'Project name' not externalized</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71364">71364</a></td>
+      <td><a href="show_bug.cgi?id=71364">71364</a></td>
       <td>File Search fails if string contains single quote and a {</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71390">71390</a></td>
+      <td><a href="show_bug.cgi?id=71390">71390</a></td>
       <td>The -clean command line option needs to be documented.</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71441">71441</a></td>
+      <td><a href="show_bug.cgi?id=71441">71441</a></td>
       <td>DebugException: Unable to retrieve stack frame - thread n...</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71467">71467</a></td>
+      <td><a href="show_bug.cgi?id=71467">71467</a></td>
       <td>JavaConventions.ValidatePackageName() does not return ERROR</td>
     </tr>
     <tr class="bz_normal bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71490">71490</a></td>
+      <td><a href="show_bug.cgi?id=71490">71490</a></td>
       <td>NPE in SchemaRegistry.getIncludedSchema</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71495">71495</a></td>
+      <td><a href="show_bug.cgi?id=71495">71495</a></td>
       <td>org.eclipse.jdt.ui.examples.projects has old icon</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71561">71561</a></td>
+      <td><a href="show_bug.cgi?id=71561">71561</a></td>
       <td>Inspect popup doesn't handle tabs in inspected expression</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71596">71596</a></td>
+      <td><a href="show_bug.cgi?id=71596">71596</a></td>
       <td>Some files missing from the distribution of the Ant plugin</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71683">71683</a></td>
+      <td><a href="show_bug.cgi?id=71683">71683</a></td>
       <td>Builders, cancellation, and last build state</td>
     </tr>
     <tr class="bz_critical bz_P1 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71742">71742</a></td>
+      <td><a href="show_bug.cgi?id=71742">71742</a></td>
       <td>[IDE] use long-running operations to set encoding</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71767">71767</a></td>
+      <td><a href="show_bug.cgi?id=71767">71767</a></td>
       <td>Semantic highlighting does not update scanners on propert...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71806">71806</a></td>
+      <td><a href="show_bug.cgi?id=71806">71806</a></td>
       <td>Convert to Plugin Project does not generate 3.0 compliant...</td>
     </tr>
     <tr class="bz_critical bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71823">71823</a></td>
+      <td><a href="show_bug.cgi?id=71823">71823</a></td>
       <td>empty manifest files included in update site downloads co...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71826">71826</a></td>
+      <td><a href="show_bug.cgi?id=71826">71826</a></td>
       <td>[registry] Extensions lost dependant on fragment/plug-in ...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=71967">71967</a></td>
+      <td><a href="show_bug.cgi?id=71967">71967</a></td>
       <td>Error using Help</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72024">72024</a></td>
+      <td><a href="show_bug.cgi?id=72024">72024</a></td>
       <td>UndoManager creates potential memory leak [refactoring]</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72040">72040</a></td>
+      <td><a href="show_bug.cgi?id=72040">72040</a></td>
       <td>ActiveX Accessibility</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72062">72062</a></td>
+      <td><a href="show_bug.cgi?id=72062">72062</a></td>
       <td>CLEAN constant missing from &quot;IncrementalBuild&quot; Ant task</td>
     </tr>
     <tr class="bz_critical bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72111">72111</a></td>
+      <td><a href="show_bug.cgi?id=72111">72111</a></td>
       <td>Existing manifest files can confuse confuse PDE</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72114">72114</a></td>
+      <td><a href="show_bug.cgi?id=72114">72114</a></td>
       <td>[ViewMgmt] Views that implement ISaveablePart are not con...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72136">72136</a></td>
+      <td><a href="show_bug.cgi?id=72136">72136</a></td>
       <td>Swap Feature Task does not display text from property file</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72305">72305</a></td>
+      <td><a href="show_bug.cgi?id=72305">72305</a></td>
       <td>JDIModelPresentation uses resource name with IJavaStratum...</td>
     </tr>
     <tr class="bz_enhancement bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72340">72340</a></td>
+      <td><a href="show_bug.cgi?id=72340">72340</a></td>
       <td>[doc] Best practices documentation for Infocenter compati...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72350">72350</a></td>
+      <td><a href="show_bug.cgi?id=72350">72350</a></td>
       <td>NPE in BreakpointsView.dispose</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72366">72366</a></td>
+      <td><a href="show_bug.cgi?id=72366">72366</a></td>
       <td>NPE from LaunchView</td>
     </tr>
     <tr class="bz_normal bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72383">72383</a></td>
+      <td><a href="show_bug.cgi?id=72383">72383</a></td>
       <td>[Perspectives] Placeholder folder error with multiple ins...</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72449">72449</a></td>
+      <td><a href="show_bug.cgi?id=72449">72449</a></td>
       <td>NPE in VariablesView.saveState</td>
     </tr>
     <tr class="bz_critical bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72450">72450</a></td>
+      <td><a href="show_bug.cgi?id=72450">72450</a></td>
       <td>PDE Junit launch short cut is not specific enough</td>
     </tr>
     <tr class="bz_minor bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72468">72468</a></td>
+      <td><a href="show_bug.cgi?id=72468">72468</a></td>
       <td>&quot;hierarchy of ... type is inconsistent&quot; error message</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72483">72483</a></td>
+      <td><a href="show_bug.cgi?id=72483">72483</a></td>
       <td>NPE attempt to Inspect if never shown Variable view</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72512">72512</a></td>
+      <td><a href="show_bug.cgi?id=72512">72512</a></td>
       <td>Global Properties not set for editor parsing</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72514">72514</a></td>
+      <td><a href="show_bug.cgi?id=72514">72514</a></td>
       <td>[osgi] open up the framework for adding extensions</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72542">72542</a></td>
+      <td><a href="show_bug.cgi?id=72542">72542</a></td>
       <td>HCR when stopped on a Stratum Breakpoint</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72545">72545</a></td>
+      <td><a href="show_bug.cgi?id=72545">72545</a></td>
       <td>[encoding] adopt long-running version of IFile#setCharset</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72552">72552</a></td>
+      <td><a href="show_bug.cgi?id=72552">72552</a></td>
       <td>Help Search broken for nl characters in 3.0</td>
     </tr>
     <tr class="bz_major bz_P1 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72585">72585</a></td>
+      <td><a href="show_bug.cgi?id=72585">72585</a></td>
       <td>[ViewMgmt] Empty variables view, inspect disabled</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72597">72597</a></td>
+      <td><a href="show_bug.cgi?id=72597">72597</a></td>
       <td>bad line ending in MANIFEST.MF keeps eclipse from booting.</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72653">72653</a></td>
+      <td><a href="show_bug.cgi?id=72653">72653</a></td>
       <td>[osgi] Application update through update site causes OSGI...</td>
     </tr>
     <tr class="bz_normal bz_P1 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72669">72669</a></td>
+      <td><a href="show_bug.cgi?id=72669">72669</a></td>
       <td>Deleting a modified file doesn't update icon decoration i...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72680">72680</a></td>
+      <td><a href="show_bug.cgi?id=72680">72680</a></td>
       <td>Error Generating HTML Message in org.eclipse.ui.intro</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72689">72689</a></td>
+      <td><a href="show_bug.cgi?id=72689">72689</a></td>
       <td>adopt long-running version of IFile#setCharset</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72747">72747</a></td>
+      <td><a href="show_bug.cgi?id=72747">72747</a></td>
       <td>Unclosed jar file and stream in pluginConverter</td>
     </tr>
     <tr class="bz_minor bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72753">72753</a></td>
+      <td><a href="show_bug.cgi?id=72753">72753</a></td>
       <td>&quot;Show Properties&quot; task missing in Configuration Manager</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72789">72789</a></td>
+      <td><a href="show_bug.cgi?id=72789">72789</a></td>
       <td>&quot;Show in Browser&quot; broken for Copyright and License in fea...</td>
     </tr>
     <tr class="bz_major bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72978">72978</a></td>
+      <td><a href="show_bug.cgi?id=72978">72978</a></td>
       <td>[Actions] Get cancel status and new name from CopyProject...</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72979">72979</a></td>
+      <td><a href="show_bug.cgi?id=72979">72979</a></td>
       <td>PasteAction should notify results</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72986">72986</a></td>
+      <td><a href="show_bug.cgi?id=72986">72986</a></td>
       <td>ExpressionInformationControl leaks</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=73053">73053</a></td>
+      <td><a href="show_bug.cgi?id=73053">73053</a></td>
       <td>[misc] Status editor always empty</td>
     </tr>
     <tr class="bz_normal bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=73107">73107</a></td>
+      <td><a href="show_bug.cgi?id=73107">73107</a></td>
       <td>PinParticipantAction not removed as an IPropertyChangeLis...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=73111">73111</a></td>
+      <td><a href="show_bug.cgi?id=73111">73111</a></td>
       <td>[osgi] Review the EclipseAdaptor#handleRuntimeException b...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=73128">73128</a></td>
+      <td><a href="show_bug.cgi?id=73128">73128</a></td>
       <td>Error parsing plugin manifest file using 3.0.1 candidate</td>
     </tr>
     <tr class="bz_major bz_P2 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=73130">73130</a></td>
+      <td><a href="show_bug.cgi?id=73130">73130</a></td>
       <td>[Preferences] 3.0.1 candidate: Workspace gets (fully?) bu...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=73166">73166</a></td>
+      <td><a href="show_bug.cgi?id=73166">73166</a></td>
       <td>Exceptions when compatibility not installed</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=73195">73195</a></td>
+      <td><a href="show_bug.cgi?id=73195">73195</a></td>
       <td>Incorrectly setting base folder for plugin import -&gt; stra...</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=73213">73213</a></td>
+      <td><a href="show_bug.cgi?id=73213">73213</a></td>
       <td>Unicode - Search problem with &quot;Case sensitive&quot; unchecked</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=73258">73258</a></td>
+      <td><a href="show_bug.cgi?id=73258">73258</a></td>
       <td>Subscriber leakage on open/close of Synchronize view</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=73261">73261</a></td>
+      <td><a href="show_bug.cgi?id=73261">73261</a></td>
       <td>'Toggle Line Breakpoint' doesn't remove existing breakpoi...</td>
     </tr>
     <tr class="bz_critical bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=73302">73302</a></td>
+      <td><a href="show_bug.cgi?id=73302">73302</a></td>
       <td>Compiler errors after re-importing swt WITH links</td>
     </tr>
     <tr class="bz_major bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=73304">73304</a></td>
+      <td><a href="show_bug.cgi?id=73304">73304</a></td>
       <td>Target Platform in runtime workbench references plugins i...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=73330">73330</a></td>
+      <td><a href="show_bug.cgi?id=73330">73330</a></td>
       <td>NullPointerException in search</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
-      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=73451">73451</a></td>
+      <td><a href="show_bug.cgi?id=73451">73451</a></td>
       <td>Remove warnings from 20040908 build</td>
+    </tr>
+    <tr class="bz_normal bz_P3 ">
+      <td><a href="show_bug.cgi?id=73476">73476</a></td>
+      <td>chkpii error in org_eclipse_ui_intro_config.html in M2004...</td>
+    </tr>
+    <tr class="bz_critical bz_P3 ">
+      <td><a href="show_bug.cgi?id=73693">73693</a></td>
+      <td>[prefs] DefaultPreference initialize problems with no com...</td>
     </tr>
   </tbody>
 </table>
-264 bugs found.
+267 bugs fixed.
 <p>Note: the above table was generated with the Bugzilla query: <a href="http://bugs.eclipse.org/bugs/buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.0.1&amp;resolution=FIXED&amp;order=bugs.bug_id">http://bugs.eclipse.org/bugs/buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.0.1&amp;resolution=FIXED&amp;order=bugs.bug_id</a></p>
 <hr>
 <p>Java and all Java-based trademarks are trademarks of Sun Microsystems, Inc.
