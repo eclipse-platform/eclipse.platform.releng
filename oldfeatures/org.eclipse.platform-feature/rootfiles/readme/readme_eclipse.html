@@ -12,7 +12,7 @@
 
 <h1>Eclipse Project Release Notes</h1>
 <p>Release 3.0.1<br>
-Last revised July 20, 2004</p>
+Last revised July 21, 2004</p>
 <p align="left"><strong>This software is OSI Certified Open Source Software.<br>
 OSI Certified is a certification mark of the Open Source Initiative.&nbsp;</strong></p>
 <blockquote>
@@ -1154,6 +1154,7 @@ features now have version id &quot;3.0.1&quot; (even if none of their plug-ins
 changed).</p>
 <p>Maintenance release 3.0.1 fixes the following defects present in release
 3.0.0:</p>
+
 <table class="bz_buglist" cellSpacing="0" cellPadding="4" width="100%">
   <tbody>
     <tr align="left">
@@ -1213,6 +1214,10 @@ changed).</p>
       <td>[3.0.1] Thread timed out while loading class ConsoleDocum...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
+      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67912">67912</a></td>
+      <td>ConfiguredSite is null after dynamically installing a fea...</td>
+    </tr>
+    <tr class="bz_normal bz_P3 ">
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68017">68017</a></td>
       <td>Javadoc processing does not detect missing argument to @r...</td>
     </tr>
@@ -1253,8 +1258,16 @@ changed).</p>
       <td>[Progress] Progress view shows waiting job which doesn't ...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
+      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68562">68562</a></td>
+      <td>[projection] NPE in ProjectionViewer.setRangeIndication</td>
+    </tr>
+    <tr class="bz_normal bz_P3 ">
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68626">68626</a></td>
       <td>[content type] LazyInputStream alters mark position on reset</td>
+    </tr>
+    <tr class="bz_normal bz_P3 ">
+      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68653">68653</a></td>
+      <td>Cannot install feature in new extension site, until restart</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=68683">68683</a></td>
@@ -1337,6 +1350,10 @@ changed).</p>
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69152">69152</a></td>
       <td>[NPE] An internal error occurred during: &quot;Override indica...</td>
     </tr>
+    <tr class="bz_trivial bz_P3 ">
+      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69159">69159</a></td>
+      <td>Export feature &quot;Confirm Replace&quot; dialog missing a slash</td>
+    </tr>
     <tr class="bz_minor bz_P3 ">
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69271">69271</a></td>
       <td>decimal integer literals should not consist of FULL WIDTH...</td>
@@ -1356,6 +1373,10 @@ changed).</p>
     <tr class="bz_normal bz_P3 ">
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69398">69398</a></td>
       <td>Table.clearAll() does not force redraw</td>
+    </tr>
+    <tr class="bz_normal bz_P3 ">
+      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69419">69419</a></td>
+      <td>[implementation] ChainedPreferenceStore</td>
     </tr>
     <tr class="bz_major bz_P3 ">
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69422">69422</a></td>
@@ -1389,6 +1410,14 @@ changed).</p>
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69618">69618</a></td>
       <td>TVT3.0: Truncation in External Tools -&gt; Ant -&gt; New Config...</td>
     </tr>
+    <tr class="bz_normal bz_P3 ">
+      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69625">69625</a></td>
+      <td>TVT3.0: Non-externalized strings in Software Updates -&gt; M...</td>
+    </tr>
+    <tr class="bz_normal bz_P3 ">
+      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69628">69628</a></td>
+      <td>TVT3.0: English dates displayed in manage configuration.</td>
+    </tr>
     <tr class="bz_major bz_P3 ">
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69637">69637</a></td>
       <td>[CheatSheets] TVT3.0: Problem executing CVS Tasks cheat s...</td>
@@ -1397,13 +1426,29 @@ changed).</p>
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69669">69669</a></td>
       <td>TVT3.0: Debug view has mnemonics in Debug, Run, and Exte...</td>
     </tr>
+    <tr class="bz_normal bz_P2 ">
+      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69710">69710</a></td>
+      <td>[find/replace] Replace scope ignored</td>
+    </tr>
     <tr class="bz_normal bz_P3 ">
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69829">69829</a></td>
       <td>TVT3.0: Tips and Tricks text in tables is right aligned.</td>
     </tr>
+    <tr class="bz_major bz_P3 ">
+      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69836">69836</a></td>
+      <td>TVT3.0: In Korean locale &quot;View Installation History&quot; fails</td>
+    </tr>
+    <tr class="bz_normal bz_P2 ">
+      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69840">69840</a></td>
+      <td>TVT3.0: Preferences - Platform Dictionary is in english</td>
+    </tr>
     <tr class="bz_normal bz_P3 ">
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69843">69843</a></td>
       <td>TVT3.0: Unexternalized string in Preferences&gt;Java&gt;Task Tags</td>
+    </tr>
+    <tr class="bz_normal bz_P3 ">
+      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69851">69851</a></td>
+      <td>TVT3.0: Corrupted text displaying in View Installation Hi...</td>
     </tr>
     <tr class="bz_major bz_P3 ">
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69884">69884</a></td>
@@ -1417,9 +1462,21 @@ changed).</p>
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69975">69975</a></td>
       <td>TVT3.0: Preferences CVS has non-externalized strings</td>
     </tr>
+    <tr class="bz_major bz_P3 ">
+      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69978">69978</a></td>
+      <td>TVT3.0: Two shortcuts for one menuitem</td>
+    </tr>
+    <tr class="bz_normal bz_P2 ">
+      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70030">70030</a></td>
+      <td>[Wizards] Help Context - New Folder or File</td>
+    </tr>
     <tr class="bz_major bz_P2 ">
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70080">70080</a></td>
       <td>[RCP] Reset Perspective does not work if no perspective t...</td>
+    </tr>
+    <tr class="bz_normal bz_P3 ">
+      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70158">70158</a></td>
+      <td>Exception trying to add getter [code manipulation]</td>
     </tr>
     <tr class="bz_normal bz_P2 ">
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70170">70170</a></td>
@@ -1429,9 +1486,23 @@ changed).</p>
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70364">70364</a></td>
       <td>Adapt test cases to JDT/Core fix 68017 in 3.0.1 branch</td>
     </tr>
+    <tr class="bz_critical bz_P3 ">
+      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70373">70373</a></td>
+      <td>Make &quot;Drop to Frame&quot; action available in the context menu...</td>
+    </tr>
+    <tr class="bz_normal bz_P3 ">
+      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70428">70428</a></td>
+      <td>schema files -- missing &amp;lt;pre&amp;gt; and &amp;lt;/pre&amp;gt;
+        tags...</td>
+    </tr>
+    <tr class="bz_critical bz_P3 ">
+      <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70445">70445</a></td>
+      <td>eclipse freezes during CVS</td>
+    </tr>
   </tbody>
 </table>
-67 bugs found.
+84 bugs found.
+
 <p>Note: the above table was generated with the Bugzilla query: <a href="http://bugs.eclipse.org/bugs/buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.0.1&amp;resolution=FIXED&amp;order=bugs.bug_id">http://bugs.eclipse.org/bugs/buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.0.1&amp;resolution=FIXED&amp;order=bugs.bug_id</a></p>
 <hr>
 <p>Java and all Java-based trademarks are trademarks of Sun Microsystems, Inc.
