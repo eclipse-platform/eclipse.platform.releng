@@ -50,7 +50,7 @@
   <plugin id="org.eclipse.text" version="2.1.0" />
   <plugin id="org.eclipse.jface" version="2.1.1" />
   <plugin id="org.eclipse.jface.text" version="2.1.0" />
-  <plugin id="org.eclipse.ui.workbench" version="2.1.1" />
+  <plugin id="org.eclipse.ui.workbench" version="2.1.2" />
   <plugin id="org.eclipse.ui.workbench.texteditor" version="2.1.0" />
   <plugin id="org.eclipse.ui.versioncheck" version="2.1.1" />
   <plugin id="org.eclipse.ui.views" version="2.1.0" />
