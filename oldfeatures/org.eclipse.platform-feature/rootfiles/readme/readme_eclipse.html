@@ -332,6 +332,13 @@ UTF-8 encoding so that it can capture non-Latin characters that might be
 embedded in stack traces, etc. When viewing the log file, the Eclipse editor (or
 external program) should be configured to treat the log as UTF-8. (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67872">67872</a>)</p>
 <h3>3.1.1 <a name="I-Platform-Core">Platform - Core</a></h3>
+<h4>Eclipse fails to start after moving or copying Eclipse install</h4>
+<p>When a Eclipse install is run for the first time, it caches various
+information about the configuration. If the Eclipse install is then moved or
+copied to another location on disk, this cached information becomes invalid. To
+avoid the problems that this can cause, the first time the moved or copied
+Eclipse is launched, the -clean command line option must be used to tell Eclipse
+to discard previously-cached configuration information. (bug <a title="NEW - [osgi] Eclipse fails to start from read-only AFS volume" href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70454">70454</a>)</p>
 <h4>Eclipse fails to start on some file systems</h4>
 <p>Java sometimes has difficulty detecting whether a file system is writable. In
 particular, the method java.io.File.canWrite() appears to return true in
