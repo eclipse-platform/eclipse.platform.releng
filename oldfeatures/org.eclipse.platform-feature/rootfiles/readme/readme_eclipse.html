@@ -12,7 +12,7 @@
 
 <h1>Eclipse Project Release Notes</h1>
 <p>Release 3.0.1<br>
-Last revised August 24, 2004</p>
+Last revised August 25, 2004</p>
 <p align="left"><strong>This software is OSI Certified Open Source Software.<br>
 OSI Certified is a certification mark of the Open Source Initiative.&nbsp;</strong></p>
 <blockquote>
@@ -457,6 +457,13 @@ be caused by a conflict between libraries in org.eclipse.tomcat plug-in and jars
 optionally installed in JRE jre/lib/ext directory. To fix the problem, ensure
 that the JRE used for running Eclipse does not contain any J2EE or Apache jars
 in the jre/lib/ext directory. (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=63970">63970</a>)</p>
+<h4>Modal interference between Help browser and workbench</h4>
+<p>If the Help browser gets stuck with an error dialog, some parts of the
+workbench window stop responding to events. Similiarly, Help topics that teach
+and describe usage of complex wizards and dialogs are unusable in the default
+(built-in) browser due to modal wizards and dialogs. To work around this
+problem, use the <b>Help &gt; Always use external browser</b> preference setting
+to configure Help to open in a standalone browser. (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67543">67543</a>)</p>
 <h3>3.1.4 <a name="I-Platform-UI">Platform - UI</a></h3>
 <h4>High contrast settings</h4>
 <p>Eclipse was tested for High Contrast using 1162 x 864 resolution in Windows
@@ -1693,7 +1700,7 @@ changed).</p>
     </tr>
     <tr class="bz_normal bz_P3 ">
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70193">70193</a></td>
-      <td>DBCS – The GB18030 character cannot be correctly generate...</td>
+      <td>DBCS - GB18030 characters cannot be correctly generated...</td>
     </tr>
     <tr class="bz_normal bz_P3 ">
       <td><a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=70296">70296</a></td>
