@@ -94,14 +94,14 @@
          id="org.eclipse.help"
          download-size="0"
          install-size="0"
-         version="2.0.1">
+         version="2.0.2">
    </plugin>
 
    <plugin
          id="org.eclipse.help.webapp"
          download-size="0"
          install-size="0"
-         version="2.0.1">
+         version="2.0.2">
    </plugin>
 
    <plugin
