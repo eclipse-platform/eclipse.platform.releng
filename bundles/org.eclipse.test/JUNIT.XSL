@@ -92,7 +92,7 @@
       </script>
 		</HEAD>
 		<body>
-			<a name="top"></a>
+			<a name="#top"></a>
 			<xsl:call-template name="pageHeader"/>	
 			
 			<!-- Summary part -->
@@ -167,7 +167,7 @@
 		<!-- create an anchor to this package name -->
 		<xsl:for-each select="/testsuites/testsuite[not(./@package = preceding-sibling::testsuite/@package)]">
 			<xsl:sort select="@package"/>
-				<a name="{@package}"></a>
+				<a name="#{@package}"></a>
 				<h3>Package <xsl:value-of select="@package"/></h3>
 				
 				<table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
@@ -186,7 +186,7 @@
 		<xsl:for-each select="testsuite">
 			<xsl:sort select="@name"/>
 			<!-- create an anchor to this class name -->
-			<a name="{@name}"></a>
+			<a name="#{@name}"></a>
 			<h3>TestCase <xsl:value-of select="@name"/></h3>
 			
 			<table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
@@ -279,7 +279,7 @@
 	<table width="100%">
 	<tr>
 		<td align="left"></td>
-		<td align="right">Designed for use with <a href='http://www.junit.org'>JUnit</a> and <a href='http://ant.apache.org'>Ant</a>.</td>
+		<td align="right">Designed for use with <a href='http://www.junit.org'>JUnit</a> and <a href='http://jakarta.apache.org/ant'>Ant</a>.</td>
 	</tr>
 	</table>
 	<hr size="1"/>

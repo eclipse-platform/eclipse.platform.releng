@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2000, 2004 IBM Corporation and others.
+ * Copyright (c) 2000, 2003 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Common Public License v1.0
  * which accompanies this distribution, and is available at
@@ -17,7 +17,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.StringTokenizer;
-import java.io.ByteArrayOutputStream;
 
 /**
  * Check the output of several tests for regressions.
@@ -153,17 +152,13 @@ public class RegressionTest {
 	 * Read the file given by s, and return its contents.
 	 */
 	static String readFile(String s) throws IOException {
-		byte[] buf = new byte[8192];
 		FileInputStream r = new FileInputStream(s);
-		ByteArrayOutputStream aStream = new ByteArrayOutputStream();
-		int n;
-		while ((n = r.read(buf)) != -1) {
-			aStream.write(buf, 0, n);
-		}
+		int l = r.available();
+		byte[] b = new byte[l];
+		r.read(b);
 		r.close();
-		return aStream.toString();
+		return new String(b);		
 	}
-	
 	
 	/**
 	 * Returns the next 2 tokens in st, if they exist.

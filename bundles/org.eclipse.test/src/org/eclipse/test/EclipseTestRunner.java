@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2000, 2004 IBM Corporation and others.
+ * Copyright (c) 2000, 2003 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Common Public License v1.0
  * which accompanies this distribution, and is available at
@@ -23,16 +23,19 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Properties;
 import java.util.Vector;
+
 import junit.framework.AssertionFailedError;
 import junit.framework.Test;
 import junit.framework.TestListener;
 import junit.framework.TestResult;
 import junit.framework.TestSuite;
+
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.taskdefs.optional.junit.FormatterElement;
 import org.apache.tools.ant.taskdefs.optional.junit.JUnitResultFormatter;
 import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
+
 import org.eclipse.core.runtime.Platform;
 
 /**
@@ -291,8 +294,6 @@ public class EclipseTestRunner implements TestListener {
 	}
 	
 	public void run() {
-//		IPerformanceMonitor pm = PerfMsrCorePlugin.getPerformanceMonitor(true);
-		
         fTestResult= new TestResult();
         fTestResult.addListener(this);
         for (int i= 0; i < formatters.size(); i++) {
@@ -316,10 +317,8 @@ public class EclipseTestRunner implements TestListener {
             fSystemOut= new PrintStream(outStrm);
 
             try {
-//            	pm.snapshot(1); // before
                 fSuite.run(fTestResult);
             } finally {
- //           	pm.snapshot(2); // after  	
                 fSystemError.close();
                 fSystemError= null;
                 fSystemOut.close();
@@ -336,8 +335,6 @@ public class EclipseTestRunner implements TestListener {
         } else if (fTestResult.failureCount() != 0) {
             fRetCode = FAILURES;
         }
-        
-//        pm.upload(getClass().getName());
     }
 	
     /**
