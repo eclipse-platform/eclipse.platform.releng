@@ -66,8 +66,6 @@
    <plugin id="org.eclipse.text.tests" version="0.0.0" />
    <plugin id="org.eclipse.jface.text.tests" version="0.0.0" />
    <plugin id="org.eclipse.core.filebuffers.tests" version="0.0.0" />
-   <plugin id="org.eclipse.ui.workbench.texteditor.tests" version="0.0.0" />
-   <plugin id="org.eclipse.ui.editors.tests" version="0.0.0" />
    <plugin id="org.eclipse.jdt.text.tests" version="0.0.0" />
 
 
@@ -79,15 +77,11 @@
    <!--  UI test plugin  -->
 
    <plugin id="org.eclipse.ui.tests" version="0.0.0" />
-   <plugin id="org.eclipse.ui.tests.rcp" version="0.0.0" />
 
 
    <!--  Update test plugin  -->
 
    <plugin id="org.eclipse.update.tests.core" version="0.0.0" />
-
-   <!--  Update test plugin  -->
-   <plugin id="org.eclipse.pde.ui.tests" version="0.0.0" />
 
    <!--  Releng test plugin  -->
 
