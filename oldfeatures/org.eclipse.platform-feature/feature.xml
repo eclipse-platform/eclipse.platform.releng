@@ -350,7 +350,8 @@ See https://bugs.eclipse.org/bugs/show_bug.cgi?id=68351 for more details.
   <plugin id="org.eclipse.swt.motif" download-size="0" install-size="0" version="0.0.0" fragment="true" os="aix" ws="motif"/>
   
   <!-- HPUX Platform specifics -->
-  <plugin id="org.eclipse.swt.motif" download-size="0" install-size="0" version="0.0.0" fragment="true" os="hpux" ws="motif"/>
+  <plugin id="org.eclipse.swt.motif" download-size="0" install-size="0" version="0.0.0" fragment="true" os="hpux" ws="motif" arch="PA_RISC"/>
+  <plugin id="org.eclipse.swt.motif" download-size="0" install-size="0" version="0.0.0" fragment="true" os="hpux" ws="motif" arch="ia64"/>
   <plugin id="org.eclipse.core.resources.hpux" download-size="0" install-size="0" version="0.0.0" fragment="true" os="hpux"/>
 
   <!-- LINUX GTK-->  
