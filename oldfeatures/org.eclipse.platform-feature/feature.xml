@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.platform"
       label="%featureName"
-      version="2.1.2"
+      version="2.1.2.1"
       image= "eclipse_update_120.jpg"
       provider-name="%providerName"
       primary="true"
@@ -32,12 +32,12 @@
   <plugin id="org.eclipse.core.resources" version="2.1.1"/>
   <plugin id="org.eclipse.core.runtime" version="2.1.1" /> 
   <plugin id="org.eclipse.debug.core" version="2.1.2" /> 
-  <plugin id="org.eclipse.debug.ui" version="2.1.1" /> 
+  <plugin id="org.eclipse.debug.ui" version="2.1.2.1" /> 
   <plugin id="org.eclipse.help" version="2.1.2" /> 
   <plugin id="org.eclipse.help.webapp" version="2.1.2" /> 
   <plugin id="org.eclipse.help.ui" version="2.1.1" /> 
   <plugin id="org.eclipse.help.appserver" version="2.1.0" />
-  <plugin id="org.eclipse.platform" version="2.1.2"/>
+  <plugin id="org.eclipse.platform" version="2.1.2.1"/>
   <plugin id="org.eclipse.platform.doc.user" version="2.1.1"/>
   <plugin id="org.eclipse.search" version="2.1.1" /> 
   <plugin id="org.eclipse.swt" version="2.1.2"/>
