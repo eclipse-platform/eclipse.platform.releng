@@ -12,7 +12,7 @@
 
 <h1>Eclipse Project Release Notes</h1>
 <p>Release 3.0.1<br>
-Last revised August 25, 2004</p>
+Last revised August 26, 2004</p>
 <p align="left"><strong>This software is OSI Certified Open Source Software.<br>
 OSI Certified is a certification mark of the Open Source Initiative.&nbsp;</strong></p>
 <blockquote>
@@ -464,6 +464,13 @@ and describe usage of complex wizards and dialogs are unusable in the default
 (built-in) browser due to modal wizards and dialogs. To work around this
 problem, use the <b>Help &gt; Always use external browser</b> preference setting
 to configure Help to open in a standalone browser. (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=67543">67543</a>)</p>
+<h4>Internationalized Help documents displayed incorrectly (Windows only)</h4>
+<p>The embedded help browser used on Windows (Internet Explorer) may display
+corrupted characters for some documents if the Auto-Select Encoding option is
+turned on. Right click within the frame containing the incorrectly displayed
+help document, and clear the check mark beside <b>Encoding &gt; Auto-Select</b>.
+(<a title="NEW - File with corrupted chars" href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=72131">bug
+72131</a>)</p>
 <h3>3.1.4 <a name="I-Platform-UI">Platform - UI</a></h3>
 <h4>High contrast settings</h4>
 <p>Eclipse was tested for High Contrast using 1162 x 864 resolution in Windows
