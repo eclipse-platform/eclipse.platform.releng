@@ -23,10 +23,10 @@
       </update>
    </url>
 
-  <plugin id="org.apache.ant" version="1.5.2" /> 
+  <plugin id="org.apache.ant" version="1.5.3" /> 
   <plugin id="org.apache.lucene" version="1.2.1" /> 
   <plugin id="org.apache.xerces" version="4.0.7"/>
-  <plugin id="org.eclipse.ant.core" version="2.1.0"/>
+  <plugin id="org.eclipse.ant.core" version="2.1.1"/>
   <plugin id="org.eclipse.compare" version="2.1.0" /> 
   <plugin id="org.eclipse.core.boot" version="2.1.0" /> 
   <plugin id="org.eclipse.core.resources" version="2.1.0"/>
@@ -55,7 +55,7 @@
   <plugin id="org.eclipse.ui.views" version="2.1.0" />
   <plugin id="org.eclipse.ui.editors" version="2.1.0" />
   <plugin id="org.eclipse.ui" version="2.1.1" />
-  <plugin id="org.eclipse.ui.externaltools" version="2.1.0" /> 
+  <plugin id="org.eclipse.ui.externaltools" version="2.1.1" /> 
   <plugin id="org.eclipse.update.core" version="2.1.0" /> 
   <plugin id="org.eclipse.update.ui" version="2.1.0" /> 
   <plugin id="org.eclipse.update.ui.forms" version="2.1.0" /> 
