@@ -28,7 +28,7 @@
   <plugin id="org.apache.xerces" version="4.0.13"/>
   <plugin id="org.eclipse.ant.core" version="2.1.1"/>
   <plugin id="org.eclipse.compare" version="2.1.0" /> 
-  <plugin id="org.eclipse.core.boot" version="2.1.1" /> 
+  <plugin id="org.eclipse.core.boot" version="2.1.2" /> 
   <plugin id="org.eclipse.core.resources" version="2.1.1"/>
   <plugin id="org.eclipse.core.runtime" version="2.1.1" /> 
   <plugin id="org.eclipse.debug.core" version="2.1.2" /> 
