@@ -38,7 +38,7 @@
          id="org.apache.xerces"
          download-size="0"
          install-size="0"
-         version="4.0.5">
+         version="4.0.7">
    </plugin>
 
    <plugin
@@ -73,7 +73,7 @@
          id="org.eclipse.core.runtime"
          download-size="0"
          install-size="0"
-         version="2.0.1">
+         version="2.0.2">
    </plugin>
 
    <plugin
