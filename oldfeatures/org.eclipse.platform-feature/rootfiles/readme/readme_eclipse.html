@@ -198,17 +198,17 @@ added new API in order to address serious problems.</p>
   </li>
   <li>Plug-in org.eclipse.ui.intro (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69855">69855</a>)
     <ul>
-      <li>Added new interface IContentProvider in package
+      <li>Added new interface IIntroContentProvider in package
         org.eclipse.ui.intro.config&nbsp;</li>
-      <li>Added new interface IContentProviderParent in package
+      <li>Added new interface IIntroContentProviderSite in package
         org.eclipse.ui.intro.config&nbsp;</li>
-      <li>Added new element &lt;content&gt; (intro content file)</li>
+      <li>Added new element &lt;contentProvider&gt; (intro content file)</li>
     </ul>
   </li>
   <li>Plug-in org.eclipse.ui.intro (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=69886">69886</a>)
     <ul>
-      <li>Changed default encoding for HTML snippets to UTF-8 rather than local
-        encoding</li>
+      <li>Changed default encoding for &lt;html&gt; and &lt;head&gt; snippets to
+        UTF-8 rather than local encoding (intro content file)</li>
       <li>Added new &quot;encoding&quot; attribute on &lt;head&gt; element
         (intro content file)</li>
       <li>Added new &quot;encoding&quot; attribute on &lt;html&gt; element
