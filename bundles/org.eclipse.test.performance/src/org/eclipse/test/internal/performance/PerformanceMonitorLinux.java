@@ -1,10 +1,10 @@
 /*******************************************************************************
  * Copyright (c) 2003, 2004 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Common Public License v1.0
+ * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/cpl-v10.html
- * 
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
@@ -21,6 +21,8 @@ class PerformanceMonitorLinux extends PerformanceMonitor {
 
 	private static long PAGESIZE= 4096;
 	private static long JIFFIES= 10L;
+	private static boolean fgHasElapsedTime= true;
+	private static long fgStartupTime;
 	
 	/**
 	 * Write out operating system counters for Linux.
@@ -78,6 +80,26 @@ class PerformanceMonitorLinux extends PerformanceMonitor {
 				addScalar(scalars, InternalDimensions.DRS, drs*PAGESIZE);			
 				addScalar(scalars, InternalDimensions.LRS, lrs*PAGESIZE);
 			}
+			
+			long currentTime= System.currentTimeMillis();
+			if (!PerformanceTestPlugin.isOldDB())
+				addScalar(scalars, InternalDimensions.SYSTEM_TIME, currentTime);
+			
+			if (fgHasElapsedTime) {
+				if (fgStartupTime == 0) {
+					String t= System.getProperty("eclipse.startTime"); //$NON-NLS-1$
+					if (t != null) {
+						try {
+							fgStartupTime= Long.parseLong(t);
+						} catch (NumberFormatException e) {
+							fgHasElapsedTime= false;
+						}
+					} else
+						fgHasElapsedTime= false;
+				}
+				addScalar(scalars, InternalDimensions.ELAPSED_PROCESS, currentTime-fgStartupTime);
+			}
+			
 			super.collectOperatingSystemCounters(scalars);
 		}
 	}

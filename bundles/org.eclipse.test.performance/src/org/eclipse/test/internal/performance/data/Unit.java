@@ -1,9 +1,9 @@
 /*******************************************************************************
  * Copyright (c) 2000, 2004 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Common Public License v1.0
+ * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/cpl-v10.html
+ * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
  *     IBM Corporation - initial API and implementation
@@ -59,7 +59,7 @@ public class Unit {
 
 	public String getDisplayValue1(double magnitude) {
 	    
-	    if ("s".equals(fShortName)) //$NON-NLS-1$
+	    if (this == SECOND)
 	        return formatedTime((long) (magnitude*1000.0));
 	    return formatEng((long) (magnitude));
 	    
@@ -142,7 +142,7 @@ public class Unit {
 	    int TSD= fIsBinary ? T_BINARY : T_DECIMAL;
 		if (n < TSD)
 			return String.valueOf(n);
-		double d = n / TSD;
+		double d = ((double)n) / TSD;
 		NumberFormat nf = NumberFormat.getInstance();
 		nf.setMaximumFractionDigits(2);
 		if (d < TSD)
