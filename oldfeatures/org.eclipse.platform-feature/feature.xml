@@ -12,7 +12,7 @@
       %description
    </description>
 
-   <license>
+   <license url="%licenseURL">
       %license
    </license>
 
