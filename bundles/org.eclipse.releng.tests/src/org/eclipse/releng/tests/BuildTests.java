@@ -101,32 +101,25 @@ public class BuildTests extends TestCase {
 	}
 	
 	public void testCVSKTag() {
-		
 		boolean result = false;
 		
 		initializeCVSTypes();
 		
 		// String to use when running as an automated test.
-		String logFileName = BootLoader.getInstallURL().getPath() + ".." + File.separator + ".." + File.separator + "results" + File.separator + "chkpii";
+		String logFileName = BootLoader.getInstallURL().getPath() + ".." + File.separator + ".." + File.separator + "results" + File.separator + "cvsTags";
 
-		// String to use when running in an Eclipse runtime
-//		 String logFileName = BootLoader.getInstallURL().getPath() + "plugins" + File.separator + "org.eclipse.releng.tests_2.1.0" + File.separator + "results" + File.separator + "chkpii";
+		// String t use when running in an Eclipse runtime
+		// String logFileName = BootLoader.getInstallURL().getPath() + "plugins" + File.separator + "org.eclipse.releng.tests_2.1.0" + File.separator + "results" + File.separator + "cvsTags";
 
 		new File(logFileName).mkdirs();
 		logFileName = logFileName + File.separator + "cvsTypesLog.txt";
 
-		// Source location when running in an automated test.  This is really bad form
-		// but we really don't want to recheck out all the source.
-		String sourceDirectoryName = BootLoader.getInstallURL().getPath() +  ".." + File.separator + ".." + File.separator + ".." + File.separator + ".." + File.separator + "src";
-		
-		// Source location when running locally.  Run a source build to get it.
-//		 String sourceDirectoryName = "d:\\sourceFetch";
-		
 		try {
 
 	//		StringWriter aWriter = new StringWriter();
 			BufferedWriter aLog = new BufferedWriter(new FileWriter(logFileName));
-			File rootDirectory = new File(sourceDirectoryName);
+			String rootDirectoryName = "d:\\sourceFetch";
+			File rootDirectory = new File(rootDirectoryName);
 			result = scanCVSKTag(rootDirectory, aLog);
 	//		System.out.println(aWriter.getBuffer().toString());
 			aLog.close();
@@ -164,11 +157,6 @@ public class BuildTests extends TestCase {
 		boolean result = false;
 		
 		File[] files = aDirectory.listFiles();
-		
-		if (files == null) {
-			return result;
-		}
-		
 		for (int i = 0; i < files.length; i++) {
 			File aFile = files[i];
 			if (aFile.isDirectory()) {
@@ -246,28 +234,16 @@ public class BuildTests extends TestCase {
 			if (expectedType.equals(CVS_BINARY)) {
 				if (!entryType.equals(CVS_KB)) {
 					// Fail Binary Test
-					int start = entryName.indexOf("plugins");
-					String fileName;
-					if (start == -1) {
-						fileName = entryName;
-					} else {
-						fileName = entryName.substring(start + "plugins".length() + 1);
-					}
-					aLog.write(fileName + " should be *BINARY*");
+					aLog.write("File: " + entryName + " was expected to be be binary");
+//					System.out.println("File: " + entryName + " was expected to be be binary");
 					aLog.newLine();
 					result = true;
 				}
 			} else {
 				if (!(entryType.equals(CVS_KKV) || entryType.equals(CVS_KO))) {
 					// Fail
-					int start = entryName.indexOf("plugins");
-					String fileName;
-					if (start == -1) {
-						fileName = entryName;
-					} else {
-						fileName = entryName.substring(start + "plugins".length() + 1);
-					}
-					aLog.write(fileName + " should be *TEXT*");
+					aLog.write("File: " + entryName + " was expected to be be text");
+//					System.out.println("File: " + entryName + " was expected to be be text");
 					aLog.newLine();
 					result = true;
 				}
