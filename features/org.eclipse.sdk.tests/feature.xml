@@ -93,7 +93,7 @@
    <plugin id="org.eclipse.team.tests.core" version="0.0.0" />
    
    <!--  Test framework plugins  -->
-   <plugin id="org.eclipse.ant.optional.junit" fragment="true"/ version="0.0.0" />     
+   <plugin id="org.eclipse.ant.optional.junit" fragment="true" version="0.0.0" />     
    <plugin id="org.eclipse.test" version="0.0.0"/>
    <plugin id="org.eclipse.test.performance" version="0.0.0"/>
    <plugin id="org.eclipse.test.performance.win32" fragment="true" version="0.0.0" />
