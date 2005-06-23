@@ -83,6 +83,7 @@
    <!--  UI test plugin  -->
 
    <plugin id="org.eclipse.ui.tests" version="0.0.0" />
+   <plugin id="org.eclipse.ui.tests.rcp" version="0.0.0" />
 
    <!--  PDE UI test plugin  -->
 
