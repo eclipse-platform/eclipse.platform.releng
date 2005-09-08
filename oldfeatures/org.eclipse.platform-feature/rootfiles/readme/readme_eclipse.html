@@ -9,20 +9,19 @@
 <body>
 
 <h1>Eclipse Project Release Notes</h1>
-<p>Release 3.1.0<br>
-  Last revised June 23, 2005</p>
+<p>Release 3.1.1<br>
+  Last revised September 8, 2005</p>
 <p align="left"><strong>This software is OSI Certified Open Source Software.<br>
 OSI Certified is a certification mark of the Open Source Initiative.&nbsp;</strong></p>
-<blockquote>
-  <p align="left"><a href="#TargetOperatingEnvironments">1. Target Operating
-  Environments</a><br>
-  <a href="#Compatibility">2. Compatibility with Previous
-  Releases</a><br>
-  <a href="#Known Issues">3. Known Issues</a><br>
-  <a href="#Running Eclipse">4. Running Eclipse</a><br>
-  <a href="#Upgrading">5. Upgrading a Workspace from a Previous Release</a><br>
-  <a href="#Interoperability with Previous Releases">6. Interoperability with
-  Previous Releases</a><br>
+<blockquote> 
+  <p align="left"><a href="#TargetOperatingEnvironments">1. Target Operating Environments</a><br>
+    <a href="#Compatibility">2. Compatibility with Previous Releases</a><br>
+    <a href="#Known Issues">3. Known Issues</a><br>
+    <a href="#Running Eclipse">4. Running Eclipse</a><br>
+    <a href="#Upgrading">5. Upgrading a Workspace from a Previous Release</a><br>
+    <a href="#Interoperability with Previous Releases">6. Interoperability with 
+    Previous Releases</a><br>
+    <a href="#DefectsFixed">7. Defects Fixed in Maintenance Releases</a><br>
   </p>
 </blockquote>
 
@@ -180,6 +179,13 @@ Eclipse SDK only on Windows operating environments.
 </p>
 
 <h2>2. <a name="Compatibility"></a>Compatibility with Previous Releases</h2>
+<h3>Compatibility of Release 3.1.1 with 3.1</h3>
+<p>As a general rule, maintenance releases of Eclipse have exactly the same APIs 
+  as the major release on which they are based. This means that plug-ins developed 
+  against any point release (e.g., 2.1.2) on the maintenance stream can be deployed 
+  on any of the other releases in the stream, including both earlier (2.1.0) and 
+  later (2.1.3) ones.</p>
+<p>There were no API changes betwee 3.1.1 and 3.1.0.</p>
 <h3>Compatibility of Release 3.1 with 3.0</h3>
 <p>Eclipse 3.1 is compatible with Eclipse 3.0.</p>
 <p><b>API Contract Compatibility:</b> Eclipse SDK 3.1 is upwards contract-compatible 
@@ -1175,6 +1181,1156 @@ tested against Eclipse 3.0 APIs, extension points, and plug-ins. (The above list
 of concerns do not apply since they affect the layout and interpretation of
 files in the plug-in <i>project</i> but none affect the actual deployed form of
 the plug-in.)</p>
+
+<h2>7. <a name="DefectsFixed"></a>Defects Fixed in Maintenance Releases</h2>
+<h3>7.1 Defects fixed in release 3.1.1 since 3.1.0</h3>
+<p>Release 3.1.1 is a maintenance release to fix serious defects present in
+release 3.1.0. These changes only affect some plug-ins and features. Modified
+plug-ins have version id &quot;3.1.1&quot;; plug-ins unchanged since the 3.1
+release still have version id &quot;3.0.0&quot;. Note, however, that all
+features now have version id &quot;3.1.1&quot; (even if none of their plug-ins
+changed).</p>
+<p>Maintenance release 3.1.1 fixes the following defects present in release
+3.1.0:</p>
+<table class="bz_buglist" cellspacing="0" cellpadding="4" width="100%">
+  <colgroup>
+  <col class="bz_id_column">
+  <col class="bz_bug_severity_column">
+  <col class="bz_priority_column">
+  <col class="bz_rep_platform_column">
+  <col class="bz_assigned_to_column">
+  <col class="bz_bug_status_column">
+  <col class="bz_resolution_column">
+  <col class="bz_short_short_desc_column">
+  </colgroup>
+  <tr align="left"> 
+    <th colspan="1" class="first-child"> <a href="buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.1.1&amp;resolution=FIXED&amp;query_format=advanced&amp;order=bugs.bug_id&amp;query_based_on=">ID</a> 
+    </th>
+    <th colspan="1"> <a href="buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.1.1&amp;resolution=FIXED&amp;query_format=advanced&amp;order=bugs.short_desc,bugs.bug_id&amp;query_based_on=">Summary</a> 
+    </th>
+  </tr>
+  <tr class="bz_normal             bz_P1             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=29398">29398</a> <span style="display: none"></span> 
+    </td>
+    <td>[MPE] Allow bookmarks and tasks in plugin.xml source </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=31427">31427</a> <span style="display: none"></span> 
+    </td>
+    <td>[content assist] code assist inserts wrong item </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=69374">69374</a> <span style="display: none"></span> 
+    </td>
+    <td>Crash in SWT Accessible / org.eclipse.swt.internal.ole.wi... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=70321">70321</a> <span style="display: none"></span> 
+    </td>
+    <td>[Preferences] TVT 3.0: Project reference properties page ... </td>
+  </tr>
+  <tr class="bz_normal             bz_P2             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=82502">82502</a> <span style="display: none"></span> 
+    </td>
+    <td>[Markers] tasklist entries not showing up consistently </td>
+  </tr>
+  <tr class="bz_normal             bz_P2             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=88345">88345</a> <span style="display: none"></span> 
+    </td>
+    <td>[ViewMgmt] [RCP] Can close a non-closable view when docke... </td>
+  </tr>
+  <tr class="bz_normal             bz_P2             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=88791">88791</a> <span style="display: none"></span> 
+    </td>
+    <td>[Wizards] TVT3.1 #93 - Variables button is truncated in N... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=89195">89195</a> <span style="display: none"></span> 
+    </td>
+    <td>ant content type over defined for &lt;project&gt; tag </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=91327">91327</a> <span style="display: none"></span> 
+    </td>
+    <td>[key binding] I18N: Shortcut for content assist conflicts... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=91426">91426</a> <span style="display: none"></span> 
+    </td>
+    <td>[Markers] Java task tags in Task View don't have configur... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=94759">94759</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] &#64;Override doesn't report an error inside ... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=95096">95096</a> <span style="display: none"></span> 
+    </td>
+    <td>[5.0][content assist] Content assist popup disappears whi... </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=95589">95589</a> <span style="display: none"></span> 
+    </td>
+    <td>[DetachedViews] Delete occurs in wrong part with torn off... </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=95709">95709</a> <span style="display: none"></span> 
+    </td>
+    <td>[CellEditors] [nls tooling] Strange selection behaviour i... </td>
+  </tr>
+  <tr class="bz_normal             bz_P2             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=96059">96059</a> <span style="display: none"></span> 
+    </td>
+    <td>[content assist] Closing parethesis deleted by code assist </td>
+  </tr>
+  <tr class="bz_major             bz_P2             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=96129">96129</a> <span style="display: none"></span> 
+    </td>
+    <td>[MPE] (regression) MultiEditor.getInnerEditors() returns ... </td>
+  </tr>
+  <tr class="bz_major             bz_P1             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=96600">96600</a> <span style="display: none"></span> 
+    </td>
+    <td>[DynamicUI] [Commands] [Contexts] [KeyBindings] Commands ... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=96893">96893</a> <span style="display: none"></span> 
+    </td>
+    <td>New Product dialog doesn't prompt for required &quot;name&quot; att... 
+    </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=97220">97220</a> <span style="display: none"></span> 
+    </td>
+    <td>Should not issue nls warning for annotation </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=97326">97326</a> <span style="display: none"></span> 
+    </td>
+    <td>[dom] ITypeBinding#isFromSource() is always false for typ... </td>
+  </tr>
+  <tr class="bz_critical             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=98147">98147</a> <span style="display: none"></span> 
+    </td>
+    <td>Variables View does not show all children if same instanc... </td>
+  </tr>
+  <tr class="bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=98532">98532</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Spurious 'type parameter T is hiding the ... </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=98538">98538</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Inference broken for subtypes of subtypes... </td>
+  </tr>
+  <tr class="bz_major             bz_P2             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=98800">98800</a> <span style="display: none"></span> 
+    </td>
+    <td>[Workbench] Ant buildfile removed from fast view Ant View... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=99662">99662</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5] JavaModel returns inexistent IType for package-info... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=99903">99903</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][search] range wrong for package-info </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=99995">99995</a> <span style="display: none"></span> 
+    </td>
+    <td>[code assist] Code Assist for parameterized anonymous typ... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=100041">100041</a> <span style="display: none"></span> 
+    </td>
+    <td>[javadoc][dom] Wrong positions when javadoc comment insid... </td>
+  </tr>
+  <tr class="bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=100043">100043</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] false compiler error on ?: ternary operat... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=100153">100153</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Bound check failure on recursive formal b... </td>
+  </tr>
+  <tr class="bz_minor             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=100211">100211</a> <span style="display: none"></span> 
+    </td>
+    <td>[source actions] Strange behavior in &quot;Generate Constructo... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=100233">100233</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5] Incorrect overriding marker for bad overriding with... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=100606">100606</a> <span style="display: none"></span> 
+    </td>
+    <td>NPE during reconcile </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=100619">100619</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Incorrect duplicate bound diagnosis </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=100636">100636</a> <span style="display: none"></span> 
+    </td>
+    <td>[model] Can't find overriden methods of protected nonstat... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=100695">100695</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][search] Renaming a field of generic array type has ... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=100772">100772</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][search] Search for declarations in hierarchy report... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=100797">100797</a> <span style="display: none"></span> 
+    </td>
+    <td>editor general failure </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=100808">100808</a> <span style="display: none"></span> 
+    </td>
+    <td>[assist] Wrong replace range for package proposals if the... </td>
+  </tr>
+  <tr class="bz_minor             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=100868">100868</a> <span style="display: none"></span> 
+    </td>
+    <td>[code assist] Code assist does not recommend methods in a... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101080">101080</a> <span style="display: none"></span> 
+    </td>
+    <td>NPE during computePriority for problems </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101208">101208</a> <span style="display: none"></span> 
+    </td>
+    <td>[compiler] instanceof check cannot be unnecessary on null... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101228">101228</a> <span style="display: none"></span> 
+    </td>
+    <td>JME on code assist </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101247">101247</a> <span style="display: none"></span> 
+    </td>
+    <td>[formatter] Fails to format some labelled statements </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101283">101283</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][javadoc] Javadoc validation raises missing implemen... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101328">101328</a> <span style="display: none"></span> 
+    </td>
+    <td>Got an error when trying to commit a removal </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101329">101329</a> <span style="display: none"></span> 
+    </td>
+    <td>NPE while disconnecting folder </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101380">101380</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Problem when implementing generic interfa... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101387">101387</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Incorrect Cycle detected in type hierarch... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101425">101425</a> <span style="display: none"></span> 
+    </td>
+    <td>Classpath persistence should be resilient with unknown at... </td>
+  </tr>
+  <tr class="bz_major             bz_P2             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101434">101434</a> <span style="display: none"></span> 
+    </td>
+    <td>[Contexts] performance: Slow cursor navigation in Text fi... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101456">101456</a> <span style="display: none"></span> 
+    </td>
+    <td>Proposals and Open Declaration fail with NPE </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101677">101677</a> <span style="display: none"></span> 
+    </td>
+    <td>[call hierarchy] Cannot cancel tree expansion jobs except... </td>
+  </tr>
+  <tr class="bz_normal             bz_P2             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101683">101683</a> <span style="display: none"></span> 
+    </td>
+    <td>[WorkbenchParts] Views opened by context enablement are c... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101713">101713</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Access to static fields within enum const... </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101779">101779</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] VerifyError using -- operator on unboxed ... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101800">101800</a> <span style="display: none"></span> 
+    </td>
+    <td>NPE when opening .product file from CVS Views </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101805">101805</a> <span style="display: none"></span> 
+    </td>
+    <td>Whitespace should be recognized in dynamic help view </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101863">101863</a> <span style="display: none"></span> 
+    </td>
+    <td>[refactoring] Move member type to new file: assertion fai... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101885">101885</a> <span style="display: none"></span> 
+    </td>
+    <td>[mode] sort operation doesn't set the RELATIVE_ORDER for ... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101905">101905</a> <span style="display: none"></span> 
+    </td>
+    <td>Incorrect display of Host Version Range in plugin editor </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101938">101938</a> <span style="display: none"></span> 
+    </td>
+    <td>[refactoring] extact method: missing call to extracted me... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=101955">101955</a> <span style="display: none"></span> 
+    </td>
+    <td>NullPointerException after invoking extract method </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102018">102018</a> <span style="display: none"></span> 
+    </td>
+    <td>[refactoring] Assertion fails in ExtractTempRefactoring. </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102181">102181</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Generic varargs are built with incorrect ... </td>
+  </tr>
+  <tr class="bz_critical             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102193">102193</a> <span style="display: none"></span> 
+    </td>
+    <td>[Organize Imports] generic method problem </td>
+  </tr>
+  <tr class="bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102208">102208</a> <span style="display: none"></span> 
+    </td>
+    <td>&lt;launcher&gt;.ini being ignored </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102213">102213</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] enum constants cannot be referenced insid... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102266">102266</a> <span style="display: none"></span> 
+    </td>
+    <td>[Encoding] Changing Text file encoding to UTF-8 causes ex... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102284">102284</a> <span style="display: none"></span> 
+    </td>
+    <td>[5.0 ] CCE in ParameterizedTypeBinding [code assist] </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102294">102294</a> <span style="display: none"></span> 
+    </td>
+    <td>[templates] Use $nl$ in the path to the template translat... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102305">102305</a> <span style="display: none"></span> 
+    </td>
+    <td>Error in JDT Core during reconcile </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102422">102422</a> <span style="display: none"></span> 
+    </td>
+    <td>Exception referencing class in large jar files </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102427">102427</a> <span style="display: none"></span> 
+    </td>
+    <td>Cannot inspect/display static import methods </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102492">102492</a> <span style="display: none"></span> 
+    </td>
+    <td>[quick fix] Halt in Computing serial version ID... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102494">102494</a> <span style="display: none"></span> 
+    </td>
+    <td>[navigation] NPE finding occurences of static initializer </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102534">102534</a> <span style="display: none"></span> 
+    </td>
+    <td>[refactoring] Inline method: Null pointer exception </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102645">102645</a> <span style="display: none"></span> 
+    </td>
+    <td>[open type] Open Type history shows stale visibility info... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102650">102650</a> <span style="display: none"></span> 
+    </td>
+    <td>[ast rewrite] Removing all TYPE_PARAMETERS_PROPERTY value... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102778">102778</a> <span style="display: none"></span> 
+    </td>
+    <td>Scrapbook page doesn't work with enhanced for statement </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102952">102952</a> <span style="display: none"></span> 
+    </td>
+    <td>Foreground color gets lost when painting a Path </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=102972">102972</a> <span style="display: none"></span> 
+    </td>
+    <td>IllegalArgumentException when: Build-tab -&gt; remove defaul... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103023">103023</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] StackOverflow inferring type arguments </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103089">103089</a> <span style="display: none"></span> 
+    </td>
+    <td>[JUnit] Running JUnit tests constrained by package takes ... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103148">103148</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][assist] Code completion breaks if using static meth... </td>
+  </tr>
+  <tr class="bz_blocker             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103227">103227</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] VerifyError in case of a parametrized ano... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103320">103320</a> <span style="display: none"></span> 
+    </td>
+    <td>Method-local subtype with instance initializer break JDOM </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103326">103326</a> <span style="display: none"></span> 
+    </td>
+    <td>NPE executing step into command </td>
+  </tr>
+  <tr class="bz_critical             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103377">103377</a> <span style="display: none"></span> 
+    </td>
+    <td>[refactoring] PromoteTempToField doesn't properly set the... </td>
+  </tr>
+  <tr class="bz_critical             bz_P2             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103379">103379</a> <span style="display: none"></span> 
+    </td>
+    <td>[MPE] [EditorMgmt] An editor instance is being leaked eac... </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103381">103381</a> <span style="display: none"></span> 
+    </td>
+    <td>Infinite viewer expand/restore when recursive data struct... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103410">103410</a> <span style="display: none"></span> 
+    </td>
+    <td>ConcurrentModificationException initializing PDEClasspath... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103466">103466</a> <span style="display: none"></span> 
+    </td>
+    <td>Stack Overflow: Requesting Java AST from selection </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103472">103472</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Should detect incompatible super interfaces </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103485">103485</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] compiler: wrongfully accepted method call </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103514">103514</a> <span style="display: none"></span> 
+    </td>
+    <td>[About] Backport Carbon product name fix to 3.1.1 </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103528">103528</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] compiler allows invalid assignment with m... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103636">103636</a> <span style="display: none"></span> 
+    </td>
+    <td>JDT compiler produces invalid XML </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103686">103686</a> <span style="display: none"></span> 
+    </td>
+    <td>[quick fix] Convert to enhanced for loop does not convert... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103934">103934</a> <span style="display: none"></span> 
+    </td>
+    <td>Table.getItem(Point) uses incorrect calculation on Motif </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=103994">103994</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Internal compiler error while overriding ... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=104030">104030</a> <span style="display: none"></span> 
+    </td>
+    <td>[refactoring] extract interface:NPE in SuperTypeConstrain... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=104065">104065</a> <span style="display: none"></span> 
+    </td>
+    <td>[quick fix] No Quick Fixes for marker with IMarker.LINE_N... </td>
+  </tr>
+  <tr class="bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=104082">104082</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] 1.5 source code gets internal eclipse nul... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=104167">104167</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] incorrect 'unread field' diagnosis </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=104322">104322</a> <span style="display: none"></span> 
+    </td>
+    <td>[implementation] Class org.eclipse.ui.editors.text.FileDo... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=104509">104509</a> <span style="display: none"></span> 
+    </td>
+    <td>reducing VIRTUAL Table's item count can show drawing problem </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=104551">104551</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Method override checks fail with raw subt... </td>
+  </tr>
+  <tr class="bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=104649">104649</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] method type variable: inference broken fo... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=104655">104655</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5] inconsistent compiler behavior in generic methods </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=104657">104657</a> <span style="display: none"></span> 
+    </td>
+    <td>[Undo] NPE in OperationHistoryActionHandler </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=104664">104664</a> <span style="display: none"></span> 
+    </td>
+    <td>[compiler] repeat mode is broken in the batch compiler </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=104695">104695</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Compiler allows instanceof with non-reifi... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=104738">104738</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Enclosing method attribute is generated f... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=104780">104780</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1: TCT 386 - wrong description for option FORMATTER... </td>
+  </tr>
+  <tr class="bz_major             bz_P2             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=104933">104933</a> <span style="display: none"></span> 
+    </td>
+    <td>Vertical markers disappear </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105008">105008</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT3.1: Eclipse doesn't honor flipped icons </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105184">105184</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1 - TCT 411 - Truncated Text </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105222">105222</a> <span style="display: none"></span> 
+    </td>
+    <td>[BIDI] need to nl %Views.ResourceNavigator and Views - %V... </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105223">105223</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1 - Non externalized string </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105231">105231</a> <span style="display: none"></span> 
+    </td>
+    <td>[BIDI] need to add $nl$/ to icon paths for reversed icons </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105238">105238</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] ContextFinder stops too soon when security manager... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105239">105239</a> <span style="display: none"></span> 
+    </td>
+    <td>Registers view does not maintain expansion when switching... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105254">105254</a> <span style="display: none"></span> 
+    </td>
+    <td>[BIDI] need to add $nl$/ to icon paths for reversed icons </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105255">105255</a> <span style="display: none"></span> 
+    </td>
+    <td>[BIDI] need to add $nl$/ to icon paths for reversed icons </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105256">105256</a> <span style="display: none"></span> 
+    </td>
+    <td>[BIDI] need to add $nl$/ to icon paths for reversed icons </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105257">105257</a> <span style="display: none"></span> 
+    </td>
+    <td>[BIDI] need to add $nl$/ to icon paths for reversed icons </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105259">105259</a> <span style="display: none"></span> 
+    </td>
+    <td>[BIDI] need to add $nl$/ to icon paths for reversed icons </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105260">105260</a> <span style="display: none"></span> 
+    </td>
+    <td>[BIDI] need to add $nl$/ to icon paths for reversed icons </td>
+  </tr>
+  <tr class="bz_normal             bz_P2             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105261">105261</a> <span style="display: none"></span> 
+    </td>
+    <td>[BIDI] need to add $nl$/ to icon paths for reversed icons </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105262">105262</a> <span style="display: none"></span> 
+    </td>
+    <td>[BIDI] need to add $nl$/ to icon paths for reversed icons </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105263">105263</a> <span style="display: none"></span> 
+    </td>
+    <td>[BIDI] need to add $nl$/ to icon paths for reversed icons </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105264">105264</a> <span style="display: none"></span> 
+    </td>
+    <td>[BIDI] need to add $nl$/ to icon paths for reversed icons </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105283">105283</a> <span style="display: none"></span> 
+    </td>
+    <td>Templates and generic scripts do not have jnlp flags and ... </td>
+  </tr>
+  <tr class="bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105284">105284</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Autoboxing: Type mismatch </td>
+  </tr>
+  <tr class="bz_minor             bz_P3             bz_CLOSED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105363">105363</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1: &quot;saving workspace&quot; message always in English </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105430">105430</a> <span style="display: none"></span> 
+    </td>
+    <td>ecj chokes when classpath has leading separator </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105438">105438</a> <span style="display: none"></span> 
+    </td>
+    <td>plugin.xml editor cannot handle nl'ed paths </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105450">105450</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] condpermadmin must allow recursion check for diffe... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105463">105463</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] Possible NPE in ConditionalPermissionSet </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105464">105464</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] AllPermission check must be done for extension bun... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_CLOSED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105468">105468</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] PermissionAdmin must override any conditions </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105469">105469</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] deleted conditional permissions do not take effect... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105471">105471</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] Bundle#getLocation is privileged </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105472">105472</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] Duplicate package exports cause bundle to fail to ... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105474">105474</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] Dyanamic imports should not override packages from... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105475">105475</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] new ConditionalPermissionAdmin methods </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105476">105476</a> <span style="display: none"></span> 
+    </td>
+    <td>100% CPU load while creating dynamic proxy in rich client... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105484">105484</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] FilterImpl should check constructor accessibility </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105485">105485</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] new org.osgi.framework.FrameworkUtil class </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105486">105486</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] must set implicit AdminPermission for bundles </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105487">105487</a> <span style="display: none"></span> 
+    </td>
+    <td>ClassLoader returns an Enumeration of only the first inst... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105488">105488</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] condpermadmin must evaluate non-postponed conditio... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105489">105489</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] AdminPermission should not have protected fields/m... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105490">105490</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] PackageAdmin reports incorrect package wiring </td>
+  </tr>
+  <tr class="bz_blocker             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105531">105531</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] ecj from CVS generates spurious incompreh... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105576">105576</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1 - TCT 467 - Disable All and Enable All strings no... </td>
+  </tr>
+  <tr class="bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105605">105605</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1: TCT 536 - PDE New Project Wizard Plug-in Content... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105623">105623</a> <span style="display: none"></span> 
+    </td>
+    <td>[preferences] &quot;restore defaults&quot; has inconsistent behavio... 
+    </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105635">105635</a> <span style="display: none"></span> 
+    </td>
+    <td>incorrect parsing of field declarations with generic types </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105726">105726</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1 - TCT 529 - Mneumonic issues in problems/sorting </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105731">105731</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1 - TCT 528 - Duplicated Mneumonic in Problem -&gt; Fi... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105779">105779</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] console shows plugin using dynamic import as impor... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105781">105781</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1 - TCT 550 - Duplicate Mneumonic </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105785">105785</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1 - TCT 552 - Unexternalized string in plug-in proj... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105788">105788</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1 - TCT 553 - Duplicate mnuemonics in java project ... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105789">105789</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1 - TCT 554 - Duplicate mneumonic in custom plug-in... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105791">105791</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1 - TCT 555 - Duplicate mnuemonic in organize imports </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105793">105793</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1 - TCT 557 - &quot;plug-in&quot; is not externalized in plug... 
+    </td>
+  </tr>
+  <tr class="bz_normal             bz_P2             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105809">105809</a> <span style="display: none"></span> 
+    </td>
+    <td>Mnemonics are programmatically changed, should not be </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105829">105829</a> <span style="display: none"></span> 
+    </td>
+    <td>[refactoring] infer type arguments: StackOverflowError </td>
+  </tr>
+  <tr class="bz_major             bz_P2             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105837">105837</a> <span style="display: none"></span> 
+    </td>
+    <td>[Markers] Mnemonic conflicts in Marker views </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105849">105849</a> <span style="display: none"></span> 
+    </td>
+    <td>SWT bugs: GDI Handles leak </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=105865">105865</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] PermissionAdmin should check for AllPermission </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106046">106046</a> <span style="display: none"></span> 
+    </td>
+    <td>Errors in log when running JNLP application </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106057">106057</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] org.osgi API needs updated to latest OSGi R4 </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106058">106058</a> <span style="display: none"></span> 
+    </td>
+    <td>Antialiasing memory leak </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106069">106069</a> <span style="display: none"></span> 
+    </td>
+    <td>[quick fix] bugs with generic types </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106084">106084</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1: TCT567 - Team&gt;CVS&gt;Password management &gt;Remove Al... 
+    </td>
+  </tr>
+  <tr class="bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106106">106106</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Compiler error with Arrays.asList in Java... </td>
+  </tr>
+  <tr class="bz_enhancement             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106202">106202</a> <span style="display: none"></span> 
+    </td>
+    <td>JavaModelCache should have configurable LRU cache limits </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106289">106289</a> <span style="display: none"></span> 
+    </td>
+    <td>Blurry Tree text in second column </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106297">106297</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] new A&lt;X&gt;().new B(){} </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106334">106334</a> <span style="display: none"></span> 
+    </td>
+    <td>Updatemanager does report errors, but the statements are ... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106339">106339</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] osgi.framework.version is hardcoded to 3.0.0 </td>
+  </tr>
+  <tr class="bz_normal             bz_P2             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106367">106367</a> <span style="display: none"></span> 
+    </td>
+    <td>[Progress] Missing image for jobs in the progress view </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106403">106403</a> <span style="display: none"></span> 
+    </td>
+    <td>PublicScanner returns EOF late </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106514">106514</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Improve diagnostic on bound mismatch for ... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106574">106574</a> <span style="display: none"></span> 
+    </td>
+    <td>[KeyBindings] registry: General/Keys setting not saved or... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106704">106704</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1: TCT 583 - XSD feature description truncated </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106705">106705</a> <span style="display: none"></span> 
+    </td>
+    <td>NPE on Create Ant Build File action for feature without a... </td>
+  </tr>
+  <tr class="bz_normal             bz_P2             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106814">106814</a> <span style="display: none"></span> 
+    </td>
+    <td>[code manipulation] 'Add import' leaves '.' before type name </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106859">106859</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1 - TCT 590 - External Tools Icon is not BiDi Enabled </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106865">106865</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] capture conversion doesn't handle array t... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106936">106936</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Unoptimal lub computation </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=106964">106964</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][search] AIOBE in MethodLocator.matchOverriddenMethod </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=107031">107031</a> <span style="display: none"></span> 
+    </td>
+    <td>[content assist] SWTException in code assist </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=107079">107079</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] mis-compiled Wildcard capture leads to a ... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=107143">107143</a> <span style="display: none"></span> 
+    </td>
+    <td>Delete extension point schema dialog uses IResource.toString </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=107357">107357</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1: tct 594- Duplicated mnemonics on Plug-in Content... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=107360">107360</a> <span style="display: none"></span> 
+    </td>
+    <td>ClassNotFoundException thrown on shutdown for non-autosta... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=107434">107434</a> <span style="display: none"></span> 
+    </td>
+    <td>ReliableFile may throw NumberFormatException on some plat... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=107488">107488</a> <span style="display: none"></span> 
+    </td>
+    <td>[Memory View] Table rendering stop updating when new memo... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=107605">107605</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] Bundle.findEntries does not find directory entries... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=107622">107622</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] Bundle#getEntryPaths must return null when no entr... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=107706">107706</a> <span style="display: none"></span> 
+    </td>
+    <td>Infer type arguments does not add type arguments to fully... </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=107735">107735</a> <span style="display: none"></span> 
+    </td>
+    <td>StringIndexOutOfBoundsException in Util.getNameWithoutJav... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=107756">107756</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Invalid diagnostic invoking method throug... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=107820">107820</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] ServiceRegistrationImpl$Properties.cloneValue(..) ... </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=107847">107847</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] Security Error in URL Stream Handler </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=107912">107912</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] StartLevel#setBundleStartLevel must check for Admi... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=107934">107934</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] legacy R3 bundles with invalid Bundle-Version head... </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=107993">107993</a> <span style="display: none"></span> 
+    </td>
+    <td>TVT 3.1 - CVS colors and fonts preferences not externalized </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=108105">108105</a> <span style="display: none"></span> 
+    </td>
+    <td>[open type] Do less type history consistency checks </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=108115">108115</a> <span style="display: none"></span> 
+    </td>
+    <td>[refactoring] Extract Local Variable and Ex. Constant don... </td>
+  </tr>
+  <tr class="bz_major             bz_P2             bz_VERIFIED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=108258">108258</a> <span style="display: none"></span> 
+    </td>
+    <td>[typing] Toggle Comment on folded Javadoc fails </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=108263">108263</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Constants initilialization doesn't work i... </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=108331">108331</a> <span style="display: none"></span> 
+    </td>
+    <td>Usign internal web browser to access basic auth protected... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=108372">108372</a> <span style="display: none"></span> 
+    </td>
+    <td>[1.5][compiler] Inner class of enclosing raw type don't w... </td>
+  </tr>
+  <tr class="bz_major             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=108692">108692</a> <span style="display: none"></span> 
+    </td>
+    <td>DVT 3.1 - TCT 642 - Invalid links in org.eclipse.platform... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_odd             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=108699">108699</a> <span style="display: none"></span> 
+    </td>
+    <td>[osgi] condpermadmin mutable to immutable conditions caus... </td>
+  </tr>
+  <tr class="bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                          bz_even             "> 
+    <td class="first-child"> <a href="show_bug.cgi?id=108840">108840</a> <span style="display: none"></span> 
+    </td>
+    <td>[open type] open type shows duplicate entry after type vi... </td>
+  </tr>
+</table>
+
+
+
+
+<p>222 bugs found.</p>
+<p>Note: the above table was generated with the Bugzilla query: <a href="http://bugs.eclipse.org/bugs/buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.1.1&amp;resolution=FIXED&amp;order=bugs.bug_id">http://bugs.eclipse.org/bugs/buglist.cgi?product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.1.1&amp;resolution=FIXED&amp;order=bugs.bug_id</a></p>
+
 <hr>
 <p>Java and all Java-based trademarks are trademarks of Sun Microsystems, Inc.
 in the United States, other countries, or both.</p>
