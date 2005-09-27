@@ -646,6 +646,17 @@ accessible (assume the workspace is at <code>/workspace</code>):</p>
 </blockquote>
 <p>(bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=20305">20305</a>
 describes a related problem)</p>
+<h4> gtk_init_check and X11 socket failure when using the IBM 1.4.2 JRE (GTK only)</h4>
+<p>Under RHEL 3.1 with the IBM 1.4.2 JRE and a large number
+of plugins, Eclipse may fail to launch with an exception from
+<tt>gtk_init_check</tt> along with this error:</p>
+<pre>
+_X11TransSocketOpen: socket() failed for local
+_X11TransSocketOpenCOTSClient: Unable to open socket for local
+</pre>
+<p>A workaround is to set the environment variable <tt>JAVA_HIGH_ZIPFDS</tt> to
+a value of 500 before starting Eclipse. (bug
+<a href="http://bugs.eclipse.org/bugs/show_bug.cgi?id=106396">106396</a>)</p>
 
 <h3>3.1.7 <a name="I-Platform-Team-CVS">Platform - Team - CVS</a></h3>
 <p>The following are known problems with the CVS repository provider only, and
