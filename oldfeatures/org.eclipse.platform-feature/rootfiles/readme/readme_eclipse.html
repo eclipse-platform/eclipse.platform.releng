@@ -780,13 +780,6 @@ in the class file's bytecodes, leaving no trace of a field reference.&nbsp;(bug 
 top level type whose name does not match its file name), the editor may
 incorrectly report it to be missing. The Java compiler handles this case fine.
 (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=32505">32505</a>)</p>
-<h4>Java indexing crash recovery</h4>
-<p>The Java indexer analyzes modified Java files in the background. If the indexer
-happens to crash (which it can under rare circumstances), it will automatically recover
-and rebuild the affected indexes. If this happens, it adds an informative entry
-to the .log file to. The rebuilt indexes are fine, and the crash does not impact
-subsequent search
-operations. (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=66836">66836</a>)</p>
 <h4>Classpath entry denoting external class folder is now properly rejected</h4>
 <p>Although external class folders (i.e., folder containing .class files and located
 outside workspace) were never properly supported by the JDT, a problem was never
