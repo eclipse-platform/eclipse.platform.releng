@@ -516,23 +516,6 @@ public class BuildTests extends TestCase {
 	
 	public void testChkpii() {
 			
-			try {
-				//test that chkpii is on path by printing chkpii help information
-				Runtime aRuntime = Runtime.getRuntime();
-				Process aProcess = aRuntime.exec(getExec()+" /?");
-				BufferedReader aBufferedReader = new BufferedReader(new InputStreamReader(aProcess.getInputStream()));
-					while (aBufferedReader.readLine() != null) {}
-				aProcess.waitFor();
-			} catch (IOException e) {
-				//skip chkpii test if chkpii cannot be run.
-				System.out.println(e.getMessage());
-				System.out.println("Skipping chkpii test.");
-				assertTrue(true);
-				return;
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			
 			String zipFile = locateEclipseZip();
 
 //			String sniffFolder = BootLoader.getInstallURL().getPath() + "releng_sniff_folder";
@@ -561,7 +544,8 @@ public class BuildTests extends TestCase {
 			try {
 				Process aProcess = aRuntime.exec(chkpiiString);
 				BufferedReader aBufferedReader = new BufferedReader(new InputStreamReader(aProcess.getInputStream()));
-				while ( aBufferedReader.readLine() != null) {
+				String line = null;
+				while ( (line = aBufferedReader.readLine()) != null) {
 				}
 				aProcess.waitFor();
 			} catch (IOException e) {
