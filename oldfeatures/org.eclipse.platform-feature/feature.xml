@@ -6,7 +6,7 @@ See https://bugs.eclipse.org/bugs/show_bug.cgi?id=68351 for more details.
 <feature
       id="org.eclipse.platform"
       label="%featureName"
-      version="3.0.2.3"
+      version="3.0.2.4"
       provider-name="%providerName"
       plugin=""
       image="eclipse_update_120.jpg"
