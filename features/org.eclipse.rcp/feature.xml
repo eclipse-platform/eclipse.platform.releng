@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.rcp"
       label="%featureName"
-      version="3.2.0.qualifier"
+      version="3.2.1.qualifier"
       provider-name="%providerName"
       plugin="org.eclipse.rcp"
       image="eclipse_update_120.jpg">
@@ -57,7 +57,7 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-         
+
    <plugin
          id="org.eclipse.core.runtime.compatibility.auth"
          download-size="0"
@@ -142,8 +142,8 @@
          version="0.0.0"
          fragment="true"
          unpack="false"/>
-         
-	 <plugin
+
+   <plugin
          id="org.eclipse.swt.gtk.solaris.sparc"
          os="solaris"
          ws="gtk"
@@ -153,8 +153,8 @@
          version="0.0.0"
          fragment="true"
          unpack="false"/>
-         
-         <plugin
+
+   <plugin
          id="org.eclipse.swt.gtk.solaris.x86"
          os="solaris"
          ws="gtk"
@@ -286,7 +286,7 @@
          download-size="0"
          install-size="0"
          version="0.0.0"
-         unpack="false"/>           
+         unpack="false"/>
 
    <plugin
          id="org.eclipse.equinox.common"

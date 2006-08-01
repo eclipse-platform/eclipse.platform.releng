@@ -2,24 +2,28 @@
 <feature
       id="org.eclipse.equinox.sdk"
       label="%featureName"
-      version="3.2.0.qualifier"
-      image= "eclipse_update_120.jpg"
-      provider-name="%providerName"> 
-      
+      version="3.2.1.qualifier"
+      provider-name="%providerName"
+      image="eclipse_update_120.jpg">
+
    <description>
       %description
    </description>
-   
+
    <copyright>
       %copyright
    </copyright>
-   
+
    <license url="%licenseURL">
       %license
-   </license>  
-   
-	 <includes id="org.eclipse.equinox" version="0.0.0" /> 
-	 <includes id="org.eclipse.equinox.source" version="0.0.0" />          
-    
-     
+   </license>
+
+   <includes
+         id="org.eclipse.equinox"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.source"
+         version="0.0.0"/>
+
 </feature>
