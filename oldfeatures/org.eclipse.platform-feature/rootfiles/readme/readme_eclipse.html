@@ -10,7 +10,7 @@
 
 <h1>Eclipse Project Release Notes</h1>
 <p>Release 3.2.1<br>
-  Last revised September 18, 2006</p>
+  Last revised September 21, 2006</p>
 <p align="left"><strong>This software is OSI Certified Open Source Software.<br>
 OSI Certified is a certification mark of the Open Source Initiative.&nbsp;</strong></p>
 <blockquote>
@@ -1168,6 +1168,11 @@ suspended threads, termination works properly. (bug <a href="https://bugs.eclips
 The feature to automatically load segments of memory while scrolling in the Memory
 view does not work on Linux. Instead the user must use the &quot;Next Page&quot; and &quot;Previous Page&quot; actions
 to manually load memory segments (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=74559">74559</a>)
+
+<h4> Debug response slow on Linux (Linux only)</h4>
+Debugging Java applications can be slow on Linux due to the combination of kernel and JVM
+(bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=153458">153458</a>). The workaround is
+to fallback to an older kernel - 2.6.14 or earlier, or to use the latest 1.5 or 1.6 JVM with newer kernels.
 
 <h3>3.3 <a name="I-PDE">Plug-in Development Environment (PDE)</a></h3>
 <h4>Feature manifest editor does not preserve all comments</h4>
