@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.platform"
       label="%featureName"
-      version="3.2.1.qualifier"
+      version="3.2.2.qualifier"
       provider-name="%providerName"
       image="eclipse_update_120.jpg">
 
@@ -34,7 +34,7 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-         
+
    <plugin
          id="org.apache.ant"
          download-size="0"
@@ -282,12 +282,12 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-         
+
    <plugin
          id="org.eclipse.ui.intro.universal"
          download-size="0"
          install-size="0"
-         version="0.0.0"/>                 
+         version="0.0.0"/>
 
    <plugin
          id="org.eclipse.ui.cheatsheets"
@@ -427,7 +427,6 @@
          fragment="true"
          unpack="false"/>
 
-        
    <plugin
          id="org.eclipse.core.filesystem.macosx"
          os="macosx"
@@ -436,7 +435,6 @@
          version="0.0.0"
          fragment="true"
          unpack="false"/>
-         
 
    <plugin
          id="org.eclipse.core.filesystem.qnx.x86"
@@ -485,8 +483,7 @@
          install-size="0"
          version="0.0.0"
          fragment="true"
-         unpack="false"/>       
-         
+         unpack="false"/>
 
    <plugin
          id="org.eclipse.update.core.linux"
