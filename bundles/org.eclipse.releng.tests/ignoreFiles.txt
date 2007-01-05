@@ -37,6 +37,7 @@ about_cairo.html
 */plugins/org.eclipse.jdt.ui_*/jdt_jar/org/eclipse/jdt/internal/corext/template/default-codetemplates.xml
 */plugins/org.eclipse.ant.ui_*/antui_jar/anttasks_*.xml
 */plugins/org.eclipse.ant.ui_*/antui_jar/XDOCtasks.xml
+*/plugins/org.eclipse.ant.ui_*/lib/remoteAnt_jar/org/eclipse/ant/internal/ui/antsupport/RemoteAntMessages.properties
 */plugins/org.eclipse.pde.build_*/scripts/*
 */plugins/org.eclipse.pde.build_*/feature/*
 */plugins/org.eclipse.pde.build_*/notes/*
