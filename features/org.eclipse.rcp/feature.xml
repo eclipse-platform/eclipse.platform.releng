@@ -423,7 +423,7 @@
    <plugin
          id="org.eclipse.equinox.launcher.motif.linux.x86"
          os="linux"
-         ws="motif"
+         ws="gtk"
          arch="x86"
          download-size="0"
          install-size="0"
