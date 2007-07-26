@@ -859,11 +859,11 @@ public class BuildTests extends TestCase {
 		 * they are lower than v20060921-1945 from an promoted integration build
 		 * and thus cannot be compared
 		 */
-
-		//disable temporarily		
-		  if ((compareOldPath.indexOf("I2") > 0 ) || (compareOldPath.indexOf("M2") > 0 )) { //if nightly build, skip test 
+			
+		//if nightly build, skip test
+		if ((compareOldPath.indexOf("N2") > 0 )) {  
 			  return; 
-		  }
+		}
 		 
 
 		String compareNewPath = properties.getProperty("compare.new");
