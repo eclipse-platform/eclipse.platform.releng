@@ -63,7 +63,7 @@ public abstract class AbstractResults implements Comparable {
 	protected static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMddHHmm"); //$NON-NLS-1$
 
 	// Initialize constant fields depending on DB version
-	protected final static String VERSION_REF, VERSION;
+	public final static String VERSION_REF, VERSION;
 	static {
 		String dbName = PerformanceTestPlugin.getDBName();
 		String version;
