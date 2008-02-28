@@ -27,6 +27,11 @@
    <includes
          id="org.eclipse.help"
          version="0.0.0"/>
+         
+   <includes
+   		id="org.eclipse.equinox.p2.user.ui"
+   		version="0.0.0"
+   		optional="true">
 
    <plugin
          id="com.jcraft.jsch"
