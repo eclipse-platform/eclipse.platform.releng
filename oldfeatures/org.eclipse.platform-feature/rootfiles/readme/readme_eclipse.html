@@ -9,8 +9,8 @@
 <body>
 
 <h1>Eclipse Project Release Notes</h1>
-<p>Release 3.4.0<br>
-  Last revised June 10, 2008</p>
+<p>Release 3.4.1<br>
+  Last revised Sept 12, 2008</p>
 <p align="left"><strong>This software is OSI Certified Open Source Software.<br>
 OSI Certified is a certification mark of the Open Source Initiative.&nbsp;</strong></p>
 <blockquote>
@@ -23,6 +23,7 @@ OSI Certified is a certification mark of the Open Source Initiative.&nbsp;</stro
   <a href="#Upgrading">5. Upgrading a Workspace from a Previous Release</a><br>
   <a href="#Interoperability with Previous Releases">6. Interoperability with
   Previous Releases</a><br>
+  <a href="#DefectsFixed">7. Defects Fixed since Previous Release</a><br>
   </p>
 </blockquote>
 
@@ -1523,6 +1524,4717 @@ Eclipse 3.4 and Eclipse 3.1 or earlier:</p>
   list of concerns do not apply since they affect the layout and interpretation 
   of files in the plug-in <i>project</i> but none affect the actual deployed form 
   of the plug-in.)</p>
+
+<h2>7. <a name="DefectsFixed"></a>Defects Fixed in Maintenance Releases</h2>
+
+<h3>7.1 Defects fixed in release 3.4.1 since 3.4.0</h3>
+<p>Release 3.4.1 is a maintenance release to fix serious defects present in
+release 3.4.1 These changes only affect some plug-ins and
+features.</p>
+
+<p>Maintenance release 3.4.1 contains fixes for the following defects and others:</p>
+<p></p>
+
+
+<table class="bz_buglist" cellspacing="0" cellpadding="4" width="100%">
+    <colgroup>
+      <col class="bz_id_column">
+      <col class="bz_short_desc_column">
+    </colgroup>
+
+    <tr align="left">
+      <th colspan="1" class="first-child">
+          <a href="buglist.cgi?bug_file_loc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_id=&amp;bug_status=RESOLVED&amp;bug_status=VERIFIED&amp;bug_status=CLOSED&amp;bugidtype=include&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;classification=Eclipse&amp;email1=&amp;email2=&amp;emailtype1=substring&amp;emailtype2=substring&amp;field-1-0-0=bug_status&amp;field-1-1-0=classification&amp;field-1-2-0=product&amp;field-1-3-0=resolution&amp;field-1-4-0=target_milestone&amp;field0-0-0=noop&amp;keywords=&amp;keywords_type=allwords&amp;long_desc=&amp;long_desc_type=allwordssubstr&amp;product=Equinox&amp;product=JDT&amp;product=PDE&amp;product=Platform&amp;query_format=advanced&amp;remaction=&amp;resolution=FIXED&amp;short_desc=&amp;short_desc_type=allwordssubstr&amp;status_whiteboard=&amp;status_whiteboard_type=allwordssubstr&amp;target_milestone=3.4.1&amp;target_milestone=3.4.1&amp;type-1-0-0=anyexact&amp;type-1-1-0=anyexact&amp;type-1-2-0=anyexact&amp;type-1-3-0=anyexact&amp;type-1-4-0=anyexact&amp;type0-0-0=noop&amp;value-1-0-0=RESOLVED%2CVERIFIED%2CCLOSED&amp;value-1-1-0=Eclipse&amp;value-1-2-0=Equinox%2CJDT%2CPDE%2CPlatform&amp;value-1-3-0=FIXED&amp;value-1-4-0=3.4.1%2C3.4.1&amp;value0-0-0=%7C&amp;votes=&amp;order=bugs.bug_id&amp;query_based_on=">ID</a>
+      </th>
+
+<th colspan="1">
+        
+      <a href="buglist.cgi?bug_file_loc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_id=&amp;bug_status=RESOLVED&amp;bug_status=VERIFIED&amp;bug_status=CLOSED&amp;bugidtype=include&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;classification=Eclipse&amp;email1=&amp;email2=&amp;emailtype1=substring&amp;emailtype2=substring&amp;field-1-0-0=bug_status&amp;field-1-1-0=classification&amp;field-1-2-0=product&amp;field-1-3-0=resolution&amp;field-1-4-0=target_milestone&amp;field0-0-0=noop&amp;keywords=&amp;keywords_type=allwords&amp;long_desc=&amp;long_desc_type=allwordssubstr&amp;product=Equinox&amp;product=JDT&amp;product=PDE&amp;product=Platform&amp;query_format=advanced&amp;remaction=&amp;resolution=FIXED&amp;short_desc=&amp;short_desc_type=allwordssubstr&amp;status_whiteboard=&amp;status_whiteboard_type=allwordssubstr&amp;target_milestone=3.4.1&amp;target_milestone=3.4.1&amp;type-1-0-0=anyexact&amp;type-1-1-0=anyexact&amp;type-1-2-0=anyexact&amp;type-1-3-0=anyexact&amp;type-1-4-0=anyexact&amp;type0-0-0=noop&amp;value-1-0-0=RESOLVED%2CVERIFIED%2CCLOSED&amp;value-1-1-0=Eclipse&amp;value-1-2-0=Equinox%2CJDT%2CPDE%2CPlatform&amp;value-1-3-0=FIXED&amp;value-1-4-0=3.4.1%2C3.4.1&amp;value0-0-0=%7C&amp;votes=&amp;order=bugs.short_desc%2Cbugs.bug_id&amp;query_based_on=">Summary</a>
+  </th>
+
+
+    </tr>
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b101610"
+         href="show_bug.cgi?id=101610">101610</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Code assist not offered without transitive dependency
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b112502"
+         href="show_bug.cgi?id=112502">112502</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[TabbedProperties] Properties view doesn't scroll normally
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b138013"
+         href="show_bug.cgi?id=138013">138013</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[TabbedProperties] resize the table column in a tabbed property section and invoke the update method on the container does not  work
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b140314"
+         href="show_bug.cgi?id=140314">140314</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[TabbedProperties] Advanced Info tab doesn't scroll to reveal
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b161095"
+         href="show_bug.cgi?id=161095">161095</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] Drag and Drop of non IResource items causes FileTransfer to be created with null data
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b169559"
+         href="show_bug.cgi?id=169559">169559</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] [DND] - Drag/drop within the project explorer; doesn't scroll
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b170758"
+         href="show_bug.cgi?id=170758">170758</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] org.eclipse.ui.navigator.resources should export all packages
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_enhancement             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b173218"
+         href="show_bug.cgi?id=173218">173218</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[SWT_AWT] SWT needs to support ModalityListener interface
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P2             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b185561"
+         href="show_bug.cgi?id=185561">185561</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] When hideAvailableExtensionsTab sets to true, all available content will be removed upon filter select changed
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b185715"
+         href="show_bug.cgi?id=185715">185715</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >SiteOptimizerApplication passes empty string in place of pluginid to Status
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b189529"
+         href="show_bug.cgi?id=189529">189529</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] Project Navigator - Customization dialog should use straight tabs or border
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b191677"
+         href="show_bug.cgi?id=191677">191677</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Preferences] Preference links don't switch preference pages if dialog already open in tips and tricks
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b197503"
+         href="show_bug.cgi?id=197503">197503</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Bundle][Wizard][New]PDE invalid warning: Bundle symbolic name contains illegal characters.
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b198091"
+         href="show_bug.cgi?id=198091">198091</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[LinkedResources] Error logged when opening Properties dlg on a Linked Resource folder involving a path variable
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b199022"
+         href="show_bug.cgi?id=199022">199022</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Updatemanager Digest generates invalid xml
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b200316"
+         href="show_bug.cgi?id=200316">200316</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] Can not contribute property page to classpath container in project explorer
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b200743"
+         href="show_bug.cgi?id=200743">200743</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Clipboard] Copy/Paste intermittently doesn't work for a line of text
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b202819"
+         href="show_bug.cgi?id=202819">202819</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Workbench] Eclipse process continues to run in background after shutdown
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b204700"
+         href="show_bug.cgi?id=204700">204700</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] ConcurrentModificationException trying to see phys - view
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b204948"
+         href="show_bug.cgi?id=204948">204948</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[TabbedProperties] Scrollbars in Tabbed Properties View are set to an increment of 1, too small to be useful.
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_blocker             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b208609"
+         href="show_bug.cgi?id=208609">208609</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Bug in ErrorRecoveryLog.getLocalRandomIdentifier(String path)
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b210664"
+         href="show_bug.cgi?id=210664">210664</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Eclipse modifies .project file on project import without reason
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b211578"
+         href="show_bug.cgi?id=211578">211578</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[build path] Dialog to extend classpath variable slow
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b212389"
+         href="show_bug.cgi?id=212389">212389</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] working set issues: missing project, window working set inconsistency
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b213732"
+         href="show_bug.cgi?id=213732">213732</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Forms] Click on hyperlink in FormText fails
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b213891"
+         href="show_bug.cgi?id=213891">213891</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] Project Explorer (in platform - NOT SDK!) is not refreshed on changes
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b215161"
+         href="show_bug.cgi?id=215161">215161</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[generate constructor] Generate constructor using fields should respect field order
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b217801"
+         href="show_bug.cgi?id=217801">217801</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] Capability filtering of commonWizard extensions uses wrong identifier
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b218288"
+         href="show_bug.cgi?id=218288">218288</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Wizards] NPE while sharing a project that already exists in the repository
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b218945"
+         href="show_bug.cgi?id=218945">218945</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[GlobalActions]'Export...' and 'Exit' menu items under the 'File' menu share the same mnemonic
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b219946"
+         href="show_bug.cgi?id=219946">219946</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[TabbedProperties] Tabbed property sheet tab titles can get truncated when selected
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b220599"
+         href="show_bug.cgi?id=220599">220599</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] Project Explorer does not support Navigate &gt; Show In...
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b222461"
+         href="show_bug.cgi?id=222461">222461</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[KeyBindings] WARNING messages generated for incorrect message content in plugin org.eclipse.ui.workbench
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b222665"
+         href="show_bug.cgi?id=222665">222665</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Error opening workbench
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b222962"
+         href="show_bug.cgi?id=222962">222962</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Repository created from PDE export should be compressed
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b223556"
+         href="show_bug.cgi?id=223556">223556</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >3.3.1 and 3.3.2 readme files are missing internal anchor links
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b226357"
+         href="show_bug.cgi?id=226357">226357</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[dom] NPE in MethodBinding.getParameterAnnotations() if some, but not all parameters are annotated
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b226867"
+         href="show_bug.cgi?id=226867">226867</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Browser] Web browser preference change causes web browser editor error through open file
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b227949"
+         href="show_bug.cgi?id=227949">227949</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Key binding for Plugin Spy not working
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b228354"
+         href="show_bug.cgi?id=228354">228354</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Folder deletion can cause incorrect project delta node flags if linked folders exist in project
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b228359"
+         href="show_bug.cgi?id=228359">228359</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] CommonNavigator.selectReveal() should not expand selected elements
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b228400"
+         href="show_bug.cgi?id=228400">228400</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >disable transient test failure for watch expression update
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b229494"
+         href="show_bug.cgi?id=229494">229494</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Forms] Accessibility: expandable section labels are not being read by screen readers
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b230853"
+         href="show_bug.cgi?id=230853">230853</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Sometime resources are disappeared from Synchronize View
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b231175"
+         href="show_bug.cgi?id=231175">231175</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Workbench] WorkbenchLabelProvider leaks
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b231776"
+         href="show_bug.cgi?id=231776">231776</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[SWT Mac] Incorrect mouseExit event generated when balloon ToolTip is shown
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b232162"
+         href="show_bug.cgi?id=232162">232162</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Help] [Context] TVT34:TCT231: &quot;refresh&quot; text contains mnemonic in the F1 help view
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b232426"
+         href="show_bug.cgi?id=232426">232426</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >OutOfMemoryError during Project Refresh due to cyclic symbolic links
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b232533"
+         href="show_bug.cgi?id=232533">232533</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Help] TVT34:TCT310: ELL - Truncated button in Content preferences
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b232565"
+         href="show_bug.cgi?id=232565">232565</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.5][compiler] wrong autoboxing code generation leads to VerifyError at runtime
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b232982"
+         href="show_bug.cgi?id=232982">232982</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >&quot;Save password&quot; checkbox behaves weird
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b233029"
+         href="show_bug.cgi?id=233029">233029</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Unknown extension point errors appearing in target workspace
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b233259"
+         href="show_bug.cgi?id=233259">233259</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] html tag should not be split by formatter
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b233261"
+         href="show_bug.cgi?id=233261">233261</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >dialog window distorted after going out of &quot;Not responding&quot; state
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b233297"
+         href="show_bug.cgi?id=233297">233297</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >TreeModelContentProvider appears to throw an AIOOB
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b233374"
+         href="show_bug.cgi?id=233374">233374</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[search] styled label not supported by search participant's label provider
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b233510"
+         href="show_bug.cgi?id=233510">233510</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[breadcrumb] Needs review of label updating on element change
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b233601"
+         href="show_bug.cgi?id=233601">233601</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Commands] IAction.AS_RADIO_BUTTON actions contributed with ActionContributionItem to MenuManager have problems getting checked on selection
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b233618"
+         href="show_bug.cgi?id=233618">233618</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] Cannot copy/paste a linked resources into a Folder.
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b233941"
+         href="show_bug.cgi?id=233941">233941</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[ltk] Refactoring history does not show workspace refactorings from last year
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b234172"
+         href="show_bug.cgi?id=234172">234172</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.5][select] no hover in qualified name with generics
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b234182"
+         href="show_bug.cgi?id=234182">234182</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[breadcrumb] keys don't work after dropdown opened via arrow button
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b234330"
+         href="show_bug.cgi?id=234330">234330</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[breadcrumb] Does reopen child popup
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b234484"
+         href="show_bug.cgi?id=234484">234484</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[DetachedView] Empty DW's can't be closed
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b234619"
+         href="show_bug.cgi?id=234619">234619</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.5][compiler] Object#getClass() has wrong expression type binding with JRE from 1.6
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b234657"
+         href="show_bug.cgi?id=234657">234657</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Webapp] Rhel5 Help Contents UI displayed incompletely in High Contrast mode or with Large font
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b234875"
+         href="show_bug.cgi?id=234875">234875</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Browser] Delete key is eaten in Internal Web Browser
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b235018"
+         href="show_bug.cgi?id=235018">235018</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Markers] Regression: Columns in Problems view grow wider with each restart
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b235195"
+         href="show_bug.cgi?id=235195">235195</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Wizards] [DataBinding] Non-error statuses not handled correctly by WizardPageSupport class
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b235336"
+         href="show_bug.cgi?id=235336">235336</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[p2] cannot compile against plugins referenced via .link files
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b235375"
+         href="show_bug.cgi?id=235375">235375</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >NPE when double-clicking on a new topic item in a toc editor
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b235379"
+         href="show_bug.cgi?id=235379">235379</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[GlobalActions] GlobalUndoAction / GlobalRedoAction causes NPE by unsafely disposing old delegate
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b235442"
+         href="show_bug.cgi?id=235442">235442</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Stale references to 'welcome_preferences.htm' in org.elcipse.platform.doc.user
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b235480"
+         href="show_bug.cgi?id=235480">235480</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Intro] Document need to escape anchors in showHelpTopic
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b235556"
+         href="show_bug.cgi?id=235556">235556</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[content assist] proposal popup does not hide after resize, then change app
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b235589"
+         href="show_bug.cgi?id=235589">235589</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Using #{folder_prompt} in Workspace Data &quot;Location&quot; field on launch configuration prompts 2 times
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b235719"
+         href="show_bug.cgi?id=235719">235719</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CheatSheet] Cheat sheet item property dialog=false doesn't work when using &quot;Click to redo&quot;
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b235778"
+         href="show_bug.cgi?id=235778">235778</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Potential race condition computing resolved classpath
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b235804"
+         href="show_bug.cgi?id=235804">235804</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Wizards] StackOverflowError in WizardsRegistryReader
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b235882"
+         href="show_bug.cgi?id=235882">235882</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[compiler] constructor-scoped inner classes unable to recognize final member variable initialization
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b235921"
+         href="show_bug.cgi?id=235921">235921</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.5][compiler] Incorrect generic signature attribute created for inner anonymous type
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b236096"
+         href="show_bug.cgi?id=236096">236096</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Incorrectly allow raw return type in overridden method
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b236224"
+         href="show_bug.cgi?id=236224">236224</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[clean up] Save Cleanup action &quot;use_blocks_only_for_return_and_throw&quot; toggles block
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b236230"
+         href="show_bug.cgi?id=236230">236230</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] SIOOBE while formatting a compilation unit.
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b236251"
+         href="show_bug.cgi?id=236251">236251</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[implementation] failure when launching headless
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b236268"
+         href="show_bug.cgi?id=236268">236268</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Webapp] help rendered with white borders at left &amp; right in Firefox
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b236312"
+         href="show_bug.cgi?id=236312">236312</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >GTK Assertion for gdk_window_get_user_data
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b236336"
+         href="show_bug.cgi?id=236336">236336</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.6][compiler] Stack map generation error with 10,000-line method in Java
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b236445"
+         href="show_bug.cgi?id=236445">236445</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >NPE in content assist
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b236472"
+         href="show_bug.cgi?id=236472">236472</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Multiple problems caused by Compare Editor
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b236524"
+         href="show_bug.cgi?id=236524">236524</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Help browser] Search does not start on pressing &lt;Enter&gt;
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b236605"
+         href="show_bug.cgi?id=236605">236605</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[DataBinding] Duplicate entries in bound list after update
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b236634"
+         href="show_bug.cgi?id=236634">236634</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Cannot dismiss attribute type combo
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b236676"
+         href="show_bug.cgi?id=236676">236676</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >PDE compiler properties page generates NPE
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b236687"
+         href="show_bug.cgi?id=236687">236687</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >NPE opening the errors / warnings property page
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b236689"
+         href="show_bug.cgi?id=236689">236689</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Browser] KeyDown/KeyUp events have wrong character for Delete key
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b236724"
+         href="show_bug.cgi?id=236724">236724</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Browser] Eclipse causes JVM crash in libxul when editing Java
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b236795"
+         href="show_bug.cgi?id=236795">236795</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[JFace] SWT Exception creates endless cycle
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b236876"
+         href="show_bug.cgi?id=236876">236876</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[api tooling] Should modify code to compile in 1.6 mode
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b236937"
+         href="show_bug.cgi?id=236937">236937</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Composite sending incorrect Move events
+    </td>
+
+  </tr>
+
+  
+    
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b236968"
+         href="show_bug.cgi?id=236968">236968</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >NPE in EclipseLaunchShortcut.findLaunchConfiguration
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b236991"
+         href="show_bug.cgi?id=236991">236991</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Help][Context] Entity Reference (e.g., &amp;amp;) doesn't work in context xml file
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b237051"
+         href="show_bug.cgi?id=237051">237051</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] Formatter insert blank lines after javadoc if javadoc contains Commons Attributes &#64;&#64; annotations
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b237096"
+         href="show_bug.cgi?id=237096">237096</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Cryptic error attempting to build update site with jdt-feature
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b237133"
+         href="show_bug.cgi?id=237133">237133</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Context Help Editor: Command field loses content
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b237271"
+         href="show_bug.cgi?id=237271">237271</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Screenshot needs updating
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b237314"
+         href="show_bug.cgi?id=237314">237314</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >NullPointerException when swtiching targets
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b237323"
+         href="show_bug.cgi?id=237323">237323</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[misc] org.eclipse.ui.ide.markerResolution extensions not referenced in Java editor
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b237326"
+         href="show_bug.cgi?id=237326">237326</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Help][Context] F1 accessibility - no indication that help view has opened (since there is no focus change)
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b237365"
+         href="show_bug.cgi?id=237365">237365</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Contributions] ActionDelegateHandlerProxy fails with ClassCastException
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b237418"
+         href="show_bug.cgi?id=237418">237418</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >deadlock between auto-build/refresh right after startup
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b237469"
+         href="show_bug.cgi?id=237469">237469</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[assist] AbortCompilation in log during normal editing
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b237475"
+         href="show_bug.cgi?id=237475">237475</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Error building update site with missing optional prerequisite
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b237547"
+         href="show_bug.cgi?id=237547">237547</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[inline] npe while inlining constant
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P2             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b237577"
+         href="show_bug.cgi?id=237577">237577</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Webapp] Infocenter problems with locales, breadcrumbs and failure to read pages
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b237612"
+         href="show_bug.cgi?id=237612">237612</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >ISearchResultPage.setInput is called 4 times(sets current result too) by using search history
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b237747"
+         href="show_bug.cgi?id=237747">237747</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >PDE headless build fails for config &quot;win32, win32, x86_64&quot;
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b237884"
+         href="show_bug.cgi?id=237884">237884</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[DataBinding] NPE in when disposing MultiValidator instance
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b237890"
+         href="show_bug.cgi?id=237890">237890</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >additional plug-in locations are forgotten when reloading target platform
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_blocker             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b237922"
+         href="show_bug.cgi?id=237922">237922</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >PDE Build not generating RCP launcher branding icons
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b237931"
+         href="show_bug.cgi?id=237931">237931</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.6][compiler] wrong signature of String[][] in class file
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b237986"
+         href="show_bug.cgi?id=237986">237986</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >XULRunner 1.9 sometimes crashes at shutdown
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b238001"
+         href="show_bug.cgi?id=238001">238001</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Launcher icon branding does not handle Win32 x64 launcher .exe
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b238014"
+         href="show_bug.cgi?id=238014">238014</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.5][compiler] Missing &quot;name clash&quot; error?
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b238023"
+         href="show_bug.cgi?id=238023">238023</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Using relative ID &quot;org.eclipse.ui.editorss&quot; in Perspective Extension gives warning
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b238090"
+         href="show_bug.cgi?id=238090">238090</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] New lines wrongly added while formatting too long &#64;see references
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b238119"
+         href="show_bug.cgi?id=238119">238119</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[ltk] AIOOBE when trying to delete added folder and its parents in Synchronize view
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b238210"
+         href="show_bug.cgi?id=238210">238210</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] CodeFormatter wraps line comments without whitespaces
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b238350"
+         href="show_bug.cgi?id=238350">238350</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Starting Java application (like JBoss) in debug causes NPE. Run mode works ok
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b238392"
+         href="show_bug.cgi?id=238392">238392</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Preferences] NPE when starting eclipse
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b238463"
+         href="show_bug.cgi?id=238463">238463</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[working sets] closed projects are disappearing from working sets
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b238484"
+         href="show_bug.cgi?id=238484">238484</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.5][compiler] Eclipse generates bad code (major regression)
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b238487"
+         href="show_bug.cgi?id=238487">238487</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[logview] LogView assumes SHOW_FILTERED_TEXTS=true
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b238718"
+         href="show_bug.cgi?id=238718">238718</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[navigation] Quick Outline filters items incorrectly
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b238783"
+         href="show_bug.cgi?id=238783">238783</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] NavigatorSaveablesServices throws NullPointerException on shutdown
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b238817"
+         href="show_bug.cgi?id=238817">238817</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.5][compiler] Unexpected nameclash reported
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b238853"
+         href="show_bug.cgi?id=238853">238853</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] Code Formatter does not properly format valid xhtml (&lt;br /&gt; &amp; &lt;p /&gt;) in javadoc.
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b238920"
+         href="show_bug.cgi?id=238920">238920</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] Code Formatter removes javadoc status if &#64;category present
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b238923"
+         href="show_bug.cgi?id=238923">238923</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.6][compiler] Internal compiler error caused by a for loop in an initializer block
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b238961"
+         href="show_bug.cgi?id=238961">238961</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Browser] Open with &gt; web browser for url with spaces does not work with Firefox
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b239015"
+         href="show_bug.cgi?id=239015">239015</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Databinding] ObservableListTreeContentProvider adds the value passed to TreeViewer#setInput() to the known-elements
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b239144"
+         href="show_bug.cgi?id=239144">239144</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[javadoc export] JavadocWizard#executeJavadocGeneration() mixes vmArgs and progArgs
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b239198"
+         href="show_bug.cgi?id=239198">239198</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[compiler] NegativeArraySizeException thrown for triple quotes
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b239216"
+         href="show_bug.cgi?id=239216">239216</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >NPE when launching launching Eclipse application
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b239229"
+         href="show_bug.cgi?id=239229">239229</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[compiler] Regression bug against Eclipse 3.3: cannot resolve correct import
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b239300"
+         href="show_bug.cgi?id=239300">239300</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[TabbedProperties] underline missing from tab label when tab has focus
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b239305"
+         href="show_bug.cgi?id=239305">239305</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[compiler] VerifyError caused by casting long to long to int
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b239317"
+         href="show_bug.cgi?id=239317">239317</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Commands] NPE in ContributedAction.runWithEvent()
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b239439"
+         href="show_bug.cgi?id=239439">239439</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.5][compiler] Behavior change for binding for parameterized type
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b239442"
+         href="show_bug.cgi?id=239442">239442</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[breadcrumb] Drop down stays open on GTK after tool bar drop down menu opened
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b239453"
+         href="show_bug.cgi?id=239453">239453</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Possible NPEs when accessing filtered text if filtered text preference turned off
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_blocker             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b239482"
+         href="show_bug.cgi?id=239482">239482</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >SWT.VIRTUAL Table Freezes under 3.4 when dragging (DND)
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b239486"
+         href="show_bug.cgi?id=239486">239486</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >ArrayIndexOutOfBoundsException in LoadTargetOperation#getVMInstall()
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b239506"
+         href="show_bug.cgi?id=239506">239506</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[package explorer] Invalid dialog about deleting read-only elements when deleting a linked resource folder
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_trivial             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b239523"
+         href="show_bug.cgi?id=239523">239523</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[TabbedProperties] Three JavaDoc warnings
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b239647"
+         href="show_bug.cgi?id=239647">239647</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[build path] Add JARs... should filter JARs that are already on the build path
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b239719"
+         href="show_bug.cgi?id=239719">239719</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] Code formatter destroys pre formatted javadoc comments
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b239758"
+         href="show_bug.cgi?id=239758">239758</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.5][compiler] Generic interface inheritance and overriding error
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b239940"
+         href="show_bug.cgi?id=239940">239940</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[implementation] NPE while editing a javadoc comment
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b239941"
+         href="show_bug.cgi?id=239941">239941</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] Unclosed html tags make the formatter to produce incorrect outputs
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b239972"
+         href="show_bug.cgi?id=239972">239972</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Doc Clarification / type references used
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b239998"
+         href="show_bug.cgi?id=239998">239998</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Singleton checkbox removed for the &quot;Standard&quot; OSGi target
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b240064"
+         href="show_bug.cgi?id=240064">240064</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[content assist] code completion appends unrelated content from editor
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b240073"
+         href="show_bug.cgi?id=240073">240073</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] ISV guide doc corrections
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_trivial             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b240137"
+         href="show_bug.cgi?id=240137">240137</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Minor typos in team_model.htm
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_trivial             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b240151"
+         href="show_bug.cgi?id=240151">240151</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Minor typos in &quot;Model Roadmap for Logical Model Integration&quot; page
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b240214"
+         href="show_bug.cgi?id=240214">240214</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[compiler] final bit should be cleared from class file access flag for anonymous class
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b240286"
+         href="show_bug.cgi?id=240286">240286</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Problems encountered while deleting resources
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b240381"
+         href="show_bug.cgi?id=240381">240381</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Progress] NPE in org.eclipse.ui.workbench GroupInfo.java and JobTreeElement.java
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_CLOSED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b240387"
+         href="show_bug.cgi?id=240387">240387</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >DVT34: broken link in documentation
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_CLOSED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b240390"
+         href="show_bug.cgi?id=240390">240390</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >DVT34: broken link in documentation
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_CLOSED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b240391"
+         href="show_bug.cgi?id=240391">240391</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >DVT34: broken link in documentation
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_CLOSED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b240392"
+         href="show_bug.cgi?id=240392">240392</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >DVT34: broken link in documentation
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_CLOSED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b240393"
+         href="show_bug.cgi?id=240393">240393</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >DVT34: broken link in documentation
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_CLOSED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b240396"
+         href="show_bug.cgi?id=240396">240396</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >DVT34: broken link in documentation
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_CLOSED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b240397"
+         href="show_bug.cgi?id=240397">240397</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >DVT34: broken link in documentation
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_CLOSED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b240398"
+         href="show_bug.cgi?id=240398">240398</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >DVT34: broken link in documentation
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_trivial             bz_P3             bz_CLOSED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b240399"
+         href="show_bug.cgi?id=240399">240399</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >DVT34: broken link in documentation
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b240565"
+         href="show_bug.cgi?id=240565">240565</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Webapp] link to breadcrumbs.css does not work in (some) xhtml help docs
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_trivial             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b240633"
+         href="show_bug.cgi?id=240633">240633</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Extension points missing in doc outline
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P2             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b240686"
+         href="show_bug.cgi?id=240686">240686</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] Formatter do unexpected things
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b240931"
+         href="show_bug.cgi?id=240931">240931</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[DataBinding] NPE in JavaBeanObservable(Set|List).firstListenerAdded()
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b241062"
+         href="show_bug.cgi?id=241062">241062</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[consistency] Font#getFontData() not safe from non-ui thread on MacOS
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b241193"
+         href="show_bug.cgi?id=241193">241193</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[implementation] ClipboardOperationAction does not dispose the allocated clipboard
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b241209"
+         href="show_bug.cgi?id=241209">241209</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Markers] [Problems View] Changing columns in the preferences makes errors disappear from the view
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b241273"
+         href="show_bug.cgi?id=241273">241273</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[templates view] AbstractTemplatesPage leaks clipboards
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b241345"
+         href="show_bug.cgi?id=241345">241345</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] Didn't Format HTML tags is unavailable
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b241384"
+         href="show_bug.cgi?id=241384">241384</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Markers] Cannot delete marker from in marker, problems, task or bookmarks view
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b241632"
+         href="show_bug.cgi?id=241632">241632</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[KeyBindings] Emacs Binding not visible
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b241671"
+         href="show_bug.cgi?id=241671">241671</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Mouse cursor disappears in editor and gets progressively slower coming back
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b241687"
+         href="show_bug.cgi?id=241687">241687</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] problem formatting block comments
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b242038"
+         href="show_bug.cgi?id=242038">242038</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >'Organize Manifests' wizard has conflicting mnemonics
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b242069"
+         href="show_bug.cgi?id=242069">242069</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[package explorer] Filter for empty package doesn't work
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b242366"
+         href="show_bug.cgi?id=242366">242366</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[render] 'Java &gt; Appearance &gt; Compress all package name segments' fails for '0'
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b242394"
+         href="show_bug.cgi?id=242394">242394</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Arithmetic exception in AbstractColumnLayout
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b242443"
+         href="show_bug.cgi?id=242443">242443</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Maintenance build version numbers need updating
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b242539"
+         href="show_bug.cgi?id=242539">242539</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Doc] 2 Help pages don't mention that CVS passwords are kept now by Secure Storage
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b242582"
+         href="show_bug.cgi?id=242582">242582</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[MPE] Ctrl+S in MPEP: different behaviour in 3.3 and 3.4
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b242603"
+         href="show_bug.cgi?id=242603">242603</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Solaris crash: symbol gnome_icon_theme_new: referenced symbol not found
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b242644"
+         href="show_bug.cgi?id=242644">242644</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >eclipse crashes when downloading a file in the internal browser
+    </td>
+
+  </tr>
+
+  
+   
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b242646"
+         href="show_bug.cgi?id=242646">242646</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >deadlock on org.eclipse.jdt.internal.core.ExternalFoldersManager
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P2             bz_CLOSED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b242762"
+         href="show_bug.cgi?id=242762">242762</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[common navigator] newly created project disappears in Project Explorer
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b242879"
+         href="show_bug.cgi?id=242879">242879</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >org.eclipse.team.core.projectSets extension point deprecated - forward ref invalid
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b242900"
+         href="show_bug.cgi?id=242900">242900</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Markers] (3.4 maint.) Test failure in MarkersViewColumnSizeTest.testColumnRestore
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b242933"
+         href="show_bug.cgi?id=242933">242933</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.5] NullPointerException for &#64;Range(min=1, max=9999999999999999)
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b243012"
+         href="show_bug.cgi?id=243012">243012</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Password fields can be copied to the clipboard on Mac OS X
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b243064"
+         href="show_bug.cgi?id=243064">243064</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Help][Mac OS X] The background color of selected print menu is too dark.
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P2             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b243132"
+         href="show_bug.cgi?id=243132">243132</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >PackagesViewContentProviderTests2.testAddCUFromPackageNotLogicalPackage fails sometimes
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b243210"
+         href="show_bug.cgi?id=243210">243210</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[KeyBindings] AWT Text fields no longer receive delete key pressed event in workbench
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b243266"
+         href="show_bug.cgi?id=243266">243266</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[implementation] Don't set clipboard if textData is null in ClipboardOperationAction.doCutCopyWithImportsOperation()
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b243346"
+         href="show_bug.cgi?id=243346">243346</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[common navigator] Adding sub-package in hierarchical mode is added twice
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P2             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b243399"
+         href="show_bug.cgi?id=243399">243399</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[breadcrumb] Should not redraw when caret moved in same element
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_trivial             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b243405"
+         href="show_bug.cgi?id=243405">243405</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[hovering] Typo in dialog from Problem hover
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b243466"
+         href="show_bug.cgi?id=243466">243466</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] documentation missing about how to configure linkHelper
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b243467"
+         href="show_bug.cgi?id=243467">243467</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Doc Clarification / &quot;action to enable&quot;
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b243606"
+         href="show_bug.cgi?id=243606">243606</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Debug View] Stackframe does not get focus with multiple debug targets
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b243842"
+         href="show_bug.cgi?id=243842">243842</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Solaris crash: symbol gnome_icon_theme_new: referenced symbol not found
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b244013"
+         href="show_bug.cgi?id=244013">244013</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Metadata] Branched org.eclipse.ui should have version 3.4.1
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b244020"
+         href="show_bug.cgi?id=244020">244020</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[hovering] Rich Problem Hover &gt; Configure Problem Severity asks about project-specific settings too often
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b244038"
+         href="show_bug.cgi?id=244038">244038</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Doc Clarification / used for, used from
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b244098"
+         href="show_bug.cgi?id=244098">244098</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[DataBinding] ListBinding does not update from model to target in some cases
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b244108"
+         href="show_bug.cgi?id=244108">244108</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[WorkbenchLauncher] ArrayIndexOutOfBoundsException in IDEApplication.start() when launching partially branded product
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b244148"
+         href="show_bug.cgi?id=244148">244148</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[About] (maintenance) Looking at Help-&gt;Plugins and then closing produces many errors
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b244171"
+         href="show_bug.cgi?id=244171">244171</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[ActivityMgmt] (maintenance) NPE in org.eclipse.ui.internal.activities.Identifer prevents menu contributions from showing up
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b244322"
+         href="show_bug.cgi?id=244322">244322</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >&quot;org.eclipse.platform&quot; plugin version smaller in Eclipse 3.4.1
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b244396"
+         href="show_bug.cgi?id=244396">244396</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[DND] Combo on Linux does not fire DragSourceEvent.
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b244428"
+         href="show_bug.cgi?id=244428">244428</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[ActivityMgmt] (maintenance) Endless loop in MutableActivityManager.getIdentifier(..)
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b244500"
+         href="show_bug.cgi?id=244500">244500</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >/eclipse/updates/3.4 has wrong mirrors URL
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b244514"
+         href="show_bug.cgi?id=244514">244514</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[package explorer] PackageExplorerContentProvider.executeRunnables(Collection) might change event order
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b244574"
+         href="show_bug.cgi?id=244574">244574</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >ProgressBar state can be visually lost by updating selection
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b244610"
+         href="show_bug.cgi?id=244610">244610</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] tests - test file not correctly closed, causes exception in tearDown
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b244615"
+         href="show_bug.cgi?id=244615">244615</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Use BundleContext.getProperty(...) instead of System.getProperty(...)
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b244616"
+         href="show_bug.cgi?id=244616">244616</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Reduce severity when logging SiteEntry without plugins dir
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b244631"
+         href="show_bug.cgi?id=244631">244631</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Markers] Problems view cache is too large for very large marker sets
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b244716"
+         href="show_bug.cgi?id=244716">244716</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >code generation at Insertion point option not being preserved
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b244754"
+         href="show_bug.cgi?id=244754">244754</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[PropertiesDialog] propertyPages extension point does not allow forcePluginActivation when using core.expression's property tester
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b245125"
+         href="show_bug.cgi?id=245125">245125</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Trim] Cheese when calling Shell#layout() on invisible Shell in RCP
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b245159"
+         href="show_bug.cgi?id=245159">245159</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Preferences] Preference pages not scrollable (accessible) via keyboard
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b245183"
+         href="show_bug.cgi?id=245183">245183</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Databinding] ObservableList could do a == check before delegating to the wrapped list
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b245185"
+         href="show_bug.cgi?id=245185">245185</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Message in the MessaeBox is not BiDi correctly
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b245206"
+         href="show_bug.cgi?id=245206">245206</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] Add test code for dependsOn with overrides in actionProvider
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b245411"
+         href="show_bug.cgi?id=245411">245411</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Increment org.eclipse.sdk and org.eclipse.help feature versions in 3_4_maintenance
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b245554"
+         href="show_bug.cgi?id=245554">245554</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Cannot find and read bundle.info in a shared install
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b245575"
+         href="show_bug.cgi?id=245575">245575</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Contents of org.eclipse.cvs changed but version did not between 3.4 GM and 3.4.1 20080827
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b245746"
+         href="show_bug.cgi?id=245746">245746</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >NPE org.eclipse.jdt.apt.core.internal.env.BaseProcessorEnv:491
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b246133"
+         href="show_bug.cgi?id=246133">246133</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >plug-in and fragment versions need updating for 3.4.1
+    </td>
+
+  </tr>
+
+  
+    </table>
+
+
+
+
+246 bugs found.
+
+
+<br>
+
+
+<p>
+Note: Bug fixes since the 3.4 release can be obtained by the following the Bugzilla query: <a href="https://bugs.eclipse.org/bugs/buglist.cgi?query_format=advanced&amp;short_desc_type=allwordssubstr&amp;short_desc=&amp;classification=Eclipse&amp;product=Equinox&amp;product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.3.1&amp;target_milestone=3.3.1&amp;long_desc_type=allwordssubstr&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;status_whiteboard_type=allwordssubstr&amp;status_whiteboard=&amp;keywords_type=allwords&amp;keywords=&amp;bug_status=RESOLVED&amp;bug_status=VERIFIED&amp;bug_status=CLOSED&amp;resolution=FIXED&amp;emailtype1=substring&amp;email1=&amp;emailtype2=substring&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;votes=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;order=Importance&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=|">https://bugs.eclipse.org/bugs/buglist.cgi&amp;query_format=advanced&amp;short_desc_type=allwordssubstr&amp;short_desc=&amp;classification=Eclipse&amp;product=Equinox&amp;product=JDT&amp;product=PDE&amp;product=Platform&amp;target_milestone=3.3.1&amp;target_milestone=3.3.1&amp;long_desc_type=allwordssubstr&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;status_whiteboard_type=allwordssubstr&amp;status_whiteboard=&amp;keywords_type=allwords&amp;keywords=&amp;bug_status=RESOLVED&amp;bug_status=VERIFIED&amp;bug_status=CLOSED&amp;resolution=FIXED&amp;emailtype1=substring&amp;email1=&amp;emailtype2=substring&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;votes=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;order=Importance&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=|</a>
+
+</p>
 
 <hr>
 <p>Sun, Solaris, Java and all Java-based trademarks are trademarks of Sun Microsystems, Inc.
