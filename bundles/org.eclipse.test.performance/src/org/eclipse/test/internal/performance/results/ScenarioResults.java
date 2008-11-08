@@ -36,6 +36,17 @@ public ScenarioResults(int id, String name, String shortName) {
 	this.label = shortName;
 }
 
+/*
+ * Complete results with additional database information.
+ */
+void completeResults() {
+	int size = size();
+	for (int i=0; i<size; i++) {
+		ConfigResults configResults = (ConfigResults) this.children.get(i);
+		configResults.completeResults();
+	}
+}
+
 /**
  * Returns the first configuration baseline build name.
  *
@@ -81,7 +92,7 @@ public ConfigResults getConfigResults(String config) {
  */
 public String getFileName() {
 	if (this.fileName == null) {
-		this.fileName = this.name.replace('#', '.').replace(':', '_').replace('\\', '_');
+		this.fileName = "Scenario" + this.id; //$NON-NLS-1$
 	}
 	return this.fileName;
 }
@@ -201,18 +212,17 @@ void read() {
 	int size = size();
 	for (int i=0; i<size; i++) {
 		ConfigResults configResults = (ConfigResults) this.children.get(i);
-		configResults.update();
+		configResults.completeResults();
 	}
 	println("failures and summaries ("+(System.currentTimeMillis()-start)+"ms)."); //$NON-NLS-1$ //$NON-NLS-2$
 }
 
-boolean readData(DataInputStream stream, String lastBuildName) throws IOException {
-
-	boolean dirty = false;
+/*
+ * Read data from a local file
+ */
+void readData(DataInputStream stream, int version) throws IOException {
 
 	// Read data stored locally
-	print("+ scenario '"+getShortName()+"': "); //$NON-NLS-1$ //$NON-NLS-2$
-	long start = System.currentTimeMillis();
 	int size = stream.readInt();
 	for (int i=0; i<size; i++) {
 		int config_id = stream.readInt();
@@ -221,13 +231,16 @@ boolean readData(DataInputStream stream, String lastBuildName) throws IOExceptio
 			configResults = new ConfigResults(this, config_id);
 			addChild(configResults, true);
 		}
-		configResults.readData(stream);
+		configResults.readData(stream, version);
 	}
-	print(" local data ("+(System.currentTimeMillis()-start)+"ms), "); //$NON-NLS-1$ //$NON-NLS-2$
+}
 
-	// Get new values from database
+/*
+ * Read new data from the database.
+ * This is typically needed when the build results are not in the local file...
+ */
+boolean readNewData(String lastBuildName) throws IOException {
 	PerformanceResults performanceResults = getPerformance();
-	start = System.currentTimeMillis();
 	String configPattern = performanceResults.getConfigurationsPattern();
 	String lastBuildDate = getBuildDate(lastBuildName, performanceResults.getBaselinePrefix());
 	if (performanceResults.getBuildDate().compareTo(lastBuildDate) > 0) {
@@ -237,20 +250,14 @@ boolean readData(DataInputStream stream, String lastBuildName) throws IOExceptio
 	    } catch (ParseException e) {
 		    // should not happen
 	    }
+		long start = System.currentTimeMillis();
+		print("	+ scenario '"+getShortName()+"': "); //$NON-NLS-1$ //$NON-NLS-2$
 		DB_Results.queryScenarioValues(this, configPattern, lastBuildName, lastBuildTime);
-		print("new data from DB ("+(System.currentTimeMillis()-start)+"ms), "); //$NON-NLS-1$ //$NON-NLS-2$
-		dirty = true;
+		print(timeString(System.currentTimeMillis()-start));
+		print (" (values), "); //$NON-NLS-1$
+		return true;
 	}
-
-	// Set baseline and current builds
-	start = System.currentTimeMillis();
-	size = size();
-	for (int i=0; i<size; i++) {
-		ConfigResults configResults = (ConfigResults) this.children.get(i);
-		configResults.update();
-	}
-	println("update info ("+(System.currentTimeMillis()-start)+"ms)."); //$NON-NLS-1$ //$NON-NLS-2$
-	return dirty;
+	return false;
 }
 
 /*

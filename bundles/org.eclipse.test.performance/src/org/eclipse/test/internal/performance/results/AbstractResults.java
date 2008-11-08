@@ -10,6 +10,14 @@
  *******************************************************************************/
 package org.eclipse.test.internal.performance.results;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,8 +35,14 @@ import org.eclipse.test.internal.performance.data.Dim;
  */
 public abstract class AbstractResults implements Comparable {
 
+	private static final int ONE_MINUTE = 60000;
+
+	private static final long ONE_HOUR = 3600000L;
+
+	public static final int LOCAL_DATA_VERSION = 1;
+
 	/**
-	 * The lis of supported dimensions.
+	 * The list of supported dimensions.
 	 * <p>
 	 * Currently only {@link InternalDimensions#ELAPSED_PROCESS}
 	 * and {@link InternalDimensions#CPU_TIME}.
@@ -38,11 +52,19 @@ public abstract class AbstractResults implements Comparable {
 		InternalDimensions.CPU_TIME
 	};
 
+	static final int DEFAULT_DIM_INDEX = 0;
+	/**
+	 * The default dimension used to display results (typically in fingerprints).
+	 * <p>
+	 * Currently {@link InternalDimensions#ELAPSED_PROCESS}
+	 */
+	public static final Dim DEFAULT_DIM = SUPPORTED_DIMS[DEFAULT_DIM_INDEX];
+
 	/**
 	 * The list of possible configurations.
 	 * <p>
 	 * Only used if no specific configurations are specified
-	 * (see {@link PerformanceResults#read(String[][], String)}.
+	 * (see {@link PerformanceResults#read(File)}.
 	 */
 	public final static String[] CONFIGS;
 
@@ -50,7 +72,7 @@ public abstract class AbstractResults implements Comparable {
 	 * The list of possible test boxes.
 	 * <p>
 	 * Only used if no specific configurations are specified
-	 * (see {@link PerformanceResults#read(String[][], String)}.
+	 * (see {@link PerformanceResults#read(File)}.
 	 */
 	public final static String[] BOXES = {
 		"RHEL 4.0 Sun 1.4.2_10 (3 GHz 2.5 GB)", //$NON-NLS-1$
@@ -99,16 +121,52 @@ public abstract class AbstractResults implements Comparable {
 	int id = -1;
 	String name;
 	List children;
-	private boolean newLine = true;
+	private static boolean NEW_LINE = true;
 	boolean print = false;
+
+/**
+ * Copy a file to another location.
+ *
+ * @param src the source file.
+ * @param dest the destination.
+ * @return <code>true</code> if the file was successfully copied,
+ * 	<code>false</code> otherwise.
+ */
+public static boolean copyFile(File src, File dest) {
+
+	try {
+		InputStream in = new FileInputStream(src);
+		OutputStream out = new FileOutputStream(dest);
+		byte[] buf = new byte[1024];
+		int len;
+		while ((len = in.read(buf)) > 0) {
+			out.write(buf, 0, len);
+		}
+		in.close();
+		out.close();
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+		return false;
+	} catch (IOException e) {
+		e.printStackTrace();
+		return false;
+	}
+	return true;
+}
 
 /*
  * Return the build date as yyyyMMddHHmm
  */
-static String getBuildDate(String buildName, String baselinePrefix) {
+public static String getBuildDate(String buildName) {
+	return getBuildDate(buildName, VERSION_REF);
+}
+/*
+ * Return the build date as yyyyMMddHHmm
+ */
+public static String getBuildDate(String buildName, String baselinePrefix) {
 
 	// Baseline name
-	if (buildName.startsWith(baselinePrefix)) {
+	if (baselinePrefix != null && buildName.startsWith(baselinePrefix)) {
 		int length = buildName.length();
 		return buildName.substring(length-12, length);
 	}
@@ -141,6 +199,51 @@ static Dim getDimension(int id) {
 		}
 	}
 	return null;
+}
+
+public static String timeString(long time) {
+	NumberFormat format = NumberFormat.getInstance();
+	format.setMaximumFractionDigits(1);
+	StringBuffer buffer = new StringBuffer();
+	if (time < 100) { // less than 0.1s
+		buffer.append(time);
+		if (time > 0) buffer.append("ms"); //$NON-NLS-1$
+	} else if (time < 1000) { // less than 1s
+		if ((time%100) != 0) {
+			format.setMaximumFractionDigits(2);
+		}
+		buffer.append(format.format(time/1000.0));
+		buffer.append("s"); //$NON-NLS-1$
+	} else if (time < ONE_MINUTE) {  // less than 1mn
+		if ((time%1000) == 0) {
+			buffer.append(time/1000);
+		} else {
+			buffer.append(format.format(time/1000.0));
+		}
+		buffer.append("s"); //$NON-NLS-1$
+	} else if (time < ONE_HOUR) {  // less than 1h
+		buffer.append(time/ONE_MINUTE).append("mn "); //$NON-NLS-1$
+		long seconds = time%ONE_MINUTE;
+		if ((seconds%1000) == 0) {
+			buffer.append(seconds/1000);
+		} else {
+			buffer.append(format.format(seconds/1000.0));
+		}
+		buffer.append("s"); //$NON-NLS-1$
+	} else {  // more than 1h
+		long h = time / ONE_HOUR;
+		buffer.append(h).append("h "); //$NON-NLS-1$
+		long m = (time % ONE_HOUR) / ONE_MINUTE;
+		buffer.append(m).append("mn "); //$NON-NLS-1$
+		long seconds = m%ONE_MINUTE;
+		if ((seconds%1000) == 0) {
+			buffer.append(seconds/1000);
+		} else {
+			buffer.append(format.format(seconds/1000.0));
+		}
+		buffer.append("s"); //$NON-NLS-1$
+	}
+	return buffer.toString();
 }
 
 AbstractResults(AbstractResults parent, String name) {
@@ -202,6 +305,17 @@ public boolean equals(Object obj) {
 	return super.equals(obj);
 }
 
+/**
+ * Return an array built on the current results children list.
+ * 
+ * @return An array of the children list
+ */
+public AbstractResults[] getChildren() {
+	AbstractResults[] elements = new AbstractResults[size()];
+	this.children.toArray(elements);
+	return elements;
+}
+
 int getId() {
 	return this.id;
 }
@@ -213,6 +327,15 @@ int getId() {
  */
 public String getName() {
 	return this.name;
+}
+
+/**
+ * Returns the parent
+ * 
+ * @return The parent
+ */
+public AbstractResults getParent() {
+	return this.parent;
 }
 
 PerformanceResults getPerformance() {
@@ -270,9 +393,9 @@ void printTab() {
 }
 void print(String text) {
 	if (this.print) {
-		if (this.newLine) printTab();
+		if (NEW_LINE) printTab();
 		System.out.print(text);
-		this.newLine = false;
+		NEW_LINE = false;
 	}
 }
 
@@ -281,14 +404,13 @@ void printGlobalTime(long start) {
 }
 
 void printGlobalTime(long start, String end) {
-	StringBuffer buffer = new StringBuffer("=> time spent in '"); //$NON-NLS-1$
+	long time = System.currentTimeMillis();
+	StringBuffer buffer = new StringBuffer(" => time spent in '"); //$NON-NLS-1$
 	buffer.append(this.name);
 	buffer.append("' was "); //$NON-NLS-1$
-	buffer.append((System.currentTimeMillis()-start)/1000.0);
-	if (end == null) {
-		buffer.append('s');
-	} else {
-		buffer.append("s. "); //$NON-NLS-1$
+	buffer.append(timeString(time-start));
+	if (end != null) {
+		buffer.append(". "); //$NON-NLS-1$
 		buffer.append(end.trim());
 	}
 	println(buffer);
@@ -296,9 +418,9 @@ void printGlobalTime(long start, String end) {
 
 void println(String text) {
 	if (this.print) {
-		if (this.newLine) printTab();
+		if (NEW_LINE) printTab();
 		System.out.println(text);
-		this.newLine = true;
+		NEW_LINE = true;
 	}
 }
 

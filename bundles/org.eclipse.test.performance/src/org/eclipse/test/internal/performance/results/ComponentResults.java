@@ -92,9 +92,14 @@ void read(List scenarios, File dataDir) {
 	}
 	int size = scenarios.size();
 	long time = System.currentTimeMillis();
+	boolean first = true;
 	for (int i=0; i<size; i++) {
 		ScenarioResults scenarioResults= (ScenarioResults) scenarios.get(i);
 		if (scenarioResults.parent == null) {
+			if (first) {
+				println(" - read new scenarios:"); //$NON-NLS-1$
+				first = false;
+			}
 			scenarioResults.parent = this;
 			scenarioResults.print = this.print;
 			scenarioResults.read();
@@ -125,34 +130,113 @@ boolean readData(File dir, List scenarios) throws IOException {
 	boolean valid = false, dirty = false;
 	int size = 0;
 	try {
-		long time = System.currentTimeMillis();
+		// Read local file info
+		print(" - read local files info"); //$NON-NLS-1$
 		String lastBuildName = stream.readUTF();
+		// First field is either the build name or, since 3.5, the version number
+		int version = 0;
+		boolean newVersion = true;
+		File versionDataDir = null;
+		if (lastBuildName.startsWith("version")) { //$NON-NLS-1$
+			int index = lastBuildName.indexOf('=');
+			if (index > 0) {
+				try {
+					version = Integer.parseInt(lastBuildName.substring(index+1));
+					newVersion = version != LOCAL_DATA_VERSION;
+				}
+				catch (Exception ex) {
+					// skip all exception
+				}
+			}
+			// next field is the build name
+			lastBuildName = stream.readUTF();
+		}
+		
+		// Update last build name if local data file has a more recent one
+		String lastBuildDate = getBuildDate(lastBuildName);
+		if (lastBuildDate.compareTo(getPerformance().getBuildDate()) > 0) {
+			getPerformance().name = lastBuildName;
+		}
+
+		// Save old version files if necessary
+		if (newVersion) {
+			StringBuffer versionName = version < 10
+				? new StringBuffer("v0") //$NON-NLS-1$
+				: new StringBuffer("v"); //$NON-NLS-1$
+			versionName.append(version);
+			versionDataDir = new File(dir, versionName.toString());
+			if (!versionDataDir.exists()) versionDataDir.mkdir();
+			if (versionDataDir.exists())  {
+				File oldDataFile = new File(versionDataDir, getName()+".dat"); //$NON-NLS-1$
+				copyFile(dataFile, oldDataFile);
+			}
+		}
+
+		// Next field is the number of scenarios for the component
 		size = stream.readInt();
+
+		// Then follows all the scenario information
 		for (int i=0; i<size; i++) {
+			// ... which starts with the scenario id
 			int scenario_id = stream.readInt();
 			ScenarioResults scenarioResults = getScenarioResults(scenarios, scenario_id);
-			if (scenarioResults != null) {
+			if (scenarioResults == null) {
+				// this can happen if scenario pattern does not cover all those stored in local data file
+				// hence, creates a fake scenario to read the numbers and skip to the next scenario
+				scenarioResults = new ScenarioResults(-1, null, null);
+				scenarioResults.parent = this;
+				scenarioResults.readData(stream, version);
+			} else {
 				scenarioResults.parent = this;
 				scenarioResults.print = this.print;
-				if (scenarioResults.readData(stream, lastBuildName)) {
-					dirty = true;
-				}
+				scenarioResults.readData(stream, version);
 				addChild(scenarioResults, true);
 			}
-			if (dirty && (System.currentTimeMillis() - time) > 300000) { // save every 5mn
+			if (this.print) System.out.print('.');
+		}
+		println(""); //$NON-NLS-1$
+
+		// Read new values for the local result
+		boolean first = true;
+		long readTime = System.currentTimeMillis();
+		size = size();
+		for (int i=0; i<size; i++) {
+			ScenarioResults scenarioResults = (ScenarioResults) this.children.get(i);
+			if (first) {
+				println(" - read DB contents:"); //$NON-NLS-1$
+				first = false;
+			}
+			long start = System.currentTimeMillis();
+			boolean newData = scenarioResults.readNewData(lastBuildName);
+			long time = System.currentTimeMillis()-start;
+			if (newData || newVersion) {
+				dirty = true;
+				if (!newData) {
+					print("	+ scenario '"+scenarioResults.getShortName()+"': "); //$NON-NLS-1$ //$NON-NLS-2$
+				}
+				start = System.currentTimeMillis();
+				scenarioResults.completeResults();
+				time = System.currentTimeMillis()-start;
+				print(timeString(time));
+				println(" (infos)"); //$NON-NLS-1$
+			}
+			if (dirty && (System.currentTimeMillis() - readTime) > 300000) { // save every 5mn
 				writeData(dir, true, true);
-				time = System.currentTimeMillis();
+				readTime = System.currentTimeMillis();
 				dirty = false;
 			}
 		}
 		valid = true;
+		if (newVersion && versionDataDir != null) {
+			println("	=> previous data file has been saved to "+versionDataDir); //$NON-NLS-1$
+		}
 	} finally {
 		stream.close();
 		if (valid) {
-			println("		=> "+size+" scenarios data were read from file "+dataFile); //$NON-NLS-1$ //$NON-NLS-2$
+			println("	=> "+size+" scenarios data were read from file "+dataFile); //$NON-NLS-1$ //$NON-NLS-2$
 		} else {
 			dataFile.delete();
-			println("		=> deleted file "+dataFile+" as it contained invalid data!!!"); //$NON-NLS-1$ //$NON-NLS-2$
+			println("	=> deleted file "+dataFile+" as it contained invalid data!!!"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 	return dirty;
@@ -171,7 +255,7 @@ public void writeData(File dir, boolean temp, boolean dirty) {
 		if (tmpFile.exists()) {
 			if (dataFile.exists()) dataFile.delete();
 			tmpFile.renameTo(dataFile);
-			println("		=> rename temporary file to "+dataFile); //$NON-NLS-1$
+			println("	=> rename temporary file to "+dataFile); //$NON-NLS-1$
 		}
 		return;
 	}
@@ -190,6 +274,7 @@ public void writeData(File dir, boolean temp, boolean dirty) {
 	try {
 		DataOutputStream stream = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
 		int size = this.children.size();
+		stream.writeUTF("version="+LOCAL_DATA_VERSION); //$NON-NLS-1$
 		stream.writeUTF(getPerformance().getName());
 		stream.writeInt(size);
 		for (int i=0; i<size; i++) {
@@ -197,7 +282,7 @@ public void writeData(File dir, boolean temp, boolean dirty) {
 			scenarioResults.write(stream);
 		}
 		stream.close();
-		println("		=> extracted data "+(temp?"temporarily ":"")+"written in file "+file); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+		println("	=> extracted data "+(temp?"temporarily ":"")+"written in file "+file); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 	} catch (FileNotFoundException e) {
 		System.err.println("can't create output file"+file); //$NON-NLS-1$
 	} catch (IOException e) {

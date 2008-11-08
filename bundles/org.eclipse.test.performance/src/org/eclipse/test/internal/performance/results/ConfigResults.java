@@ -29,11 +29,22 @@ import org.eclipse.test.internal.performance.InternalDimensions;
 public class ConfigResults extends AbstractResults {
 	BuildResults baseline, current;
 	boolean baselined = false, valid = false;
+	double delta, error;
 
 public ConfigResults(AbstractResults parent, int id) {
 	super(parent, id);
 	this.name = parent.getPerformance().sortedConfigNames[id];
 	this.print = parent.print;
+}
+
+/*
+ * Complete results with additional database information.
+ */
+void completeResults() {
+	if (this.baseline == null || this.current == null) initialize();
+	ScenarioResults scenarioResults = (ScenarioResults) this.parent;
+	DB_Results.queryScenarioFailures(scenarioResults, this.name, this.current, this.baseline);
+	DB_Results.queryScenarioSummaries(scenarioResults, this.name, this.current, this.baseline);
 }
 
 /**
@@ -43,19 +54,60 @@ public ConfigResults(AbstractResults parent, int id) {
  * @see #getBaselineBuildResults()
  */
 public String getBaselineBuildName() {
+	if (this.baseline == null) initialize();
 	return this.baseline.getName();
 }
 
 /**
- * Returns the baseline build results.
- * <p>
- * This build is currently the last reference build which has performance
+ * Returns the most recent baseline build results.
  * 
- * @return The baseline build results.
+ * @return The {@link BuildResults baseline build results}.
  * @see BuildResults
  */
 public BuildResults getBaselineBuildResults() {
+	if (this.baseline == null) initialize();
 	return this.baseline;
+}
+
+/**
+ * Return the baseline build results run just before the given build name.
+ * 
+ * @param buildName The build name
+ * @return The {@link BuildResults baseline results} preceeding the given build name
+ * 	or <code>null</code> if none was found.
+ */
+public BuildResults getBaselineBuildResults(String buildName) {
+	int size = this.children.size();
+	String buildDate = getBuildDate(buildName);
+	for (int i=size-1; i>=0; i--) {
+		BuildResults buildResults = (BuildResults) this.children.get(i);
+		if (buildResults.isBaseline() && buildResults.getDate().compareTo(buildDate) < 0) {
+			return buildResults;
+		}
+	}
+	return null;
+	
+}
+
+/**
+ * Returns the most recent baseline build result value.
+ * 
+ * @return The value of the most recent baseline build results.
+ */
+public double getBaselineBuildValue() {
+	if (this.baseline == null) initialize();
+	return this.baseline.getValue();
+}
+
+/**
+ * Return the results for the given build name.
+ * 
+ * @param buildName The build name
+ * @return The {@link BuildResults results} for the given build name
+ * 	or <code>null</code> if none was found.
+ */
+public BuildResults getBuildResults(String buildName) {
+	return (BuildResults) getResults(buildName);
 }
 
 /**
@@ -106,25 +158,21 @@ public List getBuildsMatchingPrefixes(List prefixes) {
  * @return an array of double. First number is the deviation itself and
  * 	the second is the standard error.
  */
-public double[] getCurrentBuildDeviation() {
-	int dim_id = SUPPORTED_DIMS[0].getId();
-	double baselineValue = this.baseline.getValue(dim_id);
-	double currentValue = this.current.getValue(dim_id);
-	double deviation = (currentValue - baselineValue) / baselineValue;
-	if (Double.isNaN(deviation)) {
-		return new double[] { Double.NaN, Double.NaN };
+public double[] getCurrentBuildDeltaInfo() {
+	if (this.baseline == null || this.current == null) {
+		initialize();
 	}
-	long baselineCount = this.baseline.getCount(dim_id);
-	long currentCount = this.current.getCount(dim_id);
-	if (baselineCount == 1 || currentCount == 1) {
-		return new double[] { deviation, Double.NaN };
-	}
-	double baselineError = this.baseline.getError(dim_id);
-	double currentError = this.current.getError(dim_id);
-	double stderr = Double.isNaN(baselineError)
-			? currentError / baselineValue
-			: Math.sqrt(baselineError*baselineError + currentError*currentError) / baselineValue;
-	return new double[] { deviation, stderr };
+	return new double[] { this.delta, this.error };
+}
+
+/**
+ * Returns the error of the current build results
+ * 
+ * @return the error made during the current build measure
+ */
+public double getCurrentBuildError() {
+	if (this.current == null) initialize();
+	return this.current.getError();
 }
 
 /**
@@ -134,6 +182,7 @@ public double[] getCurrentBuildDeviation() {
  * @see #getCurrentBuildResults()
  */
 public String getCurrentBuildName() {
+	if (this.current == null) initialize();
 	return this.current.getName();
 }
 
@@ -148,7 +197,59 @@ public String getCurrentBuildName() {
  * @see BuildResults
  */
 public BuildResults getCurrentBuildResults() {
+	if (this.current == null) initialize();
 	return this.current;
+}
+
+/**
+ * Returns the current build result value.
+ * 
+ * @return The value of the current build results.
+ */
+public double getCurrentBuildValue() {
+	if (this.current == null) initialize();
+	return this.current.getValue();
+}
+
+/**
+ * Returns the delta between current and baseline builds results.
+ * 
+ * @return the delta
+ */
+public double getDelta() {
+	if (this.baseline == null || this.current == null) {
+		initialize();
+	}
+	return this.delta;
+}
+
+/**
+ * Returns the standard error of the delta between current and baseline builds results.
+ * 
+ * @return the delta
+ * @see #getDelta()
+ */
+public double getError() {
+	if (this.baseline == null || this.current == null) {
+		initialize();
+	}
+	return this.error;
+}
+
+/**
+ * Get all dimension builds default dimension statistics for a given list of build
+ * prefixes.
+ *
+ * @param prefixes List of prefixes to filter builds. If <code>null</code>
+ * 	then all the builds are taken to compute statistics.
+ * @return An array of double built as follows:
+ * 	- 0:	numbers of values
+ * 	- 1:	mean of values
+ * 	- 2:	standard deviation of these values
+ * 	- 3:	coefficient of variation of these values
+ */
+public double[] getStatistics(List prefixes) {
+	return getStatistics(prefixes, DEFAULT_DIM.getId());
 }
 
 /**
@@ -202,84 +303,7 @@ public double[] getStatistics(List prefixes, int dim_id) {
 	return new double[] { count, mean, stddev, variation };
 }
 
-/**
- * Returns whether the configuration has results for the performance
- * baseline build or not.
- * 
- * @return <code>true</code> if the configuration has results
- * 	for the performance baseline build, <code>false</code> otherwise.
- */
-public boolean isBaselined() {
-	return this.baselined;
-}
-boolean isBuildConcerned(BuildResults buildResults) {
-	String buildDate = buildResults.getDate();
-	String currentBuildDate = getCurrentBuildResults() == null ? null : getCurrentBuildResults().getDate();
-	String baselineBuildDate = getBaselineBuildResults() == null ? null : getBaselineBuildResults().getDate();
-	return ((currentBuildDate == null || buildDate.compareTo(currentBuildDate) <= 0) &&
-		(baselineBuildDate == null || buildDate.compareTo(baselineBuildDate) <= 0));
-}
-/**
- * Returns whether the configuration has results for the performance
- * current build or not.
- * 
- * @return <code>true</code> if the configuration has results
- * 	for the performance current build, <code>false</code> otherwise.
- */
-public boolean isValid() {
-	return this.valid;
-}
-
-/**
- * Returns the 'n' last nightly build names.
- *
- * @param n Number of last nightly builds to return
- * @return Last n nightly build names preceding current.
- */
-public List lastNightlyBuildNames(int n) {
-	List labels = new ArrayList();
-	for (int i=size()-2; i>=0; i--) {
-		BuildResults buildResults = (BuildResults) this.children.get(i);
-		if (isBuildConcerned(buildResults)) {
-			String buildName = buildResults.getName();
-			if (buildName.startsWith("N")) { //$NON-NLS-1$
-				labels.add(buildName);
-				if (labels.size() >= n) break;
-			}
-		}
-	}
-	return labels;
-}
-
-/*
- * Read all configuration builds results data from the given stream.
- */
-void readData(DataInputStream stream) throws IOException {
-	int size = stream.readInt();
-	for (int i=0; i<size; i++) {
-		BuildResults buildResults = new BuildResults(this);
-		buildResults.readData(stream);
-		addChild(buildResults, true);
-	}
-}
-
-/*
- * Set the configuration value from database information
- */
-void setValue(int build_id, int dim_id, int step, long value) {
-	BuildResults buildResults = (BuildResults) getResults(build_id);
-	if (buildResults == null) {
-		buildResults = new BuildResults(this, build_id);
-		addChild(buildResults, true);
-	}
-	buildResults.setValue(dim_id, step, value);
-}
-
-/*
- * Update configuration results read locally with additional database information.
- */
-void update() {
-
+private void initialize() {
 	// Get performance results builds name
 	PerformanceResults perfResults = getPerformance();
 	String baselineBuildName = perfResults.getBaselineName();
@@ -307,10 +331,116 @@ void update() {
 		this.current = (BuildResults) this.children.get(size()-1);
 	}
 
-	// Get current and baseline builds failures and summaries
-	ScenarioResults scenarioResults = (ScenarioResults) this.parent;
-	DB_Results.queryScenarioFailures(scenarioResults, this.name, this.current, this.baseline);
-	DB_Results.queryScenarioSummaries(scenarioResults, this.name, this.current, this.baseline);
+	// Set delta between current vs. baseline and the corresponding error
+	int dim_id = DEFAULT_DIM.getId();
+	double baselineValue = this.baseline.getValue();
+	double currentValue = this.current.getValue();
+	this.delta = (currentValue - baselineValue) / baselineValue;
+	if (Double.isNaN(this.delta)) {
+		this.error = Double.NaN;
+	} else {
+		long baselineCount = this.baseline.getCount(dim_id);
+		long currentCount = this.current.getCount(dim_id);
+		if (baselineCount == 1 || currentCount == 1) {
+			this.error = Double.NaN;
+		} else {
+			double baselineError = this.baseline.getError(dim_id);
+			double currentError = this.current.getError(dim_id);
+			this.error = Double.isNaN(baselineError)
+					? currentError / baselineValue
+					: Math.sqrt(baselineError*baselineError + currentError*currentError) / baselineValue;
+		}
+	}
+
+	// Set the failure on the current build if necessary
+	int failure_threshold = getPerformance().failure_threshold;
+	if (this.delta >= (failure_threshold/100.0)) {
+		StringBuffer buffer = new StringBuffer("Performance criteria not met when compared to '"); //$NON-NLS-1$
+		buffer.append(this.baseline.getName());
+		buffer.append("': "); //$NON-NLS-1$
+		buffer.append(DEFAULT_DIM.getName());
+		buffer.append("= "); //$NON-NLS-1$
+		buffer.append(timeString((long)this.current.getValue()));
+		buffer.append(" is not within [0%, "); //$NON-NLS-1$
+		buffer.append(100+failure_threshold);
+		buffer.append("'%] of "); //$NON-NLS-1$
+		buffer.append(timeString((long)this.baseline.getValue()));
+		this.current.setFailure(buffer.toString());
+	}
+}
+
+/**
+ * Returns whether the configuration has results for the performance
+ * baseline build or not.
+ * 
+ * @return <code>true</code> if the configuration has results
+ * 	for the performance baseline build, <code>false</code> otherwise.
+ */
+public boolean isBaselined() {
+	return this.baselined;
+}
+boolean isBuildConcerned(BuildResults buildResults) {
+	String buildDate = buildResults.getDate();
+	String currentBuildDate = getCurrentBuildResults() == null ? null : getCurrentBuildResults().getDate();
+	String baselineBuildDate = getBaselineBuildResults() == null ? null : getBaselineBuildResults().getDate();
+	return ((currentBuildDate == null || buildDate.compareTo(currentBuildDate) <= 0) &&
+		(baselineBuildDate == null || buildDate.compareTo(baselineBuildDate) <= 0));
+}
+/**
+ * Returns whether the configuration has results for the performance
+ * current build or not.
+ * 
+ * @return <code>true</code> if the configuration has results
+ * 	for the performance current build, <code>false</code> otherwise.
+ */
+public boolean isValid() {
+	if (this.baseline == null || this.current == null) initialize();
+	return this.valid;
+}
+
+/**
+ * Returns the 'n' last nightly build names.
+ *
+ * @param n Number of last nightly builds to return
+ * @return Last n nightly build names preceding current.
+ */
+public List lastNightlyBuildNames(int n) {
+	List labels = new ArrayList();
+	for (int i=size()-2; i>=0; i--) {
+		BuildResults buildResults = (BuildResults) this.children.get(i);
+		if (isBuildConcerned(buildResults)) {
+			String buildName = buildResults.getName();
+			if (buildName.startsWith("N")) { //$NON-NLS-1$
+				labels.add(buildName);
+				if (labels.size() >= n) break;
+			}
+		}
+	}
+	return labels;
+}
+
+/*
+ * Read all configuration builds results data from the given stream.
+ */
+void readData(DataInputStream stream, int version) throws IOException {
+	int size = stream.readInt();
+	for (int i=0; i<size; i++) {
+		BuildResults buildResults = new BuildResults(this);
+		buildResults.readData(stream, version);
+		addChild(buildResults, true);
+	}
+}
+
+/*
+ * Set the configuration value from database information
+ */
+void setValue(int build_id, int dim_id, int step, long value) {
+	BuildResults buildResults = (BuildResults) getResults(build_id);
+	if (buildResults == null) {
+		buildResults = new BuildResults(this, build_id);
+		addChild(buildResults, true);
+	}
+	buildResults.setValue(dim_id, step, value);
 }
 
 /*
