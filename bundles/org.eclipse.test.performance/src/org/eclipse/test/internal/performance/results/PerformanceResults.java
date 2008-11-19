@@ -26,18 +26,32 @@ import java.util.*;
  */
 public class PerformanceResults extends AbstractResults {
 
-	final String baselineName; // Name of the baseline build used for comparison
-	final String baselinePrefix;
+	String baselineName; // Name of the baseline build used for comparison
+	String baselinePrefix;
 	private String scenarioPattern;
 	private List components;
 	String[] configNames, sortedConfigNames;
 	private String[] configBoxes, sortedConfigBoxes;
 	private String configPattern;
 
+public static PerformanceResults createPerformanceResults(String scenarioPattern, File dataDir, boolean print) {
+	DB_Results.getBuilds(); // Init build names
+	if (DB_Results.LAST_CURRENT_BUILD == null || DB_Results.LAST_BASELINE_BUILD == null) return null;
+	PerformanceResults performanceResults = new PerformanceResults(DB_Results.LAST_CURRENT_BUILD, DB_Results.LAST_BASELINE_BUILD, print);
+	performanceResults.read(null, scenarioPattern, dataDir, DEFAULT_FAILURE_THRESHOLD);
+	return performanceResults;
+}
+
+	// Failure threshold
+	public static final int DEFAULT_FAILURE_THRESHOLD = 10;
+	int failure_threshold = DEFAULT_FAILURE_THRESHOLD;
+
 public PerformanceResults(String name, String baseline, boolean print) {
 	super(null, name);
 	this.baselineName = baseline;
-	this.baselinePrefix = baseline.substring(0, baseline.lastIndexOf('_'));
+	if (baseline != null) {
+		this.baselinePrefix = baseline.substring(0, baseline.lastIndexOf('_'));
+	}
 	this.print = print;
 }
 
@@ -61,7 +75,7 @@ String getBaselinePrefix() {
 /*
  * Get the build date (see #getBuildDate(String, String)).
  */
-String getBuildDate() {
+public String getBuildDate() {
 	return getBuildDate(this.name, this.baselinePrefix);
 }
 
@@ -189,12 +203,11 @@ public ScenarioResults getScenarioResults(String scenarioName) {
  * Read all data from performance database for the given configurations
  * and scenario pattern.
  * 
- * @param configs All configs to extract results. If <code>null</code>,
- * 	then all known configurations ({@link #CONFIGS})  are read.
- * @param pattern The pattern of the concerned scenarios
+ * @param dataDir The directory where data will be stored locally
+ * 	if <code>null</code>, then storage will be performed
  */
-public void read(String[][] configs, String pattern) {
-	read(configs, pattern, null);
+public void read(File dataDir) {
+	read(null, null, dataDir, DEFAULT_FAILURE_THRESHOLD);
 }
 
 /**
@@ -206,10 +219,13 @@ public void read(String[][] configs, String pattern) {
  * @param pattern The pattern of the concerned scenarios
  * @param dataDir The directory where data will be stored locally
  * 	if <code>null</code>, then storage will be performed
+ * @param threshold The failure percentage threshold over which a build result
+ * 	value compared to the baseline is considered as failing.
  */
-public void read(String[][] configs, String pattern, File dataDir) {
+public void read(String[][] configs, String pattern, File dataDir, int threshold) {
 
 	this.scenarioPattern = pattern;
+	this.failure_threshold = threshold;
 
 	// Print title
 	StringBuffer buffer = new StringBuffer("Read performance results until build '"); //$NON-NLS-1$
@@ -262,7 +278,7 @@ public void read(String[][] configs, String pattern, File dataDir) {
 	println(" -> "+(System.currentTimeMillis()-start)+"ms"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	// Create corresponding children
-	List allComponents = DB_Results.getAllComponents();
+	List allComponents = DB_Results.getComponents();
 	int size = allComponents.size();
 	this.components = new ArrayList(size);
 	for (int i=0; i<size; i++) {

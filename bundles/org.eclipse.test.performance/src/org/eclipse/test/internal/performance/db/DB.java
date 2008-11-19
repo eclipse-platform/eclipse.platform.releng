@@ -705,6 +705,7 @@ public class DB {
                 fIsEmbedded= false;
                 // connect over network
                 if (DEBUG) System.out.println("Trying to connect over network..."); //$NON-NLS-1$
+//                Class.forName(" org.apache.derby.jdbc.ClientDriver"); //$NON-NLS-1$
                 Class.forName("com.ibm.db2.jcc.DB2Driver"); //$NON-NLS-1$
                 info.put("user", PerformanceTestPlugin.getDBUser());	//$NON-NLS-1$
                 info.put("password", PerformanceTestPlugin.getDBPassword());	//$NON-NLS-1$

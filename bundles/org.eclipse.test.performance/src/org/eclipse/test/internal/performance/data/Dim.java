@@ -24,7 +24,7 @@ public class Dim implements Dimension {
     private final int fId;
 	private final Unit fUnit;
 	private final int fMultiplier;
-	private final boolean fLargerIsBetter= false;	// true indicates that larger values are better
+	private String shortName;
 	
 	public static Dim getDimension(int id) {
         InternalDimensions.COMITTED.getId();	// trigger loading class InternalDimensions
@@ -66,12 +66,30 @@ public class Dim implements Dimension {
 		return fMultiplier;
 	}
 
-	public boolean largerIsBetter() {
-	    return fLargerIsBetter;
-	}
-
 	public String getName() {
 		return DimensionMessages.getString(fId);
+	}
+
+	/**
+	 * Returns the short name for the current dimension.
+	 * This short name is done keeping only uppercase characters from the name.
+	 * It's typically used for anchor references based on dimension.
+	 * 
+	 * @return The short name of the dimension
+	 */
+	public String getShortName() {
+		if (this.shortName == null) {
+			String name = getName();
+			StringBuffer buffer = new StringBuffer();
+			int length = name.length();
+			for (int i=0; i<length; i++) {
+				if (Character.isUpperCase(name.charAt(i))) {
+					buffer.append(name.charAt(i));
+				}
+			}
+			this.shortName = buffer.toString();
+		}
+		return this.shortName;
 	}
 
 	public String getDescription() {

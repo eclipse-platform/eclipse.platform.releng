@@ -27,17 +27,20 @@ public class BuildResults extends AbstractResults {
 
 	// Build information
 	String date;
-	boolean baseline;
-	String failure;
 	String comment;
 	int summaryKind = -1;
 
-	// Dimensions informations
+	// Dimensions information
 	Dim[] dimensions;
 	double[] average, stddev;
 	long[] count;
 	double[][] values;
-	BuildResults(AbstractResults parent) {
+
+	// Comparison information
+	boolean baseline;
+	String failure;
+
+BuildResults(AbstractResults parent) {
 	super(parent, -1);
 }
 
@@ -101,10 +104,16 @@ public int compareTo(Object obj) {
  * 	or <code>null</code> if no comment was stored for it.
  */
 public String getComment() {
-	if (this.comment == null) {
-		return null;
-	}
 	return this.comment;
+}
+
+/**
+ * Return the number of stored values for the default dimension
+ * 
+ * @return the number of stored values for the default dimension
+ */
+public long getCount() {
+	return this.count[DEFAULT_DIM_INDEX];
 }
 
 /*
@@ -152,6 +161,16 @@ public String getDate() {
 }
 
 /**
+ * Returns the standard deviation of the default dimension computed
+ * while running the scenario for the current build.
+ * 
+ * @return The value of the standard deviation
+ */
+public double getDeviation() {
+	return this.stddev[DEFAULT_DIM_INDEX];
+}
+
+/**
  * Returns the standard deviation of the given dimension computed
  * while running the scenario for the current build.
  * 
@@ -178,6 +197,17 @@ int getDimIndex(int dim_id) {
 	return -1;
 }
 
+/**
+ * Return the error computed while storing values for the default dimension
+ * 
+ * @return the error of the measures stored for the default dimension
+ */
+public double getError() {
+	long n = getCount();
+	if (n == 1) return Double.NaN;
+	return getDeviation() / Math.sqrt(n);
+}
+
 /*
  * Return the error computed while storing values for the given dimension
  *  (see {@link Dim#getId()})
@@ -195,9 +225,6 @@ double getError(int dim_id) {
  * @return The failure message or <code>null</null> if the scenario passed.
  */
 public String getFailure() {
-	if (this.failure == null) {
-		return null;
-	}
 	return this.failure;
 }
 
@@ -210,6 +237,16 @@ public String getFailure() {
  */
 public double getValue(int dim_id) {
 	return this.average[getDimIndex(dim_id)];
+}
+
+/**
+ * Return the value of the performance result stored
+ * for the default dimension of the current build.
+ * 
+ * @return The value of the performance result
+ */
+public double getValue() {
+	return this.average[DEFAULT_DIM_INDEX];
 }
 
 /**
@@ -280,7 +317,7 @@ boolean match(String pattern) {
 /*
  * Read the build results data from the given stream.
  */
-void readData(DataInputStream stream) throws IOException {
+void readData(DataInputStream stream, int version) throws IOException {
 	long timeBuild = stream.readLong();
 	this.date = new Long(timeBuild).toString();
 	byte kind = stream.readByte();
@@ -316,13 +353,32 @@ void readData(DataInputStream stream) throws IOException {
 		this.stddev[i] = stream.readDouble();
 	}
 	this.id = DB_Results.getBuildId(this.name);
+	switch (version) {
+		case 0:
+			// no other information were stored in version 0
+			break;
+		default:
+			// extra infos (summary, failure and comment) are also stored in local data files
+			this.summaryKind = stream.readInt();
+			String str = stream.readUTF();
+			if (str.length() > 0) {
+				this.failure = str;
+			}
+			str = stream.readUTF();
+			if (str.length() > 0) {
+				this.comment = str;
+			}
+			break;
+	}
 }
 
 /*
  * Set the build summary and its associated comment.
  */
 void setComment(String comment) {
-	this.comment = comment;
+	if (comment != null && this.comment == null) {
+		this.comment = comment;
+	}
 }
 
 /*
@@ -467,6 +523,11 @@ void write(DataOutputStream stream) throws IOException {
 		stream.writeLong(this.count[i]);
 		stream.writeDouble(this.stddev[i]);
 	}
+
+	// Write extra infos (summary, failure and comment)
+	stream.writeInt(this.summaryKind);
+	stream.writeUTF(this.failure == null ? "" : this.failure) ; //$NON-NLS-1$
+	stream.writeUTF(this.comment == null ? "" : this.comment) ; //$NON-NLS-1$
 }
 
 }
