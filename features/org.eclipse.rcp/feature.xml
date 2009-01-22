@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<feature
+<?xml version="1.0" encoding="UTF-8"?><feature
       id="org.eclipse.rcp"
       label="%featureName"
       version="3.4.200.qualifier"
