@@ -7,8 +7,8 @@
 <body>
 
 <h1>Eclipse Project Release Notes</h1>
-<p>Release 3.5.0<br>
-  Last revised July 30, 2009</p>
+<p>Release 3.5.1<br>
+  Last revised August 14, 2009</p>
 <p align="left"><strong>This software is OSI Certified Open Source Software.<br>
 OSI Certified is a certification mark of the Open Source Initiative.&nbsp;</strong></p>
 <blockquote>
@@ -21,6 +21,7 @@ OSI Certified is a certification mark of the Open Source Initiative.&nbsp;</stro
   <a href="#Upgrading">5. Upgrading a Workspace from a Previous Release</a><br>
   <a href="#Interoperability with Previous Releases">6. Interoperability with
   Previous Releases</a><br>
+  <a href="#DefectsFixed">7. Defects Fixed since Previous Release</a><br>  
   </p>
 </blockquote>
 
@@ -1562,6 +1563,3445 @@ Eclipse 3.5 and earlier 3.x releases:</p>
   list of concerns do not apply since they affect the layout and interpretation 
   of files in the plug-in <i>project</i> but none affect the actual deployed form 
   of the plug-in.)</p>
+  
+  
+  <h2>7. <a name="DefectsFixed"></a>Defects Fixed in Maintenance Releases</h2>
+
+<h3>7.1 Defects fixed in release 3.5.1 since 3.5.0</h3>
+<p>Release 3.5.1 is a maintenance release to fix serious defects present in
+release 3.5.0 These changes only affect some plug-ins and
+features.</p>
+
+<p>Maintenance release 3.5.1 contains fixes for the following defects and others:</p>
+<p>
+<p>
+Note: Bug fixes since the 3.4.2 release can be obtained by the following the Bugzilla query: </p> 
+<p>
+<a href="https://bugs.eclipse.org/bugs/buglist.cgi?bug_file_loc_type=allwordssubstr;bug_status=RESOLVED;bug_status=VERIFIED;bug_status=CLOSED;classification=Eclipse;classification=RT;field-1-0-0=bug_status;field-1-1-0=classification;field-1-2-0=product;field-1-3-0=resolution;field-1-4-0=target_milestone;field0-0-0=noop;keywords_type=allwords;long_desc_type=allwordssubstr;product=Equinox;product=JDT;product=PDE;product=Platform;query_format=advanced;remaction=;resolution=FIXED;short_desc=;short_desc_type=allwordssubstr;status_whiteboard=;status_whiteboard_type=allwordssubstr;target_milestone=3.5.1;type-1-0-0=anyexact;type-1-1-0=anyexact;type-1-2-0=anyexact;type-1-3-0=anyexact;type-1-4-0=anyexact;type0-0-0=noop;value-1-0-0=RESOLVED%2CVERIFIED%2CCLOSED;value-1-1-0=Eclipse%2CRT;value-1-2-0=Equinox%2CJDT%2CPDE%2CPlatform;value-1-3-0=FIXED;value-1-4-0=3.5.1;value0-0-0=|;query_based_on=">Bugs fixed in the 3.5.1 release</a>
+
+</p>
+
+
+<p>
+
+<table class="bz_buglist" cellspacing="0" cellpadding="4" width="100%">
+    <colgroup>
+      <col class="bz_id_column">
+      <col class="bz_short_desc_column">
+    </colgroup>
+
+    <tr align="left">
+      <th colspan="1" class="first-child">
+          <a href="buglist.cgi?bug_file_loc_type=allwordssubstr&amp;bug_status=RESOLVED&amp;bug_status=VERIFIED&amp;bug_status=CLOSED&amp;classification=Eclipse&amp;classification=RT&amp;field-1-0-0=bug_status&amp;field-1-1-0=classification&amp;field-1-2-0=product&amp;field-1-3-0=resolution&amp;field-1-4-0=target_milestone&amp;field0-0-0=noop&amp;keywords_type=allwords&amp;long_desc_type=allwordssubstr&amp;product=Equinox&amp;product=JDT&amp;product=PDE&amp;product=Platform&amp;query_format=advanced&amp;remaction=&amp;resolution=FIXED&amp;short_desc=&amp;short_desc_type=allwordssubstr&amp;status_whiteboard=&amp;status_whiteboard_type=allwordssubstr&amp;target_milestone=3.5.1&amp;type-1-0-0=anyexact&amp;type-1-1-0=anyexact&amp;type-1-2-0=anyexact&amp;type-1-3-0=anyexact&amp;type-1-4-0=anyexact&amp;type0-0-0=noop&amp;value-1-0-0=RESOLVED%2CVERIFIED%2CCLOSED&amp;value-1-1-0=Eclipse%2CRT&amp;value-1-2-0=Equinox%2CJDT%2CPDE%2CPlatform&amp;value-1-3-0=FIXED&amp;value-1-4-0=3.5.1&amp;value0-0-0=%7C&amp;order=bugs.bug_id&amp;query_based_on=">ID</a>
+      </th>
+
+<th colspan="1">
+        
+      <a href="buglist.cgi?bug_file_loc_type=allwordssubstr&amp;bug_status=RESOLVED&amp;bug_status=VERIFIED&amp;bug_status=CLOSED&amp;classification=Eclipse&amp;classification=RT&amp;field-1-0-0=bug_status&amp;field-1-1-0=classification&amp;field-1-2-0=product&amp;field-1-3-0=resolution&amp;field-1-4-0=target_milestone&amp;field0-0-0=noop&amp;keywords_type=allwords&amp;long_desc_type=allwordssubstr&amp;product=Equinox&amp;product=JDT&amp;product=PDE&amp;product=Platform&amp;query_format=advanced&amp;remaction=&amp;resolution=FIXED&amp;short_desc=&amp;short_desc_type=allwordssubstr&amp;status_whiteboard=&amp;status_whiteboard_type=allwordssubstr&amp;target_milestone=3.5.1&amp;type-1-0-0=anyexact&amp;type-1-1-0=anyexact&amp;type-1-2-0=anyexact&amp;type-1-3-0=anyexact&amp;type-1-4-0=anyexact&amp;type0-0-0=noop&amp;value-1-0-0=RESOLVED%2CVERIFIED%2CCLOSED&amp;value-1-1-0=Eclipse%2CRT&amp;value-1-2-0=Equinox%2CJDT%2CPDE%2CPlatform&amp;value-1-3-0=FIXED&amp;value-1-4-0=3.5.1&amp;value0-0-0=%7C&amp;order=bugs.short_desc%2Cbugs.bug_id&amp;query_based_on=">Summary</a>
+  </th>
+
+
+    </tr>
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b195183"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=195183">195183</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[launching] JavaClassPath.performApply() uses original instead of working copy causes NPE
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b196308"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=196308">196308</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] Don't escape entity when formatting in &lt;pre&gt; tags within javadoc comments
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b209333"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=209333">209333</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Trim] [Trim] NPE in IWorkbenchPage.setPartState(IWorkbenchPartReference, IWorkbenchPage.STATE_RESTORED);
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P2             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b226595"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=226595">226595</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Help] Help index cannot handle multiple files with same ID
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_enhancement             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b234872"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=234872">234872</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[relengtool] The &quot;Fix copyrights&quot; tool should not add rem statements that echo to the console
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b235572"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=235572">235572</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[relengtool] &quot;Fix copyrights&quot; doesnt detect existing Copyright in Windows .bat files
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_enhancement             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b259946"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=259946">259946</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[ui][engine] p2 not cleaning up large .profile file
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b260968"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=260968">260968</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Deadlock in UserLibraryManager
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b267046"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=267046">267046</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >SourceMapper infinite loop on primitive type in generic
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b269172"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=269172">269172</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Contributions] WorkbenchMenuService calling Display.syncExec() on disposed Display
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b271703"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=271703">271703</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Cannot print from 64 bit eclipse
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b272850"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=272850">272850</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Webapp] TOC expand too slow for when there are 3000+ sub topics
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b273112"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=273112">273112</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Markers] Use 'bottom up' heap sort to optimize the Markers view
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b273385"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=273385">273385</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[model] NPE while closing project
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P2             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b273495"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=273495">273495</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[ActionSets] Actionsets leak when opening/closing perspectives
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b273619"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=273619">273619</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] Formatting repeats *} in javadoc
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b274898"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=274898">274898</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[recovery] IllegalArgumentException in ASTNode#setSourceRange()
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_blocker             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b275330"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=275330">275330</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >NPE from org.eclipse.jdt.internal.core.ClasspathChange.requestIndexing
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b275589"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=275589">275589</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >can't see text cursor after setting dark background color
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b276110"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=276110">276110</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Label: SWT.CENTER is being ignored when used with SWT.WRAP
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P2             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b276111"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=276111">276111</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[JUnit] classpath container doesn't pick up JUnit jars in shared installations
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b276162"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=276162">276162</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[KeyBindings] Exporting key preferences to CSV does not warn of overwriting file
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b276202"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=276202">276202</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Forms] NPE if dispose() called on FormToolkit more than once
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b276373"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=276373">276373</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Incorrect resource comparison with IJavaProject.isOnClasspath(IResource)
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b276938"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=276938">276938</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Remove unreachable removes reachable logic in case statement.
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b276969"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=276969">276969</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Help] HelpView does not create itself correctly in a multi window session that has been restarted, dynamic context help is disabled
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b277064"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=277064">277064</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[launcher] RCP app crashes on SplashHandler takedown
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b277120"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=277120">277120</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[CommonNavigator] Project explorer does not reveal elements when linked to editor
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b277204"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=277204">277204</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >IAE in SharedASTProvider for generic local class.
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b277315"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=277315">277315</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Combo does not accept drag and drop
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b277356"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=277356">277356</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[cocoa] npe in Tree widget
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b277450"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=277450">277450</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.5][compiler] Problems with += and Autoboxing/Unboxing
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_trivial             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b277489"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=277489">277489</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >VM arg are wrong for the agent download
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b277547"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=277547">277547</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[eclipse] StringIndexOutOfBoundException when setLauncherName is passed an empty string
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b277567"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=277567">277567</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Path.close() method on results in different behavior on Cocoa
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b277783"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=277783">277783</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Http service should not use 8859_1 alias on S60
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_CLOSED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b277926"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=277926">277926</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Commands] Command is not invoked when focus changes.
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b277965"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=277965">277965</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[compiler] NPE in canBeSeenBy due to illegal protected toplevel class
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b278305"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=278305">278305</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.5][compiler] JDT accepts supertype parameterized with wildcard
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b278311"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=278311">278311</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[DataBinding]  INativePropertyListener methods should document that source may be null
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b278370"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=278370">278370</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Mozilla] DOM is unavailable in completed event listener after setText()
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b278376"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=278376">278376</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >NPE in Shell.WM_ENTERIDLE
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b278550"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=278550">278550</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Databinding] ObservablesManager, ObservableTracker and MapSimpleValueObservableMap lead to exception
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b278562"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=278562">278562</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.5][compiler] Generated code results in VerifyError
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b278734"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=278734">278734</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[ActivityMgmt] WorkbenchActivityHelper restrictArray is returning NULL for objects failing the test &quot;restrictUseOf(Object)&quot;
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P1             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b278745"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=278745">278745</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Methods overloaded with unavailable types worked in 3.4 but give &quot;indirectly referenced..&quot; error in 3.5
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b278781"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=278781">278781</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Launching eclipse application fails when a vm arg in eclipse.ini contains a space
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_trivial             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b278801"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=278801">278801</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Export wizards have missing mnemonics
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b278814"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=278814">278814</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[composite] Relative child repository locations not working
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b278933"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=278933">278933</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Workbench] FileNotFoundException in test log makes it particularly unreadable
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b278943"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=278943">278943</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Cocoa] Incorrect colors while copying an image
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b278944"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=278944">278944</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Cocoa: Image transfer not working for images (randomly)
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b279013"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279013">279013</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >SWT: crash when calling setParent() on Linux
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b279103"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279103">279103</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Cocoa] SelectionChanged events behaviour broken
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b279169"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279169">279169</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[category def] Category help link brings up wrong help contents
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b279183"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279183">279183</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.6][compiler] Inconsistent stackmap frames generated by JDT cause VerifyError
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b279278"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279278">279278</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Add mac carbon x86 to build.properties in rcp.config builder
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b279295"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279295">279295</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[ip] imports servlet 2.2
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b279313"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279313">279313</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >TreeItem.removeAll incorrectly implemented on Mac platform
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b279314"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279314">279314</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Typo in p2_metadata_generator.html
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b279326"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279326">279326</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Help] Infinite loop possible in Toc
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b279425"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279425">279425</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[organize imports] MultiElementListSelectionDialog has wrong button layout
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b279509"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279509">279509</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >BrowserInformationControl leaks TextLayout
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b279524"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279524">279524</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >API compare for jar in PDE classpath container
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b279552"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279552">279552</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >NPE running API use scan
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_trivial             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b279611"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279611">279611</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[nls tooling] Add 'Find Broken NLS Strings' to Tips &amp; Tricks
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b279622"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279622">279622</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >The framework exports tracker package at 1.4.2 but should be 1.4.0
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b279671"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279671">279671</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Preferences - PathEditor and DirectoryFieldEditor do not show all disk content on Mac OS X
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b279697"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279697">279697</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >ArrayIndexOutOfBoundsException running use scan
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b279715"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279715">279715</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[inline] Inline Constant and Inline Local Variable are missing parentheses for extended '-' chains
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b279836"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279836">279836</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.5][compiler] Eclipse compiler shows error on javac-valid construct: raw types on overridden methods
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b279947"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279947">279947</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >SimpleArtifactRepository.delete does not delete Symbolic links
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b279957"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=279957">279957</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[doc] property osgi.noshutdown and option -noRestart
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b280026"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280026">280026</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Create the link in the root of the SDK / platform with a p2 action
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b280061"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280061">280061</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] AIOOBE while formatting javadoc comment
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b280063"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280063">280063</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >org.eclipse.jdt.internal.compiler.parser.Parser.parseClassBodyDeclarations(char[], int, int, CompilationUnitDeclaration) should return consistent results
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b280068"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280068">280068</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[rename] Rename/Refactor package breaks plugin.xml when pressing Back on Preview
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b280079"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280079">280079</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >NPE while parsing K_CLASS_BODY_DECLARATIONS
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b280156"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280156">280156</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Delta pack doesn't contain all platform pieces
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b280255"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280255">280255</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] Format edited lines adds two new lines on each save
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b280276"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280276">280276</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >executeCommand('org.eclipse.ui.window.preferences(preferencePageId=org.eclipse.pde.ui.TargetPlatformPreferencePage)') do not open Target Platform page
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b280285"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280285">280285</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[native touchpoint] LinkAction undo does not calculate paths correctly
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b280303"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280303">280303</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >ServiceEvent.MODIFIED_ENDMATCH is not sent in all cases
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b280427"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280427">280427</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >&quot;Configuring accessibility options for textual editors&quot; is not in TOC
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b280458"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280458">280458</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[DataBinding] New API is not showing up in Galileo javadocs
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b280497"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280497">280497</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Incorrect null result for IJavaProject.getClasspathEntryFor(IPath)
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b280615"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280615">280615</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >CCE when changing sort order in file search result page
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b280616"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280616">280616</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] Valid 1.5 code is not formatted inside &lt;pre&gt; tag
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b280678"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280678">280678</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[schema] SchemaTransformer doesn't generate help for &quot;API Information&quot; sections
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b280708"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280708">280708</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Second call to setFont produces incorrect text
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b280755"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280755">280755</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[working sets] Check out into new working set results into strange working set
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b280888"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280888">280888</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >change a java file in one plug-in will compile  all related plugin projects
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b280921"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280921">280921</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Tree.select() sets selection instead of adding to selection
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b280929"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=280929">280929</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Deadlock possible between refreshPackages and BundleLoader initialization
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b281053"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281053">281053</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Non thread safe use of static member gives NPE in ResolverImpl
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b281075"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281075">281075</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Bundle-NativeCode can't work on Windows Server 2008/Windows 7
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b281088"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281088">281088</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >BrandingIron compares String to File
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b281125"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281125">281125</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[doc] typo whats new section: OSGi service registry enhancements
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b281150"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281150">281150</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >product qualifier substitution broken for p2.generate.metadata
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b281290"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281290">281290</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Timer Leak when executing external tool actions
+    </td>
+
+  </tr>
+
+  
+  
+
+
+
+    </tr>
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b281317"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281317">281317</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[search] An internal error occurred during: &quot;Java Search&quot;.
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b281348"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281348">281348</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Net] Eclipse Galileo crashes under Japanese version of Windows XP
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b281409"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281409">281409</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Create repository zip for org.eclipse.platform
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b281426"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281426">281426</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Race condition: IModelProxy.installed() is called after IModelProxy.disposed()
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b281446"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281446">281446</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[typing] &quot;Cut&quot; did not complete normally
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b281533"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281533">281533</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] ArithmeticException: / by zero at Scribe.printLineComment(Scribe.java:2161)
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b281598"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281598">281598</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[assist] Problems during content assist - if project has empty zip file in classpath
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b281623"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281623">281623</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[FastView] NPE in FastViewPane$2.setState (was: File Search doesn't work in 3.5.0)
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b281628"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281628">281628</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Net] Should be impossible to edit native proxy setting by double-clicking the entry
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b281723"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281723">281723</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Databinding] SWTException: Invalid thread access when binding in non-UI thread
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b281727"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281727">281727</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[DataBinding] observing delegating value property of observable list/set/map returns null if master element's hash code has changed
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b281750"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281750">281750</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Dead link in description
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b281867"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281867">281867</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[jar exporter] JAR export not workspace relative if folder does not exist
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b281871"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281871">281871</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[content assist] The extension took too long to return from the 'computeCompletionProposals()' operation
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b281917"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281917">281917</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Doc] Bad link in Ant Editor help page
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b281933"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=281933">281933</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Dialogs] Show Views Dialog and Windows Preference Dialog fail to open if SHOW_FILTERED_TEXTS is set to false
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b282046"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=282046">282046</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[MPE] MultiPageEditorSite does not remove properly its KeyBindingService
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b282321"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=282321">282321</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >No indication that help dialog tray opens (for accessibility)
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_blocker             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b282427"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=282427">282427</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >P2 Installer 3.5 fails with &quot;An error occurred while collecting items to be installed&quot;
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b282563"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=282563">282563</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[ds] RCP using declarative services (occasionally) hangs for 30 secs on start-up
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b282680"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=282680">282680</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >name of win32 x86_64 drop is incorrect in sdk.tests\testScripts\test.xml
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b282704"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=282704">282704</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[launcher] EclipsePolicy assumes non-null CodeSource
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b282739"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=282739">282739</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >performance hit on workspace start to build problem detectors
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b282747"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=282747">282747</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >The library.extensions configuration property does not require leading '.' dots
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b282850"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=282850">282850</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >runtests should allow aix.motif.ppc
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b282874"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=282874">282874</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[ViewMgmt] [ActivityMgmt] NullpointerException during saving state of view registry with disabled xp based activities
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b283078"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283078">283078</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >customAssembly not set for assemble.p2 script
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b283136"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283136">283136</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Intro] AlwaysWelcomeCheckbox - incorrect URL when creating HTML content
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b283185"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283185">283185</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >product mirroring from context should be non-greedy
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b283186"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283186">283186</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Context repositories not passed to the product publisher
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b283204"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283204">283204</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[DataBinding] CheckableCheckedElementsObservableSet#clear can cause ConcurrentModificationException
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b283207"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283207">283207</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Plugin org.eclipse.swt.tests has a higher version in the Eclipse 3.4.2 release than the one in Eclipse 35
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b283297"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283297">283297</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Installation path containing square brackets prevents eclipse startup
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b283313"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283313">283313</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Cocoa] Deleting TableViewer elements and calling refresh() causes major crash
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b283346"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283346">283346</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >&quot;Hide Eclipse&quot; doesn't work properly
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b283351"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283351">283351</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[DataBinding] Document ObservableListTreeContentProvider ObservableCollectionTreeContentProvider constructor realm restriction
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b283428"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283428">283428</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[DataBinding] ViewerSupport.bind() cannot be called multiple times
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b283467"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283467">283467</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[formatter] wrong indentation with 'Never join lines' selected
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b283475"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283475">283475</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[launcher] Eclipse cannot be launched on Solaris 9 because of libc.so library version dependency
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b283529"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283529">283529</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Eclipse application freeze
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b283682"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283682">283682</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >NPE when product does not want to show filter
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b283688"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283688">283688</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >No drag/drop feedback selection on Table if using OwnerDrawLabelProvider on Windows
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b283797"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283797">283797</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Classloading fails when org.eclipse.osgi.framework.eventmgr.EventManager is closed
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b283958"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=283958">283958</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >SWT.MULTI does not work for SWT Text control using Mac OS X Cocoa.
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b284031"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=284031">284031</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Error while parsing manifest
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b284366"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=284366">284366</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[DataBinding] ObservableValueEditingSupport sets model value 1st time even if not changed
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b284431"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=284431">284431</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Different inherited thrown exception clauses are not properly handled
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b284482"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=284482">284482</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[compiler] Collision cases not detected
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b284520"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=284520">284520</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Class org.osgi.framework.Bundle.loadClass(String name) throws ClassNotFoundException for Array Types
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b284728"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=284728">284728</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[misc] Javadoc view stays empty if browser widget is not available
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b284872"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=284872">284872</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >TVT35:TCT313: CHS: Duplicate Mnemonic Keys
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b284948"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=284948">284948</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.6][compiler] Java annotations are broken in editor when used on interface methods
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b284993"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=284993">284993</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >GC#setAlpha() not respected by GC#drawImage()
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b285045"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=285045">285045</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[IDE] TVT35:TCT330: CHS: Duplicate Mnemonic Keys  on workspace pref page
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b285094"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=285094">285094</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[DS] Tracing throws Null Pointer Exception (NPE)
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b285215"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=285215">285215</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Cannot change breakpoint type using RulerBreakpointTypesActionDelegate
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b285277"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=285277">285277</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >ACTIVE_EDITOR_INPUT_NAME does not contribute to source priority
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b285292"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=285292">285292</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Trace fails to determine class/method/line number when using a tracing class
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_minor             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b285322"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=285322">285322</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[ui] TVT35:TCT328: CHS: Duplicate Mnemonic Keys
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b285437"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=285437">285437</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[extract superclass] action not enabled any more when class is selected
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b285443"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=285443">285443</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[transport] UpdateSite doesn't handle 403 errors properly
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_blocker             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b285464"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=285464">285464</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[DS] dependency injection does not work when starting more than one instance of a service
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b285585"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=285585">285585</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Broken links to PRODUCT_PLUGIN/book.css in platform.doc.user
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b285701"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=285701">285701</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[1.5][compiler] Internal Compiler Error - ArrayIndexOutOfBoundsException
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b285727"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=285727">285727</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[junit] default auto start setting doesn't work
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b285750"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=285750">285750</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Widgets] Combo - No selection event when selection changed with keyboard
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_major             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b285774"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=285774">285774</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >p2 director.app is generating compressed profile files by default.
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b285909"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=285909">285909</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Increment product version numbers for 3.5.1
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b285938"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=285938">285938</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Update org.osgi classes to latest v4.2
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b286028"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=286028">286028</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >Organize Manifest: Do not remove lazy Bundle-ActivationPolicy header for DS bundles
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_critical             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b286047"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=286047">286047</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >GZipped profile format not understood by 3.5.0
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b286117"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=286117">286117</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[tranport] Transfer Exception on subsequent download resume
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b286243"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=286243">286243</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >p2.user.ui feature version should be incremented in 3.5.1 stream
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_VERIFIED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b286307"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=286307">286307</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >FilePermission with &quot;&lt;&lt;ALL FILES&gt;&gt;&quot; in permissions.perm
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b286407"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=286407">286407</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >[Model] IMemberValuePair don't return the right value for java.lang.annotation.RetentionPolicy annotations
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b286505"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=286505">286505</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >version of org.eclipse.equinox.p2.repository should be incremented in 3.5.x maintenance stream
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_odd             ">
+
+    <td class="first-child">
+      <a name="b286518"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=286518">286518</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >DVT35:TCT558: CHS - Help Contents - Incorrect number
+    </td>
+
+  </tr>
+
+  
+
+
+  
+
+  <tr class="bz_bugitem
+             bz_normal             bz_P3             bz_RESOLVED             bz_FIXED                                       bz_row_even             ">
+
+    <td class="first-child">
+      <a name="b286581"
+         href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=286581">286581</a>
+      <span style="display: none"></span>
+    </td>
+
+    <td >FeatureGeneralPropertyPage message collation
+    </td>
+
+  </tr>
+
+  
+    </table>
+
+
+
+
+178 bugs found.
+
+
+<br>
+
+
+
+
+<p>
+
+
+
+
+  
 
 <hr>
 <p>Sun, Solaris, Java and all Java-based trademarks are trademarks of Sun Microsystems, Inc.
