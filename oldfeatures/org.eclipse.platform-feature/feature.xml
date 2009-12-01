@@ -411,6 +411,16 @@
          version="0.0.0"
          fragment="true"/>
 
+  <plugin
+         id="org.eclipse.core.filesystem.aix.ppc"
+         os="aix"
+         arch="ppc"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
    <plugin
          id="org.eclipse.core.filesystem.hpux.ia64_32"
          os="hpux"
@@ -419,8 +429,8 @@
          install-size="0"
          version="0.0.0"
          fragment="true"
-         unpack="false"/>
-
+         unpack="false"/>       
+    
    <plugin
          id="org.eclipse.core.filesystem.hpux.PA_RISC"
          os="hpux"
