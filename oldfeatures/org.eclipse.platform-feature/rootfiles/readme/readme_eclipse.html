@@ -8,7 +8,7 @@
 
 <h1>Eclipse Project Release Notes</h1>
 <p>Release 3.5.2<br>
-  Last revised February 9, 2010</p>
+  Last revised February 10, 2010</p>
 <p align="left"><strong>This software is OSI Certified Open Source Software.<br>
 OSI Certified is a certification mark of the Open Source Initiative.&nbsp;</strong></p>
 <blockquote>
@@ -1239,6 +1239,13 @@ some limitations. Java 6 processors are only executed during a build, not while 
 in the processing API are unimplemented when compiling within the IDE, and will throw
 UnsupportedOperationException.
 
+<h4>Refactoring fails with invalid package name error when jaxb-xjc.jar is on build path</h4>
+This JAR contains some entries that start with "1.0/". This leads to an invalid package name error once
+this JAR has been added to the indexes. The problem is reported in bug 
+<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=293861">293861</a> and it is fixed for 3.6. A patch for the <code>org.eclipse.jdt.core</code>
+bundle will be available on the JDT/Core update page after 3.5.2 is released to fix this issue.
+Check this <a href="http://www.eclipse.org/jdt/core/r3.5/index.php#UPDATES">link</a> for updates on this issue.
+
 <h3>3.4 <a name="I-PDE">Plug-in Development Environment (PDE)</a></h3>
 <h4>Feature manifest editor does not preserve all comments</h4>
 
@@ -1274,7 +1281,7 @@ plug-in Ids during binary project import. (bug <a href="https://bugs.eclipse.org
 <h4>Export of plug-in may silently drop classes</h4>
 <p>When exporting a plug-in using the plug-in, feature or product wizards, some classes
 might be dropped from the resulting archive if their fully qualified name is too long.
-This typical path limitation can be worked around by creating the jar of the problematic
+This typical path limitation can be worked around by creating the JAR of the problematic
 plug-in by using the Jar export wizard.
 (bug <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=97150">97150</a>)</p>
 
@@ -4454,7 +4461,7 @@ U.S. and other countries.</p>
 Software Systems Ltd.</p>
 <p>Other company, product, and service names may be trademarks or service marks
 of others.</p>
-<p>(c) Copyright IBM Corp. and others 2009</p>
+<p>(c) Copyright IBM Corp. and others 2010</p>
 
 <h2><a name="Appendix1">Appendix 1: Execution Environment by Bundle</a></h2>
 
