@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.equinox.sdk"
       label="%featureName"
-      version="3.6.0.qualifier"
+      version="3.6.1.qualifier"
       provider-name="%providerName">
 
    <description>
@@ -39,6 +39,6 @@
 
    <includes
          id="org.eclipse.equinox.weaving.sdk"
-         version="0.0.0"/>   
+         version="0.0.0"/>
 
 </feature>
