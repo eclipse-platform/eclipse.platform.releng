@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.platform"
       label="%featureName"
-      version="3.6.1.qualifier"
+      version="3.6.2.qualifier"
       provider-name="%providerName"
       image="eclipse_update_120.jpg">
 
@@ -116,7 +116,7 @@
          version="0.0.0"
          fragment="true"
          unpack="false"/>
-         
+
    <plugin
          id="org.eclipse.core.net.linux.x86_64"
          os="linux"
@@ -126,7 +126,7 @@
          version="0.0.0"
          fragment="true"
          unpack="false"/>
-  
+
    <plugin
          id="org.eclipse.core.net.win32.x86_64"
          os="win32"
@@ -135,8 +135,8 @@
          install-size="0"
          version="0.0.0"
          fragment="true"
-         unpack="false"/>        
-         
+         unpack="false"/>
+
    <plugin
          id="org.eclipse.core.net.linux.x86"
          os="linux"
@@ -152,7 +152,7 @@
          download-size="0"
          install-size="0"
          version="0.0.0"
-         unpack="false"/> 
+         unpack="false"/>
 
    <plugin
          id="org.eclipse.core.runtime.compatibility"
@@ -188,7 +188,7 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-         
+
    <plugin
          id="org.eclipse.equinox.event"
          download-size="0"
@@ -419,7 +419,7 @@
          install-size="0"
          version="0.0.0"
          fragment="true"/>
-         
+
    <plugin
          id="org.eclipse.core.filesystem.aix.ppc"
          os="aix"
@@ -439,7 +439,7 @@
          version="0.0.0"
          fragment="true"
          unpack="false"/>
- 
+
    <plugin
          id="org.eclipse.core.filesystem.linux.ppc"
          os="linux"
