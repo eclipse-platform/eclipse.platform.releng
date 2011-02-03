@@ -106,6 +106,12 @@ about_cairo.html
 */plugins/org.apache.commons.codec_*
 */plugins/org.apache.commons.codec.source_*
 */plugins/org.apache.commons.httpclient.source_*
+*/plugins/org.sat4j.core_*
+*/plugins/org.sat4j.pb_*
+*/plugins/org.apache.commons.logging_*
+*/plugins/org.apache.commons.logging.source_*
 */plugins/org.hamcrest.core.source_*
+*/plugins/org.eclipse.pde.api.tools.source_*/scripts/*
+*/plugins/org.jdt.ui_*/templates/*
 */eclipse/p2/org.eclipse.equinox.p2.metadata.repository/cache/content*_jar/content.xml
 */eclipse/artifacts.xml
