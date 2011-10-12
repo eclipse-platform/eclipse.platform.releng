@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.pde.api.tools.ee.fragments"
       label="%featureName"
-      version="1.0.0.qualifier"
+      version="1.0.100.qualifier"
       provider-name="%providerName">
 
    <description>
@@ -89,6 +89,13 @@
 
    <plugin
          id="org.eclipse.pde.api.tools.ee.osgiminimum12"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipse.pde.api.tools.ee.javase17"
          download-size="0"
          install-size="0"
          version="0.0.0"
