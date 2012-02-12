@@ -12,7 +12,7 @@
          version="0.0.0"/>
          
    <includes
-         id="org.eclipse.pde.api.tools.ee.feature"
+         id="org.eclipse.pde.api.tools.ee.fragments"
          version="0.0.0"/>   
 
    <includes
