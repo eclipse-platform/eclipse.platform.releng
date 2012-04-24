@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.sdk.tests"
       label="%featureName"
-      version="3.7.0.qualifier"
+      version="4.2.0.qualifier"
       provider-name="%providerName"
       image="eclipse_update_120.jpg"
       license-feature="org.eclipse.license"
@@ -284,12 +284,6 @@
          version="0.0.0"/>
 
    <plugin
-         id="org.eclipse.update.tests.core"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/> 
-
-   <plugin
          id="org.eclipse.pde.ui.tests"
          download-size="0"
          install-size="0"
@@ -427,6 +421,8 @@
          id="org.eclipse.update.core"
          download-size="0"
          install-size="0"
-         version="0.0.0"/>
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>
+
