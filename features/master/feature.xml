@@ -59,6 +59,9 @@
          install-size="0"
          version="0.0.0"
          fragment="true"
-         unpack="false"/>    
+         unpack="false"
+         arch="arm"
+         ws="win32"
+         os="wce_ppc"/>    
            
 </feature>
