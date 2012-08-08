@@ -48,7 +48,6 @@
 		<property name="test-output" value="${eclipse-home}/${classname}.xml" />
 		<property name="junit-report-output" value="${eclipse-home}/results" />
 		<mkdir dir="${junit-report-output}" />
-		<property name="junit-stylesheet" value="${eclipse-home}/dropins/eclipse/plugins/org.eclipse.test/JUNIT.XSL" />
 	</target>
 
 	<target name="core-test" description="Eclipse application used to launch HEADLESS plugin tests." depends="init">
@@ -144,9 +143,9 @@
 			<fileset dir="${output-dir}">
 				<include name="${output-file-name}" />
 			</fileset>
+			<report format="noframes" todir="${junit-report-output}"/>
 		</junitreport>
 
-		<xslt style="${junit-stylesheet}" basedir="${junit-report-output}" includes="${classname}.result.xml" destdir="${junit-report-output}" />
 
 		<!--save .log content and *.log content from configuration directory-->
 		<concat destfile="${junit-report-output}/${classname}.log">
