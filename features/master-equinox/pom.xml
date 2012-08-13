@@ -33,7 +33,6 @@
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>target-platform-configuration</artifactId>
         <configuration>
-          <executionEnvironment>J2SE-1.5</executionEnvironment>
           <dependency-resolution> 
             <extraRequirements> 
               <requirement> 
