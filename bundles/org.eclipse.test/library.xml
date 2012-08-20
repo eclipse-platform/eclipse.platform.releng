@@ -74,6 +74,7 @@
 		<property name="jvm" value="${java.home}/bin/java" />
 
 		<echo message="Running ${classname}. Result file: ${junit-report-output}/${classname}.xml." />
+        <echo message="timout property: ${timeout}." />
 
 		<java fork="true" dir="." timeout="${timeout}" jvm="${jvm}" logError="true" classname="org.eclipse.core.launcher.Main" output="${junit-report-output}/${classname}.txt">
 			<classpath>
@@ -146,13 +147,24 @@
 			</fileset>
 		</junitreport>
 
-		<xslt style="${junit-stylesheet}" basedir="${junit-report-output}" includes="${classname}.result.xml" destdir="${junit-report-output}" />
 
 		<!--save .log content and *.log content from configuration directory-->
 		<concat destfile="${junit-report-output}/${classname}.log">
 			<fileset dir="${eclipse-home}" includes="${data-dir}/.metadata/*.log" />
 			<fileset dir="${eclipse-home}" includes="configuration/*.log" />
 		</concat>
+	    
+	    <!-- save any crash logs generated (before they are deleted by subsequent test runs -->
+	    <!-- 
+	         TODO: not all VM's call their crash logs "hs_err_pid*.log". 
+	         We can expand the list as we learn of others 
+	    -->
+	    <copy todir="${junit-report-output}/crashlogs/">
+	      <fileset dir="${eclipse-home}" >
+	        <include name="**/hs_err_pid*.log"/>
+	      </fileset>
+	      <globmapper from="*" to="${classname}.*"/>
+	    </copy>
 	</target>
 
 	<target name="collect">
