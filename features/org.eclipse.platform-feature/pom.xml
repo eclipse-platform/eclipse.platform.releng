@@ -30,46 +30,6 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.eclipse.tycho.extras</groupId>
-        <artifactId>tycho-source-feature-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <id>source-feature</id>
-            <goals>
-              <goal>source-feature</goal>
-            </goals>
-            <configuration>
-              <excludes>
-                <plugin id="org.eclipse.core.boot"/>
-                <plugin id="org.eclipse.platform.doc.user"/>
-
-                <plugin id="org.eclipse.core.filesystem.aix.ppc"/>
-                <plugin id="org.eclipse.core.filesystem.hpux.ia64_32"/>
-                <plugin id="org.eclipse.core.filesystem.linux.x86"/>
-                <plugin id="org.eclipse.core.filesystem.linux.x86_64"/>
-                <plugin id="org.eclipse.core.filesystem.solaris.sparc"/>
-                <plugin id="org.eclipse.core.filesystem.macosx"/>
-                <plugin id="org.eclipse.core.filesystem.win32.x86"/>
-                <plugin id="org.eclipse.core.resources.win32.x86"/>
-                <plugin id="org.eclipse.core.filesystem.win32.x86_64"/>
-
-                <plugin id="org.eclipse.core.net.linux.x86"/>
-                <plugin id="org.eclipse.core.net.linux.x86_64"/>
-                <plugin id="org.eclipse.core.net.win32.x86"/>
-                <plugin id="org.eclipse.core.net.win32.x86_64"/>
-
-                <plugin id="org.eclipse.update.core.linux"/>
-                <plugin id="org.eclipse.update.core.win32"/>
-
-                <plugin id="org.eclipse.equinox.security.macosx"/>
-                <plugin id="org.eclipse.equinox.security.macosx"/>
-              </excludes>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-p2-plugin</artifactId>
         <version>${tycho.version}</version>
