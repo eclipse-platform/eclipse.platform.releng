@@ -27,6 +27,12 @@
   <version>3.8.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+   <properties>
+     <tycho.scmUrl>scm:git:git://git.eclipse.org/gitroot/platform/eclipse.platform.releng.git</tycho.scmUrl>
+   </properties>
+ 
+
+
   <modules>
     <module>oldfeatures/org.eclipse.platform-feature</module>
 
