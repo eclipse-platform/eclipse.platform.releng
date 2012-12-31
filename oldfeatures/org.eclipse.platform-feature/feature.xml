@@ -477,16 +477,6 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.core.filesystem.solaris.sparcv9"
-         os="solaris"
-         arch="sparcv9"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="true"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.core.filesystem.macosx"
          os="macosx"
          download-size="0"
@@ -519,6 +509,16 @@
          id="org.eclipse.core.filesystem.win32.x86_64"
          os="win32"
          arch="x86_64"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.filesystem.linux.ppc64"
+         os="linux"
+         arch="ppc64"
          download-size="0"
          install-size="0"
          version="0.0.0"
