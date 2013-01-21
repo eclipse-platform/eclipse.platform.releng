@@ -713,7 +713,7 @@ public class BuildTests extends TestCase {
 	} 
  
 	
-	public void testComparatorLogs() throws Exception {
+	public void _testComparatorLogs() throws Exception {
 		String os = System.getProperty("os.name");
 		// Only run compare tool on Linux to save time during tests 
 		if (os == null || !os.equalsIgnoreCase("Linux")) {
@@ -884,7 +884,7 @@ public class BuildTests extends TestCase {
 	 * Compares the feature and plug-in versions contained in this Eclipse
 	 * configuration, against a known previous Eclipse configuration.
 	 */
-	public void testVersionCompare() {
+	public void _testVersionCompare() {
 
 		String os = System.getProperty("os.name");
 
