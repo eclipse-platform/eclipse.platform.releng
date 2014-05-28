@@ -137,6 +137,16 @@
          unpack="false"/>
 
    <plugin
+         id="org.eclipse.core.net.linux.ia64"
+         os="linux"
+         arch="ia64"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
          id="org.eclipse.core.resources"
          download-size="0"
          install-size="0"
@@ -391,6 +401,16 @@
          id="org.eclipse.core.filesystem.hpux.ia64_32"
          os="hpux"
          arch="ia64_32"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.filesystem.linux.ia64"
+         os="linux"
+         arch="ia64"
          download-size="0"
          install-size="0"
          version="0.0.0"
