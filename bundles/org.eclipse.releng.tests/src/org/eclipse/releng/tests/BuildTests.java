@@ -653,13 +653,15 @@ public class BuildTests extends TestCase {
 			System.err.println("WARNING: no javadoc logs to test, since RELENGTEST.JAVADOC.URLS property was not set");
 			return;
 		} else {
-			System.err.println("RELENGTEST.JAVADOC.URLS: javadocUrls");
+			System.err.println("RELENGTEST.JAVADOC.URLS: " + javadocUrls);
 		}
 
 		String[] urls= javadocUrls.split(",");
 		URL[] javadocLogs= new URL[urls.length];
 		for (int i= 0; i < urls.length; i++) {
 			javadocLogs[i]= new URL(urls[i]);
+		    // print full path/name to help debug why Windows can't find the files.
+			System.err.println(javadocLogs[i].getPath());
 		}
 
 		JavadocLog javadocLog= new JavadocLog(javadocLogs);
