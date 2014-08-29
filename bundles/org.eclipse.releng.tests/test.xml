@@ -4,8 +4,8 @@
   default="run"
   basedir=".">
 
-	<!-- The property ${eclipse-home} should be passed into this script -->
-	<!-- sets the properties eclipse-home, and library-file -->
+    <!-- The property ${eclipse-home} should be passed into this script -->
+    <!-- sets the properties eclipse-home, and library-file -->
   <property
     name="eclipse-home"
     value="${basedir}/../../" />
@@ -16,9 +16,9 @@
     name="library-file"
     value="${eclipse-home}/plugins/org.eclipse.test/library.xml" />
 
-	<!-- This target holds all initialization code that needs to be done for -->
-	<!-- all tests that are to be run. Initialization for individual tests -->
-	<!-- should be done within the body of the suite target. -->
+    <!-- This target holds all initialization code that needs to be done for -->
+    <!-- all tests that are to be run. Initialization for individual tests -->
+    <!-- should be done within the body of the suite target. -->
   <target name="init">
     <tstamp />
     <condition property="tar.gz">
@@ -42,25 +42,25 @@
     <property
       name="locationcomparecurrent"
       value="${basedir}/relengcomparecurrent" />
-	    <!-- Is now 4 part qualifier. Value used to be set at start of file. 
-	         But, then had to use only 3 part qualifier. Now, set elsewhere?
-	       <property name="org.eclipse.releng.tests" value="org.eclipse.releng.tests_3.2.300" />
-	    -->
+        <!-- Is now 4 part qualifier. Value used to be set at start of file. 
+             But, then had to use only 3 part qualifier. Now, set elsewhere?
+           <property name="org.eclipse.releng.tests" value="org.eclipse.releng.tests_3.2.300" />
+        -->
     <echo message="Full name with versionand qualifier of org.eclipse.releng.tests:" />
     <echo message="   ${org.eclipse.releng.tests}" />
   </target>
 
-	<!-- This target holds code to cleanup the testing environment after the tests -->
-	<!-- have been run. You can use this to delete temporary files that are created. -->
+    <!-- This target holds code to cleanup the testing environment after the tests -->
+    <!-- have been run. You can use this to delete temporary files that are created. -->
   <target name="cleanup">
-	  <!-- temp, leave for inspection
-		<delete dir="${location}" quiet="true" />
-		<delete dir="${locationcompare}" />
-		-->
+      <!-- temp, leave for inspection
+        <delete dir="${location}" quiet="true" />
+        <delete dir="${locationcompare}" />
+        -->
   </target>
 
-	<!--if file is a tar.gz file and not a zip, extract the SDK on which to 
-		execute chkpii before starting tests -->
+    <!--if file is a tar.gz file and not a zip, extract the SDK on which to 
+        execute chkpii before starting tests -->
   <target
     name="setup"
     if="tar.gz">
@@ -79,16 +79,16 @@
         <os family="mac" />
       </not>
     </condition>
-		<!-- <antcall target="setupcompare" /> -->
+        <!-- <antcall target="setupcompare" /> -->
   </target>
 
   <target
     name="setupcompare"
     if="notMac">
-		<!-- 
-		     Run compare test only on Linux machine since it is the fastest machine.
-	         Also, the compare tool only parses feature.xmls so it only needs to be run on one machine.  
-	    -->
+        <!-- 
+             Run compare test only on Linux machine since it is the fastest machine.
+             Also, the compare tool only parses feature.xmls so it only needs to be run on one machine.  
+        -->
     <delete dir="${locationcompare}" />
     <mkdir dir="${locationcompare}" />
     <property
@@ -184,8 +184,8 @@
 
 
 
-	<!-- This target runs the test suite. Any actions that need to happen after all -->
-	<!-- the tests have been run should go here. -->
+    <!-- This target runs the test suite. Any actions that need to happen after all -->
+    <!-- the tests have been run should go here. -->
   <target
     name="run"
     depends="init,BuildTests">
@@ -223,7 +223,7 @@
         value="${eclipse-home}/plugins/${org.eclipse.releng.tests}" />
       <property
         name="vmargs"
-        value="-DRELENGTEST.JAVADOC.URLS=file://${eclipse-home}/../../platform.doc.isv.javadoc.txt,file://${eclipse-home}/../../jdt.doc.isv.javadoc.txt,file://${eclipse-home}/../../pde.doc.user.javadoc.txt,file://${eclipse-home}/../../platform.doc.isv.schema.txt,file://${eclipse-home}/../../jdt.doc.isv.schema.txt,file://${eclipse-home}/../../pde.doc.user.schema.txt -DRELENGTEST.COMPARATOR.URL=file://${eclipse-home}/../../comparatorlog.txt" />
+        value="-DRELENGTEST.JAVADOC.URLS=file:///${eclipse-home}/../../platform.doc.isv.javadoc.txt,file:///${eclipse-home}/../../jdt.doc.isv.javadoc.txt,file:///${eclipse-home}/../../pde.doc.user.javadoc.txt,file:///${eclipse-home}/../../platform.doc.isv.schema.txt,file:///${eclipse-home}/../../jdt.doc.isv.schema.txt,file:///${eclipse-home}/../../pde.doc.user.schema.txt -DRELENGTEST.COMPARATOR.URL=file:///${eclipse-home}/../../comparatorlog.txt" />
     </ant>
   </target>
 
