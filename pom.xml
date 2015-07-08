@@ -28,18 +28,24 @@
      <tycho.scmUrl>scm:git:git://git.eclipse.org/gitroot/platform/eclipse.platform.releng.git</tycho.scmUrl>
   </properties>
 
-  <repositories>
-    <repository>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <id>eclipse-hosted</id>
-      <url>https://repo.eclipse.org/content/repositories/eclipse/</url>
-    </repository>
-  </repositories>
+  <profiles>
+    <profile>
+      <id>build-individual-bundles</id>
+      <repositories>
+        <repository>
+          <!-- to resolve parent pom, only useful for individual builds -->
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+          <id>eclipse-hosted</id>
+          <url>https://repo.eclipse.org/content/repositories/eclipse/</url>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
 
   <modules>
     <module>bundles/org.eclipse.ant.optional.junit</module>
