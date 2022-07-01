@@ -57,6 +57,16 @@ function create_baseline() {
 #================================================================================
 echo "==== CBI aggregator ===="
 
+# Set whether this is a snapshot build or not
+snapshot="false"
+for arg in "$@"; do
+	if [ "$arg" -eq "-snapshot" ]; then
+		snapshot="true"
+	fi
+done
+sed -e "s/snapshot=\".*\"/snapshot=\"${snapshot}\"/g" -i publish-to-maven-central/SDK4Mvn.aggr 
+
+
 if [ ! -d ${LOCAL_TOOLS} ]
 then
 	/bin/mkdir ${LOCAL_TOOLS}
@@ -75,10 +85,10 @@ require_executable ${ECLIPSE}
 if [ ! -x ${AGGREGATOR} ]
 then
 	echo "Installing the CBI aggregator into ${LOCAL_TOOLS}/${DIR_AGGREGATOR} ..."
-	${ECLIPSE} -application ${APP_NAME_P2DIRECTOR} \
+	${ECLIPSE} -application org.eclipse.equinox.p2.director \
 		-r ${URL_AGG_UPDATES} \
 		-d ${LOCAL_TOOLS}/${DIR_AGGREGATOR} -p CBIProfile \
-		-installIU ${IU_AGG_PRODUCT}
+		-installIU org.eclipse.cbi.p2repo.cli.product
 fi
 require_executable ${AGGREGATOR}
 
