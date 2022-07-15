@@ -1,8 +1,16 @@
+/*******************************************************************************
+ * Copyright (c) 2022 Samantha Dawley and others.
+ *
+ * This program and the accompanying materials are made available under the terms of the Eclipse Public License 2.0 which
+ * accompanies this distribution, and is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors: Samantha Dawley - initial API and implementation
+ *******************************************************************************/
+package org.eclipse.test.performance;
 
-import java.io.EOFException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.io.BufferedOutputStream;
@@ -12,20 +20,40 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.Path;
 import java.util.Set;
-import java.util.Map;
 import java.util.HashMap;
 import java.util.ArrayList;
 
-import org.eclipse.test.internal.performance.data.Sample;
+import org.eclipse.equinox.app.IApplication;
+import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.test.internal.performance.data.ResultsData;
 
-public class BasicResultsTable{
+public class BasicResultsTable implements IApplication{
     private static String CURRENT_BUILD, BASELINE_BUILD=null;
     private static ArrayList<Path> inputFiles = new ArrayList<Path>();
     private static String EOL = System.lineSeparator();
     private static String buildDirectory = "";
 
-    public static void main(String[] args) {
+    @Override
+    public Object start(IApplicationContext context) {
+        String[] args = (String[]) context.getArguments().get("application.args");
+        //DEBUG
+        if (args.length > 0) {
+            System.out.println("\n\t= = Raw arguments ('application.args') passed to performance import application: = =");
+            for (String arg : args) {
+                System.out.println("\t\t>" + arg + "<");
+            }
+        }
+        //Stuff
+        run(args);
+        return this.EXIT_OK;
+    }
+
+    @Override
+    public void stop() {
+        // Do nothing
+    }
+
+    public static void run(String[] args) {
         
         parse(args);
         
@@ -44,10 +72,11 @@ public class BasicResultsTable{
         
         //Sort all scenarios into components, then make html file per component
         Set<String> scenarioIDs = results.getCurrentScenarios();
-        String[] officialComponents = results.getComponents();
         ArrayList<String> usedComponents = new ArrayList<String>();
-        HashMap<String, ArrayList<String>> scenarioMap = new HashMap<String, ArrayList<String>>();
+        //group scenarios by component for making tables
+        HashMap<String, ArrayList<String>> componentMap = new HashMap<String, ArrayList<String>>();
 
+        //get components from scenario name, for simplicity I'm just grabing everthing before .test/.tests but eventually should be mapped to actual components
         for (String scenarioID : scenarioIDs) {
             String[] scenarioParts = scenarioID.split("\\.");
             String scenarioComponent = "";
@@ -55,30 +84,36 @@ public class BasicResultsTable{
                 if (part.equals("tests")) {
                     break;
                 }
+                //stw is different
+                if (part.equals("test")) {
+                    break;
+                }
                 scenarioComponent = scenarioComponent + part + ".";
             }
             //trim final . 
-            
             scenarioComponent = scenarioComponent.substring(0, scenarioComponent.length()-1);
 
              //check if component in used components list
             if (usedComponents.contains(scenarioComponent)) {
-                //Update HashMap entry
-                ArrayList<String> componentScenarios = scenarioMap.get(scenarioComponent);
+                //Update HashMap entry, add scenario to components list
+                ArrayList<String> componentScenarios = componentMap.get(scenarioComponent);
                 componentScenarios.add(scenarioID);
-                scenarioMap.replace(scenarioComponent, componentScenarios);
+                componentMap.replace(scenarioComponent, componentScenarios);
             } else {
                 //Add component to used components and make new entry into HashMap
                 ArrayList<String> componentScenarios = new ArrayList<String>();
                 componentScenarios.add(scenarioID);
-                scenarioMap.put(scenarioComponent, componentScenarios);
+                componentMap.put(scenarioComponent, componentScenarios);
                 usedComponents.add(scenarioComponent);
             }
         }
 
+        //for checking if a test has a baseline to reference
+        Set<String> baselineScenarios = results.getBaselineScenarios();
+
         //Make component html files
         for (String component : usedComponents) {
-            ArrayList<String> scenarioList = scenarioMap.get(component);
+            ArrayList<String> scenarioList = componentMap.get(component);
             scenarioList.sort(String::compareToIgnoreCase);
 
             //set up html string
@@ -92,29 +127,70 @@ public class BasicResultsTable{
             htmlString = htmlString + "<td><h4>Name</h4></td>" + EOL;
             htmlString = htmlString + "<td><h4>Elapsed Process (Current)</h4></td>" + EOL;
             htmlString = htmlString + "<td><h4>Elapsed Process (Baseline)</h4></td>" + EOL;
+            htmlString = htmlString + "<td><h4>Difference</h4></td>" + EOL;
             htmlString = htmlString + "<td><h4>CPU Time (Current)</h4></td>" + EOL;
             htmlString = htmlString + "<td><h4>CPU Time (Baseline)</h4>" + EOL;
+            htmlString = htmlString + "<td><h4>Difference</h4>" + EOL;
 
             for (String scenario : scenarioList) {
-                String[] scenarioParts = scenario.split("#");
-                String componentClass = scenarioParts[0];
-                String componentName = scenarioParts[1];
+                System.out.println("Scenario: " + scenario);
+                String[] scenarioParts = null;
+                String componentClass = null;
+                String componentName = null;
+                //swt is different
+                if (scenario.contains("swt")) {
+                    scenarioParts = scenario.split("\\.");
+                    componentName = scenarioParts[scenarioParts.length - 1];
+                    for (int i=0; i < (scenarioParts.length - 1); i++ ) {
+                        componentClass = componentClass + scenarioParts[i] + ".";
+                    }
+                    //trim final . 
+                    componentClass = componentClass.substring(0, componentClass.length()-1);
+                } else {
+                    scenarioParts = scenario.split("#");
+                    componentClass = scenarioParts[0];
+                    componentName = scenarioParts[1];
+                }
 
                 int[] currentData = results.getData("current", scenario);
-                int elapsedCurrent = currentData[0];
-                int cpuCurrent = currentData[1];
+                String elapsedCurrent = String.valueOf(currentData[0]);
+                String cpuCurrent = String.valueOf(currentData[1]);
 
-                int[] baselineData = results.getData("baseline", scenario);
-                int elapsedBaseline = baselineData[0];
-                int cpuBaseline = baselineData[1];
+                String elapsedBaseline = "N/A";
+                String cpuBaseline = "N/A";
+
+                String elapsedDifference = "N/A";
+                String cpuDifference = "N/A";
+
+                String elapsedColor = "#4CE600";
+                String cpuColor = "#4CE600";
+
+                if (baselineScenarios.contains(scenario)) {
+                    int[] baselineData = results.getData("baseline", scenario);
+
+                    elapsedBaseline = String.valueOf(baselineData[0]);
+                    cpuBaseline = String.valueOf(baselineData[1]);
+
+                    elapsedDifference = String.valueOf(baselineData[0] - currentData[0]);
+                    cpuDifference = String.valueOf(baselineData[1] - currentData[1]);
+
+                    if (Integer.valueOf(elapsedDifference) < 0) {
+                        elapsedColor = "D7191C";
+                    }
+                    if (Integer.valueOf(cpuDifference) < 0) {
+                        cpuColor = "D7191C";
+                    }
+                }
 
                 htmlString = htmlString + "<tr>" + EOL;
                 htmlString = htmlString + "<td>" + componentClass + EOL;
                 htmlString = htmlString + "<td>" + componentName + EOL;
                 htmlString = htmlString + "<td>" + elapsedCurrent + EOL;
                 htmlString = htmlString + "<td>" + elapsedBaseline + EOL;
+                htmlString = htmlString + "<td bgcolor=\"" + elapsedColor + "\">" + elapsedDifference + EOL;
                 htmlString = htmlString + "<td>" + cpuCurrent + EOL;
                 htmlString = htmlString + "<td>" + cpuBaseline + EOL;
+                htmlString = htmlString + "<td bgcolor=\"" + cpuColor + "\">" + cpuDifference + EOL;
             }
 
             htmlString = htmlString + "</table>" + EOL;
@@ -210,7 +286,8 @@ public class BasicResultsTable{
 				        printUsage();
                     }
                     //check real file
-                    Path inputFilePath = Paths.get(buildDirectory + "/" + inputFile);
+                    //Path inputFilePath = Paths.get(buildDirectory + "/" + inputFile);
+                    Path inputFilePath = Paths.get(inputFile);
                     if (Files.isReadable(inputFilePath)) {
           		        inputFiles.add(inputFilePath);
         	        } else {

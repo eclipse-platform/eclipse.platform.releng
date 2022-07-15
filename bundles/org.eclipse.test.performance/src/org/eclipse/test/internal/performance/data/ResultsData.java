@@ -1,10 +1,22 @@
+/*******************************************************************************
+ * Copyright (c) 2022 Samantha Dawley and others.
+ *
+ * This program and the accompanying materials are made available under the terms of the Eclipse Public License 2.0 which
+ * accompanies this distribution, and is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors: Samantha Dawley - initial API and implementation
+ *******************************************************************************/
+ 
+package org.eclipse.test.internal.performance.data;
 
 import java.io.EOFException;
-import java.io.IOException;
+//import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+//import java.nio.file.Paths;
 import java.nio.file.Path;
 import java.util.Set;
 import java.util.Map;
@@ -100,6 +112,10 @@ public class ResultsData{
     public Set<String> getCurrentScenarios() {
         return CURRENT_SCENARIO_DATA.keySet();
     }
+
+	public Set<String> getBaselineScenarios() {
+		return BASELINE_SCENARIO_DATA.keySet();
+	}
 
     public int[] getData(String build, String scenarioID) {
         Sample sample = null;
