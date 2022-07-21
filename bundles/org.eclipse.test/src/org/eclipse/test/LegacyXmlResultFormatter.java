@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2018 Red Hat Inc. and others.
+ * Copyright (c) 2018, 2022 Red Hat Inc. and others.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -148,6 +148,11 @@ public class LegacyXmlResultFormatter extends AbstractJUnitResultFormatter {
 		this.outputStream = os;
 	}
 
+	@Override
+	public void setUseLegacyReportingName(final boolean useLegacyReportingName) {
+		//do nothing
+	}
+	
 	private final class Stats {
 		final long startedAt;
 		long endedAt;
