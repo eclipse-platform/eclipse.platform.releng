@@ -117,7 +117,7 @@ public class ResultsData{
 		return BASELINE_SCENARIO_DATA.keySet();
 	}
 
-    public int[] getData(String build, String scenarioID) {
+    public double[] getData(String build, String scenarioID) {
         Sample sample = null;
 
         if (build == "current") {
@@ -128,8 +128,8 @@ public class ResultsData{
         
         DataPoint[] data = sample.getDataPoints();
 
-        int elapsedProcess = 0;
-        int cpuTime = 0;
+        double elapsedProcess = 0;
+        double cpuTime = 0;
 
         for (DataPoint datum : data) {
             Dim[] dimensions = datum.getDimensions();
@@ -142,9 +142,9 @@ public class ResultsData{
 						value = value.substring(0, value.length()-1);
 						Double decimalValue = Double.parseDouble(value);
 						decimalValue = decimalValue * 1000;
-						elapsedProcess += decimalValue.intValue();
+						elapsedProcess += decimalValue;
 					} else {
-						elapsedProcess += Integer.parseInt(value);
+						elapsedProcess += Double.parseDouble(value);
 					}  
                 }
                 if (dim.getName().contains("CPU Time")) {
@@ -155,15 +155,15 @@ public class ResultsData{
 						value = value.substring(0, value.length()-1);
 						Double decimalValue = Double.parseDouble(value);
 						decimalValue = decimalValue * 1000;
-						cpuTime += decimalValue.intValue();
+						cpuTime += decimalValue;
 					} else {
-						cpuTime += Integer.parseInt(value);
+						cpuTime += Double.parseDouble(value);
 					}  
                 }
             }
         }
 
-        int[] currentData = {elapsedProcess, cpuTime};
+        double[] currentData = {elapsedProcess, cpuTime};
         return currentData;
     }
 }

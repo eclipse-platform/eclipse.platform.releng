@@ -30,6 +30,7 @@ import org.eclipse.test.internal.performance.data.ResultsData;
 public class BasicResultsTable implements IApplication{
     private static String CURRENT_BUILD, BASELINE_BUILD=null;
     private static ArrayList<Path> inputFiles = new ArrayList<Path>();
+    private static Path phpTemplateFile = null;
     private static String EOL = System.lineSeparator();
     private static String buildDirectory = "";
 
@@ -118,8 +119,8 @@ public class BasicResultsTable implements IApplication{
 
             //set up html string
             String htmlString = "";
-            htmlString = htmlString + EOL + "<h2>Performance of " + component + ": " + CURRENT_BUILD + " relative to " + BASELINE_BUILD + "</h2>" + EOL;
-            htmlString = htmlString + EOL + "<a href=\"performance.php?fp_type=0\">Back to global results</a>" + EOL;
+            //htmlString = htmlString + EOL + "<h2>Performance of " + component + ": " + CURRENT_BUILD + " relative to " + BASELINE_BUILD + "</h2>" + EOL;
+            //htmlString = htmlString + EOL + "<a href=\"performance.php?fp_type=0\">Back to global results</a>" + EOL;
             htmlString = htmlString + EOL + "<h3>All " + scenarioList.size() + " scenarios:</h3>" + EOL;
             htmlString = htmlString + EOL + "<p>Times are given in milliseconds.</p>" + EOL;
             htmlString = htmlString + "<table border=\"1\">" + EOL + "<tr>" + EOL;
@@ -133,7 +134,6 @@ public class BasicResultsTable implements IApplication{
             htmlString = htmlString + "<td><h4>Difference</h4>" + EOL;
 
             for (String scenario : scenarioList) {
-                System.out.println("Scenario: " + scenario);
                 String[] scenarioParts = null;
                 String componentClass = null;
                 String componentName = null;
@@ -152,34 +152,41 @@ public class BasicResultsTable implements IApplication{
                     componentName = scenarioParts[1];
                 }
 
-                int[] currentData = results.getData("current", scenario);
+                double[] currentData = results.getData("current", scenario);
                 String elapsedCurrent = String.valueOf(currentData[0]);
                 String cpuCurrent = String.valueOf(currentData[1]);
 
                 String elapsedBaseline = "N/A";
                 String cpuBaseline = "N/A";
 
-                String elapsedDifference = "N/A";
-                String cpuDifference = "N/A";
+                String elapsedPercent = "N/A";
+                String cpuPercent = "N/A";
 
                 String elapsedColor = "#4CE600";
                 String cpuColor = "#4CE600";
 
                 if (baselineScenarios.contains(scenario)) {
-                    int[] baselineData = results.getData("baseline", scenario);
+                    double[] baselineData = results.getData("baseline", scenario);
 
                     elapsedBaseline = String.valueOf(baselineData[0]);
                     cpuBaseline = String.valueOf(baselineData[1]);
 
-                    elapsedDifference = String.valueOf(baselineData[0] - currentData[0]);
-                    cpuDifference = String.valueOf(baselineData[1] - currentData[1]);
+                    double elapsedDifference = baselineData[0] - currentData[0];
+                    double cpuDifference = baselineData[1] - currentData[1];
 
-                    if (Integer.valueOf(elapsedDifference) < 0) {
+                    double elapsedPercentValue = Math.abs(elapsedDifference / baselineData[0]) * 100;
+                    double cpuPercentValue = Math.abs(cpuDifference / baselineData[1]) * 100;
+
+                    elapsedPercent = String.format("%.2f", elapsedPercentValue) + "%";
+                    cpuPercent = String.format("%.2f", cpuPercentValue) + "%";
+
+                    if (elapsedDifference < 0) {
                         elapsedColor = "D7191C";
                     }
-                    if (Integer.valueOf(cpuDifference) < 0) {
+                    if (cpuDifference < 0) {
                         cpuColor = "D7191C";
                     }
+
                 }
 
                 htmlString = htmlString + "<tr>" + EOL;
@@ -187,10 +194,10 @@ public class BasicResultsTable implements IApplication{
                 htmlString = htmlString + "<td>" + componentName + EOL;
                 htmlString = htmlString + "<td>" + elapsedCurrent + EOL;
                 htmlString = htmlString + "<td>" + elapsedBaseline + EOL;
-                htmlString = htmlString + "<td bgcolor=\"" + elapsedColor + "\">" + elapsedDifference + EOL;
+                htmlString = htmlString + "<td bgcolor=\"" + elapsedColor + "\">" + elapsedPercent + EOL;
                 htmlString = htmlString + "<td>" + cpuCurrent + EOL;
                 htmlString = htmlString + "<td>" + cpuBaseline + EOL;
-                htmlString = htmlString + "<td bgcolor=\"" + cpuColor + "\">" + cpuDifference + EOL;
+                htmlString = htmlString + "<td bgcolor=\"" + cpuColor + "\">" + cpuPercent + EOL;
             }
 
             htmlString = htmlString + "</table>" + EOL;
@@ -215,10 +222,14 @@ public class BasicResultsTable implements IApplication{
 
         //make basicResultsIndex.html file
         String htmlString = "";
-        htmlString = htmlString + EOL + "<h3 name=\"ScenarioDetail\">Detailed performance data grouped by scenario prefix</h3>" + EOL;
+        htmlString = htmlString + EOL;
 
         for (String component : usedComponents) {
-            htmlString = htmlString + "<a href=\"./" + component + "_BasicTable.html?fp_type=0\">" + component + "*</a><br>" + EOL;
+            htmlString = htmlString + "<a href=\"./basicPerformance.php/" +
+                "?name=" + component + 
+                "&build=" + CURRENT_BUILD + 
+                "&baseline=" + BASELINE_BUILD + 
+                "\">" + component + "*</a><br>" + EOL;
         }
 
         //create file
@@ -236,6 +247,23 @@ public class BasicResultsTable implements IApplication{
             System.err.println("ERROR: IOException writing: " + outputFile.getPath());
             System.exit(1);
         }
+
+        //copy basicPerformance.php from templatefiles
+        String phpFileName = buildDirectory + "/basicPerformance.php";
+        File phpFile = new File(phpFileName);
+
+        try (OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(phpFile))){
+            outputStream.write(Files.readAllBytes(phpTemplateFile));
+        }
+        catch (final FileNotFoundException ex) {
+            System.err.println(EOL + "ERROR: File not found exception while writing: " + phpFile.getPath());
+            System.exit(1);
+        }
+        catch (final IOException ex) {
+            System.err.println(EOL + "ERROR: IOException writing: " + phpFile.getPath());
+            System.exit(1);
+        }
+
     }
 
     //args = baseline, current build, input file array
@@ -277,6 +305,25 @@ public class BasicResultsTable implements IApplication{
                 i++;
                 continue;
             }
+            if (arg.equals("-phpFile")){
+                String inputFile = args[i+1];
+
+                if (inputFile.startsWith("-")) {
+                    System.out.println("Missing value for "+arg+" parameter");
+				    printUsage();
+                }
+                //check real file
+                Path inputFilePath = Paths.get(inputFile);
+                if (Files.isReadable(inputFilePath)) {
+          		    phpTemplateFile = inputFilePath;
+        	    } else {
+          		    System.err.println("ERROR: invalid input argument. Cannot read file: " + inputFile);
+        	    } 
+      	        
+                i++;
+                i++;
+                continue;
+            }
             if (arg.equals("-inputFiles")){
                 for (int j=1; j < 5; j++) {
                     String inputFile = args[i+j];
@@ -307,10 +354,11 @@ public class BasicResultsTable implements IApplication{
     private static void printUsage() {
         System.out.println(
             "Usage:\n" + 
-            "-baseline: build id for the baseline build.\n" +
-            "-current: build id for the current build.\n" +
-            "-buildDirectory: directory of performance.php file, usually /home/data/httpd/download.eclipse.org/eclipse/downloads/drops4/${BUILD_ID}/performance.\n" +
-            "-inputFiles: a list of the dat files from which to extract performance data (will grab the next 4 args as filenames).\n"
+            "-baseline: Build id for the baseline build.\n" +
+            "-current: Build id for the current build.\n" +
+            "-buildDirectory: Directory of performance.php file, usually /home/data/httpd/download.eclipse.org/eclipse/downloads/drops4/${BUILD_ID}/performance.\n" +
+            "-phpFile: Location of the basicPerformance.php file, also known as template file.\n" +
+            "-inputFiles: List of the dat files from which to extract performance data (will grab the next 4 args as filenames).\n"
             );
         System.exit(1);
     }
