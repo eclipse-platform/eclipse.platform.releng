@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>4.27-I202303111800/Users/elsazacharia/releng/eclipse.platform.releng :wq:
+<?xml version="1.0" encoding="UTF-8"?>
 <aggregator:Aggregation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:aggregator="http://www.eclipse.org/cbi/p2repo/2011/aggregator/1.1.0" label="SDK4Mvn" packedStrategy="UNPACK_AS_SIBLING" type="R" mavenResult="true" versionFormat="MavenRelease" includeSources="true">
   <validationSets label="main">
     <contributions label="sdk">
@@ -37,4 +37,4 @@
   <mavenDependencyMapping namespacePattern="osgi\.bundle|java\.package" namePattern="org\.apache\.jasper\..*" groupId="*" artifactId="*" versionRangePattern=".*" versionRangeTemplate="major.minor.micro.v201112011158"/>
   <mavenDependencyMapping namespacePattern="osgi\.bundle|org\.eclipse\.equinox\.p2\.iu" namePattern="(?!.*(org\.eclipse\.(emf|ecf))).*" groupId="*" artifactId="*" versionRangePattern=".*" versionRangeTemplate="major.minor.micro-qualifier"/>
   <mavenDependencyMapping namespacePattern="java\.package" namePattern=".*" groupId="*" artifactId="*" versionRangePattern=".*" versionRangeTemplate="major.minor.micro-qualifier"/>
-</aggregator:Aggregation>4.27-I202303111804.27-I2023031118000
+</aggregator:Aggregation>
