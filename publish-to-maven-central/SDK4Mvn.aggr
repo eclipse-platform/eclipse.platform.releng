@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>4.27-I202303111800/Users/elsazacharia/releng/eclipse.platform.releng :wq:
 <aggregator:Aggregation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:aggregator="http://www.eclipse.org/cbi/p2repo/2011/aggregator/1.1.0" label="SDK4Mvn" packedStrategy="UNPACK_AS_SIBLING" type="R" mavenResult="true" versionFormat="MavenRelease" includeSources="true">
   <validationSets label="main">
     <contributions label="sdk">
-      <repositories enabled="false" location="/home/data/httpd/download.eclipse.org/eclipse/updates/4.27-I-build"/>
+      <repositories enabled="false" location="/home/data/httpd/download.eclipse.org/eclipse/updates/4.27-I202303111800"/>
     </contributions>
     <contributions label="sdk_http">
-      <repositories location="https://download.eclipse.org/eclipse/updates/4.27-I-builds"/>
+      <repositories location="https://download.eclipse.org/eclipse/updates/4.27-I20230311180"/>
     </contributions>
   </validationSets>
   <configurations operatingSystem="linux" windowSystem="gtk" architecture="aarch64"/>
@@ -37,4 +37,4 @@
   <mavenDependencyMapping namespacePattern="osgi\.bundle|java\.package" namePattern="org\.apache\.jasper\..*" groupId="*" artifactId="*" versionRangePattern=".*" versionRangeTemplate="major.minor.micro.v201112011158"/>
   <mavenDependencyMapping namespacePattern="osgi\.bundle|org\.eclipse\.equinox\.p2\.iu" namePattern="(?!.*(org\.eclipse\.(emf|ecf))).*" groupId="*" artifactId="*" versionRangePattern=".*" versionRangeTemplate="major.minor.micro-qualifier"/>
   <mavenDependencyMapping namespacePattern="java\.package" namePattern=".*" groupId="*" artifactId="*" versionRangePattern=".*" versionRangeTemplate="major.minor.micro-qualifier"/>
-</aggregator:Aggregation>
+</aggregator:Aggregation>4.27-I202303111804.27-I2023031118000
